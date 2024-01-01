@@ -38,3 +38,8 @@ Assets/DunGen/**/*.asset
 # Project intermediates
 Assets/DungeonBundles
 Assets/DungeonBundles/**
+
+# Plugin Intermediates
+Plugin/.vs
+Plugin/LethalDungeon/bin
+Plugin/LethalDungeon/obj
