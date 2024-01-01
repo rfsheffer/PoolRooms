@@ -32,10 +32,6 @@ Assets/DunGen/**/*.mat
 Assets/DunGen/**/*.unitypackage
 Assets/DunGen/**/*.prefab
 Assets/DunGen/**/*.asset
-Assets/DunGen/Integration
-Assets/DunGen/Integration/**
-Assets/DunGen/Samples
-Assets/DunGen/Samples/**
 
 # Project intermediates
 Assets/DungeonBundles
