@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8970980fe0baef649a3f94bddea66703
+guid: 590bd1fb59c7fa541b985e79e8e085bd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -105,5 +105,5 @@ ModelImporter:
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
-  assetBundleName: exampledungeon
+  assetBundleName: 
   assetBundleVariant: 
