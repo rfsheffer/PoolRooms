@@ -32,6 +32,8 @@ Assets/DunGen/**/*.mat
 Assets/DunGen/**/*.unitypackage
 Assets/DunGen/**/*.prefab
 Assets/DunGen/**/*.asset
+!Assets/DunGen/Integration/Unity NavMesh/*.cs
+!Assets/DunGen/Integration/Unity NavMesh/**/*.cs
 
 # Project intermediates
 Assets/DungeonBundles
