@@ -1,0 +1,42 @@
+# Visual Studio Stuff
+.vs
+.vsconfig
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+com.unity.multiplayer-hlapi.Editor.csproj
+com.unity.multiplayer-hlapi.EditorTests.csproj
+com.unity.multiplayer-hlapi.Runtime.csproj
+com.unity.multiplayer-hlapi.Tests.csproj
+com.unity.multiplayer-weaver.Editor.csproj
+LethalDungeon.sln
+
+# General Unity Intermediates / User Settings
+Library
+Library/**
+Logs
+Logs/**
+obj
+obj/**
+Temp
+Temp/**
+UserSettings
+UserSettings/**
+
+# Don't include dungen stuff, the user needs to own dungen or decompile it for modding use.
+Assets/DunGen/**/*.cs
+Assets/DunGen/**/*.png
+Assets/DunGen/**/*.pdf
+Assets/DunGen/**/*.txt
+Assets/DunGen/**/*.unity
+Assets/DunGen/**/*.mat
+Assets/DunGen/**/*.unitypackage
+Assets/DunGen/**/*.prefab
+Assets/DunGen/**/*.asset
+Assets/DunGen/Integration
+Assets/DunGen/Integration/**
+Assets/DunGen/Samples
+Assets/DunGen/Samples/**
+
+# Project intermediates
+Assets/DungeonBundles
+Assets/DungeonBundles/**
