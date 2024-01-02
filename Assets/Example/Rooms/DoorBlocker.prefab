@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2881831795175195197}
   - component: {fileID: 7500826176714487}
   - component: {fileID: 6883720346134218242}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: BlockerMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7934938002522540393}
   - component: {fileID: 2109752491729168471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474286754310362685}
   - component: {fileID: 3718299207104612040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpawnEntranceBTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 5650968754706283442}
   - component: {fileID: 7604523054790184824}
   - component: {fileID: 5811209152224079871}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: BlockerMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

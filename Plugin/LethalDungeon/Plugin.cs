@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using DunGen;
 using HarmonyLib;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -37,7 +38,15 @@ namespace LethalDungeon
         {
             "all",
             "paid",
-            "titan"
+            "easy",
+            "titan",
+            "rend",
+            "dine",
+            "experimentation",
+            "assurance",
+            "vow",
+            "offense",
+            "march",
         };
 
         private void Awake()
@@ -135,11 +144,11 @@ namespace LethalDungeon
             }
         }
 
-        // Patch to update our dummy objects (entrances, vents, turrets, mines, scrap) with the real prefab references
+        // Patch to update our dummy objects (entrances, vents, turrets, mines, scrap, storage shelving) with the real prefab references
         [HarmonyPatch(typeof(RoundManager))]
         internal class RoundManagerPatch
         {
-            // After generating the dungeon 
+            // After generating the dungeon fix up the sync'd objects which contain our dummies with the real prefabs
             [HarmonyPatch("GenerateNewFloor")]
             [HarmonyPostfix]
             static void GenerateNewFloor(ref RuntimeDungeon ___dungeonGenerator)
@@ -151,56 +160,72 @@ namespace LethalDungeon
                 Instance.mls.LogInfo("Attempting to fix entrance teleporters.");
                 SpawnSyncedObject[] SyncedObjects = FindObjectsOfType<SpawnSyncedObject>();
                 NetworkManager networkManager = FindObjectOfType<NetworkManager>();
-                NetworkPrefab networkVentPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "VentEntrance");
-                if (networkVentPrefab == null) 
+                NetworkPrefab realVentPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "VentEntrance");
+                if (realVentPrefab == null) 
                 {
                     Instance.mls.LogError("Failed to find VentEntrance prefab.");
                     return;
                 }
+
+                NetworkPrefab realEntranceAPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "EntranceTeleportA");
+                if (realEntranceAPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find EntranceTeleportA prefab.");
+                    return;
+                }
+
+                NetworkPrefab realEntranceBPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "EntranceTeleportB");
+                if (realEntranceBPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find EntranceTeleportB prefab.");
+                    return;
+                }
+
+                NetworkPrefab realStorageShelfPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "StorageShelfContainer");
+                if (realStorageShelfPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find StorageShelfContainer prefab.");
+                    return;
+                }
+
                 bool bFoundEntranceA = false;
                 bool bFoundEntranceB = false;
                 int iVentsFound = 0;
                 foreach (SpawnSyncedObject syncedObject in SyncedObjects) 
                 {
-                    if (syncedObject.spawnPrefab.name == "EntranceTeleportA_EMPTY") 
+                    if (syncedObject.spawnPrefab.name == "ExampleDungeon_EntranceTeleportA_DUMMY") 
                     {
-                        NetworkPrefab networkPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "EntranceTeleportA");
-                        if (networkPrefab == null) 
-                        {
-                            Instance.mls.LogError("Failed to find EntranceTeleportA prefab.");
-                            return;
-                        }
                         Instance.mls.LogInfo("Found and replaced EntranceTeleportA prefab.");
                         bFoundEntranceA = true;
-                        syncedObject.spawnPrefab = networkPrefab.Prefab;
+                        syncedObject.spawnPrefab = realEntranceAPrefab.Prefab;
                     }
-                    else if (syncedObject.spawnPrefab.name == "EntranceTeleportB_EMPTY") 
+                    else if (syncedObject.spawnPrefab.name == "ExampleDungeon_EntranceTeleportB_DUMMY") 
                     {
-                        NetworkPrefab networkPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "EntranceTeleportB");
-                        if (networkPrefab == null) 
-                        {
-                            Instance.mls.LogError("Failed to find EntranceTeleportB prefab.");
-                            return;
-                        }
                         Instance.mls.LogInfo("Found and replaced EntranceTeleportB prefab.");
                         bFoundEntranceB = true;
-                        syncedObject.spawnPrefab = networkPrefab.Prefab;
+                        syncedObject.spawnPrefab = realEntranceBPrefab.Prefab;
                     }
-                    else if (syncedObject.spawnPrefab.name == "VentDummy") 
+                    else if (syncedObject.spawnPrefab.name == "ExampleDungeon_Vent_DUMMY") 
                     {
                         Instance.mls.LogInfo("Found and replaced VentEntrance prefab.");
                         iVentsFound++;
-                        syncedObject.spawnPrefab = networkVentPrefab.Prefab;
+                        syncedObject.spawnPrefab = realVentPrefab.Prefab;
+                    }
+                    else if (syncedObject.spawnPrefab.name == "ExampleDungeon_StorageShelf_DUMMY")
+                    {
+                        Instance.mls.LogInfo("Found and replaced StorageShelfContainer prefab.");
+                        iVentsFound++;
+                        syncedObject.spawnPrefab = realStorageShelfPrefab.Prefab;
                     }
                 }
                 if (!bFoundEntranceA && !bFoundEntranceB) 
                 {
-                    Instance.mls.LogError("Failed to find entrance teleporters to replace.");
+                    Instance.mls.LogError("Failed to find entrance teleporters to replace. Map will not be playable!");
                     return;
                 }
                 if (iVentsFound == 0)
                 {
-                    Instance.mls.LogError("No vents found to replace.");
+                    Instance.mls.LogWarning("No vents found to replace.");
                 }
                 else
                 {
@@ -208,42 +233,114 @@ namespace LethalDungeon
                 }
             }
 
-            // Just before spawning the scrap (the level is ready at this point) fix up our referenes to the item groups
-            [HarmonyPatch("SpawnScrapInLevel")]
+            // Fix up turret and landmine prefab references before trying to spawn map objects
+            [HarmonyPatch("SpawnMapObjects")]
             [HarmonyPrefix]
-            private static bool SpawnScrapInLevel(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
+            static void SpawnMapObjects(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
             {
                 if (___dungeonGenerator.Generator.DungeonFlow.name != "ExampleFlow")
                 {
-                    return true;
+                    return;
                 }
-                // Grab the general and tabletop item groups from the bottle bin (a common item across all 8 moons right now)
-                SpawnableItemWithRarity bottleItem = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Bottles");
-                if (bottleItem == null)
+
+                // Lethal Lib does this for us, and if we don't let it it causes an exception @ Dungeon.cs line 196 (Sequence contains no matching element)
+                /*RandomMapObject[] RandomObjects = FindObjectsOfType<RandomMapObject>();
+                NetworkManager networkManager = FindObjectOfType<NetworkManager>();
+                NetworkPrefab realLandminePrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "Landmine");
+                if (realLandminePrefab == null)
                 {
-                    Instance.mls.LogError("Failed to find bottle bin item for reference snatching; is this a custom moon without the bottle bin item?");
-                    return true;
+                    Instance.mls.LogError("Failed to find Landmine prefab.");
+                    return;
                 }
-                // Grab the small item group from the fancy glass (only appears on paid moons, so this one is optional and replaced with tabletop items if invalid)
-                SpawnableItemWithRarity fancyGlassItem = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Golden cup");
+
+                NetworkPrefab realTurretContainerPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "TurretContainer");
+                if (realTurretContainerPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find TurretContainer prefab.");
+                    return;
+                }
+
+                foreach (RandomMapObject randomObject in RandomObjects)
+                {
+                    List<GameObject> props = randomObject.spawnablePrefabs;
+                    List<GameObject> newProps = new List<GameObject>();
+
+                    foreach (GameObject prop in props)
+                    {
+                        if (prop.name == "ExampleDungeon_Turret_DUMMY")
+                        {
+                            newProps.Add(realTurretContainerPrefab.Prefab);
+                        }
+                        else if (prop.name == "ExampleDungeon_Landmine_DUMMY")
+                        {
+                            newProps.Add(realLandminePrefab.Prefab);
+                        }
+                    }
+
+                    if(newProps.Count() > 0)
+                    {
+                        randomObject.spawnablePrefabs = newProps;
+                    }
+                }*/
+            }
+
+            // Just before spawning the scrap (the level is ready at this point) fix up our referenes to the item groups
+            [HarmonyPatch("SpawnScrapInLevel")]
+            [HarmonyPrefix]
+            static void SpawnScrapInLevel(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
+            {
+                if (___dungeonGenerator.Generator.DungeonFlow.name != "ExampleFlow")
+                {
+                    return;
+                }
+                // Look for items with stored classes.
+                SpawnableItemWithRarity itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Bottles");
+                if (itemWithClasses == null)
+                {
+                    itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Cash register");
+                    if (itemWithClasses == null)
+                    {
+                        itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Chemical jug");
+                        if (itemWithClasses == null)
+                        {
+                            itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Gift");
+                            if (itemWithClasses == null)
+                            {
+                                itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Tea kettle");
+                                if (itemWithClasses == null)
+                                {
+                                    Instance.mls.LogError("Unable to find an item with spawn positions to pull from. No junk will spawn in this dungeon!");
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
 
                 // Grab the item groups
-                ItemGroup itemGroupGeneral = bottleItem.spawnableItem.spawnPositionTypes.Find(x => x.name == "GeneralItemClass");
-                ItemGroup itemGroupTabletop = bottleItem.spawnableItem.spawnPositionTypes.Find(x => x.name == "TabletopItems");
+                ItemGroup itemGroupGeneral = itemWithClasses.spawnableItem.spawnPositionTypes.Find(x => x.name == "GeneralItemClass");
+                ItemGroup itemGroupTabletop = itemWithClasses.spawnableItem.spawnPositionTypes.Find(x => x.name == "TabletopItems");
+                if(!itemGroupGeneral || !itemGroupTabletop)
+                {
+                    Instance.mls.LogError($"Found an item '{itemWithClasses.spawnableItem.name}' that is suppose to have both general and table top items but no longer does...");
+                    return;
+                }
 
-                // Use tabletop items in place of small items if not on a paid moon
-                ItemGroup itemGroupSmall = (fancyGlassItem == null) ? itemGroupTabletop : fancyGlassItem.spawnableItem.spawnPositionTypes.Find(x => x.name == "SmallItems");
+                // Grab the small item group from the fancy glass. It is the only item that uses it and if it isn't used will default to table top items which is similar.
+                SpawnableItemWithRarity itemWithSmallItems = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Golden cup");
+                ItemGroup itemGroupSmall = (itemWithSmallItems == null) ? itemGroupTabletop : itemWithSmallItems.spawnableItem.spawnPositionTypes.Find(x => x.name == "SmallItems");
+
+                // Fix all scrap spawners
                 RandomScrapSpawn[] scrapSpawns = FindObjectsOfType<RandomScrapSpawn>();
                 foreach (RandomScrapSpawn scrapSpawn in scrapSpawns)
                 {
                     switch (scrapSpawn.spawnableItems.name)
                     {
-                        case "GeneralItemClassDUMMY": scrapSpawn.spawnableItems = itemGroupGeneral; break;
-                        case "TabletopItemsDUMMY": scrapSpawn.spawnableItems = itemGroupTabletop; break;
-                        case "SmallItemsDUMMY": scrapSpawn.spawnableItems = itemGroupSmall; break;
+                        case "ExampleDungeon_GeneralItemClass_DUMMY": scrapSpawn.spawnableItems = itemGroupGeneral; break;
+                        case "ExampleDungeon_TabletopItems_DUMMY": scrapSpawn.spawnableItems = itemGroupTabletop; break;
+                        case "ExampleDungeon_SmallItems_DUMMY": scrapSpawn.spawnableItems = itemGroupSmall; break;
                     }
                 }
-                return true;
             }
         }
     }

@@ -478,7 +478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6637505961478087148}
   - component: {fileID: 7052036637816366250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EntranceTeleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 6860190338516643521}
   - component: {fileID: 289604908855352241}
   - component: {fileID: 2924905091119781275}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
