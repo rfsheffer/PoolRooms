@@ -1,16 +1,7 @@
-# Lethal Dungeon
-A complete unity project which contains all of the pieces required to make a dungeon for Lethal Company. It contains class stubs required to spawn scrap, turrets, etc but does not include any of Lethal Companies Definition code.
+# Pool Rooms Dungeon for Lethal Company
+A Work-in-progress mod for Lethal Company featuring a dungeon layout all about water and classic swimming pool asthetic.
 
-You will need to fork and rename this projects naming to make a newly named dungeon from it. I might have time to build an automation process for this in the future but it isn't pressing.
-
-## This template demonstrates
-- A properly setup dungeon flow which contains an entrance and some number of fire exits
-- Fire exit blockers
-- Hazard placement (Turrets and Landmines)
-- Scrap placement
-- Enemy Vent spawners placement
-- Kill player triggers (falling to your death)
-- Storage locker placement
+This repo is templated from https://github.com/rfsheffer/LethalDungeon which it will cherry pick merge to and from.
 
 # How to build and install
 - Pull this repo to a folder to work in
@@ -28,22 +19,9 @@ You will need to fork and rename this projects naming to make a newly named dung
 # Checking how the dungeon will look before opening Lethal Company
 In Unity open the GenerateDungeon scene and run it. From this you can see what it will look like in game minus the post process effects Lethal Company has.
 
-# Coming next
-- Steam valves
-- Breaker boxes
-- terminal and breaker controllable Large doors
-- Apparatus
-- Be able to detect how many fire exits are needed and updating the flow global params before generating
-- Create some automated process of generated a newly named dungeon
-
 # Dependencies
 - You will need a copy of the plugin DunGen to use this project. The files must be placed in Assets/DunGen. Do not replace the .meta files already in there.
 - LethalLib : https://github.com/EvaisaDev/LethalLib
-
-# Special Thanks
-- Badhamknibbs for the SCP dungeon which helped me understand how to build the BepinEx plugin.
-- LethalLib for giving us the tools to get things into the game!
-- The Lethal Company modding Community at large!
 
 # Attributions and licenses
 The plugin is based on Badhamknibbs SCP dungeon code which can be found here:
