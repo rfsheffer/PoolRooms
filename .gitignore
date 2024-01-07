@@ -43,3 +43,6 @@ Assets/DungeonBundles/**
 Plugin/.vs
 Plugin/LethalDungeon/bin
 Plugin/LethalDungeon/obj
+
+Assets/Resources/DunGen Settings.asset
+Assets/Resources/DunGen Settings.asset.meta
