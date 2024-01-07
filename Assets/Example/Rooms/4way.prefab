@@ -584,7 +584,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: -6077399165274844322, guid: 040161562359c9546ace788a67c78bde, type: 2}
+  socket: {fileID: 11400000, guid: 5970bc921a6e3524dad63cfc0df5d404, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
@@ -649,7 +649,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: -6077399165274844322, guid: 040161562359c9546ace788a67c78bde, type: 2}
+  socket: {fileID: 11400000, guid: 5970bc921a6e3524dad63cfc0df5d404, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
@@ -714,7 +714,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: -6077399165274844322, guid: 040161562359c9546ace788a67c78bde, type: 2}
+  socket: {fileID: 11400000, guid: 5970bc921a6e3524dad63cfc0df5d404, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
@@ -883,7 +883,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: -6077399165274844322, guid: 040161562359c9546ace788a67c78bde, type: 2}
+  socket: {fileID: 11400000, guid: 5970bc921a6e3524dad63cfc0df5d404, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
