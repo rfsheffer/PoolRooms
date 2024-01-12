@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59296c11d75e7024ebd73d93f5babf99, type: 3}
   m_Name: PoolRoom_Standard_Doorway
   m_EditorClassIdentifier: 
-  size: {x: 1.4, y: 3.08}
+  size: {x: 4, y: 3.5}

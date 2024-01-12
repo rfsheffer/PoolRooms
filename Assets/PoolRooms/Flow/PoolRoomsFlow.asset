@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e228b45736a8cf4ea000616e628a4dd, type: 3}
+  m_Name: PoolRoomsFlow
+  m_EditorClassIdentifier: 
+  globalPropGroupID_obsolete: 
+  globalPropRanges_obsolete: []
+  Length:
+    Min: 5
+    Max: 10
+  BranchMode: 0
+  BranchCount:
+    Min: 1
+    Max: 5
+  GlobalProps:
+  - ID: 1231
+    Count:
+      Min: 1
+      Max: 1
+  - ID: 5
+    Count:
+      Min: 5
+      Max: 8
+  - ID: 3
+    Count:
+      Min: 5
+      Max: 8
+  - ID: 100
+    Count:
+      Min: 8
+      Max: 12
+  KeyManager: {fileID: 0}
+  DoorwayConnectionChance: 0
+  RestrictConnectionToSameSection: 0
+  TileInjectionRules: []
+  TileTagConnectionMode: 0
+  TileConnectionTags: []
+  BranchTagPruneMode: 1
+  BranchPruneTags: []
+  Nodes:
+  - Graph: {fileID: 11400000}
+    TileSets:
+    - {fileID: 11400000, guid: ad405d3fd95521f4b8db62c476f0a5e8, type: 2}
+    NodeType: 1
+    Position: 0
+    Label: Start
+    Keys: []
+    Locks: []
+    LockPlacement: 0
+  - Graph: {fileID: 11400000}
+    TileSets:
+    - {fileID: 11400000, guid: ad405d3fd95521f4b8db62c476f0a5e8, type: 2}
+    NodeType: 2
+    Position: 1
+    Label: Goal
+    Keys: []
+    Locks: []
+    LockPlacement: 0
+  Lines:
+  - Graph: {fileID: 11400000}
+    DungeonArchetypes:
+    - {fileID: 11400000, guid: 36b30d1e4b75cb5468ab011fd51837b4, type: 2}
+    Position: 0
+    Length: 0.14016172
+    Keys: []
+    Locks: []
+  - Graph: {fileID: 11400000}
+    DungeonArchetypes:
+    - {fileID: 11400000, guid: 5bc2dc9a0bd835442962a3a2d8787075, type: 2}
+    Position: 0.14016172
+    Length: 0.28436658
+    Keys: []
+    Locks: []
+  - Graph: {fileID: 11400000}
+    DungeonArchetypes:
+    - {fileID: 11400000, guid: 36b30d1e4b75cb5468ab011fd51837b4, type: 2}
+    Position: 0.4245283
+    Length: 0.5754717
+    Keys: []
+    Locks: []
+  currentFileVersion: 1
