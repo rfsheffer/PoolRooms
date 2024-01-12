@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc615723168fad2d87ed05ea97e3b88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableItems: {fileID: 11400000, guid: 5a56d4400c1c73546902efdd11900da2, type: 2}
+  spawnableItems: {fileID: 11400000, guid: 08fa34cc277486b44a716ce65ba36a02, type: 2}
   itemSpawnRange: 2
   spawnedItemsCopyPosition: 0
   spawnUsed: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 1620188532719833509}
   - component: {fileID: 9139453249249837042}
   - component: {fileID: 8481874154255528707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DisplayStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

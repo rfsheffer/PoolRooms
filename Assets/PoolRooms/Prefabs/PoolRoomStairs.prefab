@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3155558548826651064}
   - component: {fileID: 89998530421394952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 3156574938914527026}
   - component: {fileID: 6080885358054972569}
   - component: {fileID: 7229251991193810412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoolRoomStairsRailing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 1947339491100978632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.26, y: -0.209, z: -0}
+  m_LocalPosition: {x: 1.304, y: -0.209, z: -0}
   m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 1714922085507303127}
   - component: {fileID: 591320113507801040}
   - component: {fileID: 5771094477236808498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421009086969358611}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 4375146117597095598}
   - component: {fileID: 7498548249764738409}
   - component: {fileID: 6727039383242949840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoolRoomStairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}

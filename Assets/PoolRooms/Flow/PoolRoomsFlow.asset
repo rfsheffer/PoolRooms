@@ -49,7 +49,7 @@ MonoBehaviour:
   Nodes:
   - Graph: {fileID: 11400000}
     TileSets:
-    - {fileID: 11400000, guid: ad405d3fd95521f4b8db62c476f0a5e8, type: 2}
+    - {fileID: 11400000, guid: 4682680a433652143885ab1e96e4b25e, type: 2}
     NodeType: 1
     Position: 0
     Label: Start
@@ -58,7 +58,7 @@ MonoBehaviour:
     LockPlacement: 0
   - Graph: {fileID: 11400000}
     TileSets:
-    - {fileID: 11400000, guid: ad405d3fd95521f4b8db62c476f0a5e8, type: 2}
+    - {fileID: 11400000, guid: 120bc8b75ec9b1c45a7ecdead63f2417, type: 2}
     NodeType: 2
     Position: 1
     Label: Goal
@@ -70,21 +70,21 @@ MonoBehaviour:
     DungeonArchetypes:
     - {fileID: 11400000, guid: 36b30d1e4b75cb5468ab011fd51837b4, type: 2}
     Position: 0
-    Length: 0.14016172
+    Length: 0.1819407
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
     - {fileID: 11400000, guid: 5bc2dc9a0bd835442962a3a2d8787075, type: 2}
-    Position: 0.14016172
-    Length: 0.28436658
+    Position: 0.1819407
+    Length: 0.5134771
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
     - {fileID: 11400000, guid: 36b30d1e4b75cb5468ab011fd51837b4, type: 2}
-    Position: 0.4245283
-    Length: 0.5754717
+    Position: 0.69541776
+    Length: 0.30458224
     Keys: []
     Locks: []
   currentFileVersion: 1

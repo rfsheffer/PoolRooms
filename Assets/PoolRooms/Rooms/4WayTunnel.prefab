@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnablePrefabs:
-  - {fileID: 5709375247644746716, guid: adecf678aa456f9458a6eac413784c29, type: 3}
-  - {fileID: 5709375247644746716, guid: e0c42d99600a0224ca2f6f140f1d9a11, type: 3}
+  - {fileID: 5709375247644746716, guid: 439a15789576fe64f8b66390798f724b, type: 3}
+  - {fileID: 5709375247644746716, guid: 23918e1da5d6ef24cafa3e973923e731, type: 3}
   randomizePosition: 1
   spawnRange: 3
 --- !u!1 &815919785217864247
