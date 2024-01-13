@@ -978,6 +978,7 @@ GameObject:
   - component: {fileID: 4901306446434529791}
   - component: {fileID: 4370561346411021839}
   - component: {fileID: 432552217184563681}
+  - component: {fileID: 928924081577426683}
   m_Layer: 0
   m_Name: MidRoomPost
   m_TagString: Untagged
@@ -1066,6 +1067,28 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -2.15, z: 0}
   m_TimeToStationary: 0.5
+--- !u!64 &928924081577426683
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204823903851613612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1406163957767848178, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
 --- !u!1 &7010417667660960894
 GameObject:
   m_ObjectHideFlags: 0

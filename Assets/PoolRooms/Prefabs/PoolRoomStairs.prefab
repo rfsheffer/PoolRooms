@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 2446228215158411487}
   - component: {fileID: 4375146117597095598}
   - component: {fileID: 6727039383242949840}
+  - component: {fileID: 1395713969980270092}
   m_Layer: 8
   m_Name: PoolRoomStairs
   m_TagString: Untagged
@@ -364,6 +365,28 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 1.38, y: -1.96, z: 0}
   m_TimeToStationary: 0.5
+--- !u!64 &1395713969980270092
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002190629816680647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8269163865495886821, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
 --- !u!1 &6286858974140187675
 GameObject:
   m_ObjectHideFlags: 0
