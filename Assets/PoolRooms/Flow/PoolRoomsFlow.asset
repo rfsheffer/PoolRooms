@@ -68,16 +68,16 @@ MonoBehaviour:
   Lines:
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
-    - {fileID: 11400000, guid: 36b30d1e4b75cb5468ab011fd51837b4, type: 2}
+    - {fileID: 11400000, guid: 28f1af44b55e59249a5d6a393680f39d, type: 2}
     Position: 0
-    Length: 0.1819407
+    Length: 0.22506739
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
     - {fileID: 11400000, guid: 5bc2dc9a0bd835442962a3a2d8787075, type: 2}
-    Position: 0.1819407
-    Length: 0.5134771
+    Position: 0.22506739
+    Length: 0.47035038
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}

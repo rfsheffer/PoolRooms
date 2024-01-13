@@ -1836,6 +1836,54 @@ MonoBehaviour:
   connectedDoorway: {fileID: 0}
   hideConditionalObjects: 0
   fileVersion: 1
+--- !u!1 &5669687782658109817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7675158375400184516}
+  - component: {fileID: 591707782645005777}
+  m_Layer: 0
+  m_Name: ScrapSpawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7675158375400184516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669687782658109817}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9999995, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7638616332241309380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591707782645005777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669687782658109817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc615723168fad2d87ed05ea97e3b88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableItems: {fileID: 11400000, guid: 08fa34cc277486b44a716ce65ba36a02, type: 2}
+  itemSpawnRange: 5
+  spawnedItemsCopyPosition: 0
+  spawnUsed: 0
 --- !u!1 &6811128946767812994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2370,7 @@ Transform:
   - {fileID: 7691131893088251106}
   - {fileID: 8862975659064785026}
   - {fileID: 3889367336142823544}
+  - {fileID: 7675158375400184516}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7157804686389782961
