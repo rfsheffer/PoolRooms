@@ -9,12 +9,12 @@ This repo is templated from https://github.com/rfsheffer/LethalDungeon which it 
 - Place the DunGen folder into the projects Assets folder, do not replace anything as the .meta files need to be maintained as they are
 - Open the Unity project in unity 2022.3.9f1
 - Run from the drop down "Lethal Dungeon/Build Dungeon Bundle". This will generate the bundle into Assets\DungeonBundles
-- Grab the bundle "exampledungeon" for later
-- In your lethal company folder where BepinEx is create a folder called "LethalDungeon" in BepInEx\plugins
-- Copy "Plugin\Prebuilt\LethalDungeon.dll" into the "LethalDungeon"
-- Copy "exampledungeon" into the "LethalDungeon"
+- Grab the bundle "poolrooms" for later
+- In your lethal company folder where BepinEx is create a folder called "PoolRooms" in BepInEx\plugins
+- Copy "Plugin\Prebuilt\PoolRooms.dll" into the "PoolRooms"
+- Copy "exampledungeon" into the "PoolRooms"
 - Make sure to have LethalLib and HookGenPatcher installed into your BepInEx plugins
-- Run the game and close. You can now modify "BepInEx\config\LethalDungeon.cfg" to assign the dungeon to the moons you would like using the "Moons" setting
+- Run the game and close. You can now modify "BepInEx\config\PoolRooms.cfg" to assign the dungeon to the moons you would like using the "Moons" setting
 
 # Checking how the dungeon will look before opening Lethal Company
 In Unity open the GenerateDungeon scene and run it. From this you can see what it will look like in game minus the post process effects Lethal Company has.
