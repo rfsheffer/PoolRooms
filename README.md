@@ -1,6 +1,25 @@
 # Pool Rooms Dungeon for Lethal Company
 A Work-in-progress mod for Lethal Company featuring a dungeon layout all about water and classic swimming pool asthetic.
 
+## Features / Supports
+- 13+ Different room variations
+- Breaker box, Apparatus room, Steam Valves
+- Lighting controlled by the breaker box and apparatus
+- Big Locking Doors controllable via the ship computer
+- Supports replacing the moon March by dynamically adjusting the generator to create three fire exits
+- Monster vent spawners
+- Turrets and Landmines
+- Doors and keys
+
+## TODO
+- Port to using LethalLevelLoader
+- General overall tuning
+- Full texturing pass (needs more tiles!)
+- More larger room variations
+- More clutter and room details
+- Functioning lockers with loot inside?
+- Replacing the Lethal company facility doors with something more fitting
+
 This repo is templated from https://github.com/rfsheffer/LethalDungeon which it will cherry pick merge to and from.
 
 # How to build and install
