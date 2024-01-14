@@ -225,6 +225,34 @@ namespace PoolRooms
                     return;
                 }
 
+                NetworkPrefab realSteamValvePrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "SteamValve");
+                if (realSteamValvePrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find SteamValve prefab.");
+                    return;
+                }
+
+                NetworkPrefab realLungApparatusPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "LungApparatus");
+                if (realLungApparatusPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find LungApparatus prefab.");
+                    return;
+                }
+
+                NetworkPrefab realBreakerBoxPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "BreakerBox");
+                if (realBreakerBoxPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find BreakerBox prefab.");
+                    return;
+                }
+
+                NetworkPrefab realBigDoorPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "BigDoor");
+                if (realBigDoorPrefab == null)
+                {
+                    Instance.mls.LogError("Failed to find BigDoor prefab.");
+                    return;
+                }
+
                 bool bFoundEntranceA = false;
                 bool bFoundEntranceB = false;
                 int iVentsFound = 0;
@@ -253,20 +281,40 @@ namespace PoolRooms
                     }
                     else if (syncedObject.spawnPrefab.name == "PoolRooms_Vent_DUMMY") 
                     {
-                        Instance.mls.LogInfo("Found and replaced VentEntrance prefab.");
+                        //Instance.mls.LogInfo("Found and replaced VentEntrance prefab.");
                         iVentsFound++;
                         syncedObject.spawnPrefab = realVentPrefab.Prefab;
                     }
                     else if (syncedObject.spawnPrefab.name == "PoolRooms_StorageShelf_DUMMY")
                     {
-                        Instance.mls.LogInfo("Found and replaced StorageShelfContainer prefab.");
+                        //Instance.mls.LogInfo("Found and replaced StorageShelfContainer prefab.");
                         syncedObject.spawnPrefab = realStorageShelfPrefab.Prefab;
                     }
                     else if (syncedObject.spawnPrefab.name == "PoolRooms_SteelDoorMapModel_DUMMY")
                     {
-                        Instance.mls.LogInfo("Found and replaced SteelDoorMapModel prefab.");
+                        //Instance.mls.LogInfo("Found and replaced SteelDoorMapModel prefab.");
                         iDoorsFound++;
                         syncedObject.spawnPrefab = realSteelDoorMapModelPrefab.Prefab;
+                    }
+                    else if (syncedObject.spawnPrefab.name == "PoolRooms_SteamValve_DUMMY")
+                    {
+                        //Instance.mls.LogInfo("Found and replaced SteamValve prefab.");
+                        syncedObject.spawnPrefab = realSteamValvePrefab.Prefab;
+                    }
+                    else if (syncedObject.spawnPrefab.name == "PoolRooms_LungApparatus_DUMMY")
+                    {
+                        Instance.mls.LogInfo("Found and replaced LungApparatus prefab.");
+                        syncedObject.spawnPrefab = realLungApparatusPrefab.Prefab;
+                    }
+                    else if (syncedObject.spawnPrefab.name == "PoolRooms_BreakerBox_DUMMY")
+                    {
+                        Instance.mls.LogInfo("Found and replaced BreakerBox prefab.");
+                        syncedObject.spawnPrefab = realBreakerBoxPrefab.Prefab;
+                    }
+                    else if (syncedObject.spawnPrefab.name == "PoolRooms_BigDoor_DUMMY")
+                    {
+                        Instance.mls.LogInfo("Found and replaced BigDoor prefab.");
+                        syncedObject.spawnPrefab = realBigDoorPrefab.Prefab;
                     }
                 }
                 if (!bFoundEntranceA && !bFoundEntranceB) 

@@ -197,7 +197,7 @@ MonoBehaviour:
   isWater: 1
   audioClipIndex: 0
   sinkingLocalPlayer: 0
-  movementHinderance: 1.6
+  movementHinderance: 0.7
   sinkingSpeedMultiplier: 0.15
 --- !u!114 &117397069705081207
 MonoBehaviour:

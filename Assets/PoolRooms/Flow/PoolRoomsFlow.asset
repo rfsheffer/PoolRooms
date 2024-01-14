@@ -22,22 +22,42 @@ MonoBehaviour:
     Min: 1
     Max: 5
   GlobalProps:
-  - ID: 1231
+  - ID: 0
     Count:
       Min: 1
       Max: 1
+  - ID: 3
+    Count:
+      Min: 14
+      Max: 20
   - ID: 5
     Count:
       Min: 5
       Max: 8
-  - ID: 3
+  - ID: 18
     Count:
-      Min: 5
-      Max: 8
+      Min: 0
+      Max: 4
+  - ID: 25
+    Count:
+      Min: 1
+      Max: 1
+  - ID: 40
+    Count:
+      Min: 1
+      Max: 3
   - ID: 100
     Count:
       Min: 8
       Max: 12
+  - ID: 1231
+    Count:
+      Min: 1
+      Max: 1
+  - ID: 200
+    Count:
+      Min: 20
+      Max: 20
   KeyManager: {fileID: 0}
   DoorwayConnectionChance: 0
   RestrictConnectionToSameSection: 0
@@ -58,7 +78,7 @@ MonoBehaviour:
     LockPlacement: 0
   - Graph: {fileID: 11400000}
     TileSets:
-    - {fileID: 11400000, guid: 120bc8b75ec9b1c45a7ecdead63f2417, type: 2}
+    - {fileID: 11400000, guid: 49ba1820be3d2d34cae359f1115e8784, type: 2}
     NodeType: 2
     Position: 1
     Label: Goal
@@ -70,14 +90,14 @@ MonoBehaviour:
     DungeonArchetypes:
     - {fileID: 11400000, guid: 28f1af44b55e59249a5d6a393680f39d, type: 2}
     Position: 0
-    Length: 0.22506739
+    Length: 0.15902965
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
     - {fileID: 11400000, guid: 5bc2dc9a0bd835442962a3a2d8787075, type: 2}
-    Position: 0.22506739
-    Length: 0.47035038
+    Position: 0.15902965
+    Length: 0.53638816
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}
