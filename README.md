@@ -28,3 +28,6 @@ The plugin is based on Badhamknibbs SCP dungeon code which can be found here:
  https://github.com/Badhamknibbs/SCPCB_DunGen_LC
 
 The code of this mod is provided under the MIT license (see license file)
+
+Water Shader
+https://github.com/flamacore/UnityHDRPSimpleWater

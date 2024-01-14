@@ -48,8 +48,12 @@ MonoBehaviour:
       Max: 3
   - ID: 100
     Count:
-      Min: 8
-      Max: 12
+      Min: 10
+      Max: 15
+  - ID: 101
+    Count:
+      Min: 20
+      Max: 20
   - ID: 1231
     Count:
       Min: 1

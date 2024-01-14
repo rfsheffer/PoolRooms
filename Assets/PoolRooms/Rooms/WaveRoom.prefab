@@ -641,204 +641,6 @@ MonoBehaviour:
   connectedDoorway: {fileID: 0}
   hideConditionalObjects: 0
   fileVersion: 1
---- !u!1 &3127039518653160350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7691131893088251106}
-  - component: {fileID: 331218834761614253}
-  - component: {fileID: 3284105649923388965}
-  - component: {fileID: 1049529297561383089}
-  m_Layer: 0
-  m_Name: RoomWater
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7691131893088251106
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127039518653160350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.961, z: 6}
-  m_LocalScale: {x: 11.8, y: 1, z: 23.75}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7638616332241309380}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &331218834761614253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127039518653160350}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f6fd535518f5540b4bcc3099582f77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  surfaceType: 2
-  geometryType: 0
-  mesh: {fileID: 0}
-  cpuSimulation: 0
-  cpuFullResolution: 0
-  cpuEvaluateRipples: 0
-  timeMultiplier: 0.61
-  repetitionSize: 500
-  largeWindSpeed: 30
-  largeWindOrientationValue: 0
-  largeCurrentSpeedValue: 0
-  largeCurrentOrientationValue: 0
-  largeChaos: 0.8
-  largeBand0Multiplier: 1
-  largeBand0FadeToggle: 1
-  largeBand0FadeStart: 1500
-  largeBand0FadeDistance: 3000
-  largeBand1Multiplier: 1
-  largeBand1FadeToggle: 1
-  largeBand1FadeStart: 300
-  largeBand1FadeDistance: 800
-  ripples: 1
-  ripplesWindSpeed: 4.35
-  ripplesWindOrientationMode: 0
-  ripplesWindOrientationValue: 0
-  ripplesCurrentMode: 0
-  ripplesCurrentSpeedValue: 0
-  ripplesCurrentOrientationValue: 0
-  ripplesChaos: 0.178
-  ripplesFadeToggle: 1
-  ripplesFadeStart: 50
-  ripplesFadeDistance: 200
-  customMaterial: {fileID: 0}
-  startSmoothness: 0.95
-  endSmoothness: 0.85
-  smoothnessFadeStart: 100
-  smoothnessFadeDistance: 500
-  refractionColor: {r: 0, g: 0.45, b: 0.65, a: 1}
-  maxRefractionDistance: 1
-  absorptionDistance: 5
-  scatteringColor: {r: 0, g: 0.27, b: 0.23, a: 1}
-  ambientScattering: 0.1
-  heightScattering: 0.1
-  displacementScattering: 0.3
-  directLightTipScattering: 0.6
-  directLightBodyScattering: 0.4
-  caustics: 1
-  causticsIntensity: 0.5
-  causticsPlaneBlendDistance: 1
-  causticsResolution: 256
-  causticsBand: 0
-  virtualPlaneDistance: 5
-  foam: 1
-  simulationFoamAmount: 0.3
-  simulationFoamDrag: 0
-  simulationFoamSmoothness: 1
-  foamMask: {fileID: 0}
-  foamMaskExtent: {x: 100, y: 100}
-  foamMaskOffset: {x: 0, y: 0}
-  windFoamCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.2
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.3
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  foamTexture: {fileID: 0}
-  foamTextureTiling: 0.2
-  waterMask: {fileID: 0}
-  waterMaskExtent: {x: 100, y: 100}
-  waterMaskOffset: {x: 0, y: 0}
-  decalLayerMask: 1
-  lightLayerMask: 1
-  underWater: 1
-  volumeBounds: {fileID: 3284105649923388965}
-  volumeDepth: 50
-  volumePrority: 0
-  transitionSize: 0.1
-  absorbtionDistanceMultiplier: 1
---- !u!65 &3284105649923388965
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127039518653160350}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.7293589, z: 1}
-  m_Center: {x: 0, y: -0.35511392, z: 0}
---- !u!114 &1049529297561383089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127039518653160350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce820ea3d24521649bb7d88946067178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWater: 1
-  audioClipIndex: 0
-  sinkingLocalPlayer: 0
-  movementHinderance: 0.7
-  sinkingSpeedMultiplier: 0.15
 --- !u!1 &3700463565859875613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1519,6 @@ Transform:
   - {fileID: 248312816449716479}
   - {fileID: 1729032493728170731}
   - {fileID: 1886177751636961728}
-  - {fileID: 7691131893088251106}
   - {fileID: 7768745135052216052}
   - {fileID: 2409537851816096660}
   - {fileID: 6643152541551085798}
@@ -1739,6 +1540,7 @@ Transform:
   - {fileID: 3476688659984879902}
   - {fileID: 3830609024156908358}
   - {fileID: 6149983410422146496}
+  - {fileID: 7993479126515848850}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7157804686389782961
@@ -3148,6 +2950,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3189798530936638179, guid: aa8a700e2fb8dd24f84a86a254c4c4ef, type: 3}
   m_PrefabInstance: {fileID: 5622649611914086840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5625683548722975309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7638616332241309380}
+    m_Modifications:
+    - target: {fileID: 117397069705081207, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: PropGroupID
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9773855
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 23.840706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000249554058851235, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_Name
+      value: RoomWater
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+--- !u!4 &7993479126515848850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+  m_PrefabInstance: {fileID: 5625683548722975309}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6471133676774803218
 PrefabInstance:
