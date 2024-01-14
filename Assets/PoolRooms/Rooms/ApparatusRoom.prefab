@@ -1369,6 +1369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7638616332241309380}
     m_Modifications:
+    - target: {fileID: 2173467351330667299, guid: 0c4c36a743bfbbf43af260c913b8783b, type: 3}
+      propertyPath: PropGroupID
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7443917727824504819, guid: 0c4c36a743bfbbf43af260c913b8783b, type: 3}
       propertyPath: m_Name
       value: LethalLight (1)
