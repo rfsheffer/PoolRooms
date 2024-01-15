@@ -59,6 +59,21 @@ namespace PoolRooms
                 Instance = this;
             }
 
+            // Unity Netcode patcher requirement
+            var types = Assembly.GetExecutingAssembly().GetTypes();
+            foreach (var type in types)
+            {
+                var methods = type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                foreach (var method in methods)
+                {
+                    var attributes = method.GetCustomAttributes(typeof(RuntimeInitializeOnLoadMethodAttribute), false);
+                    if (attributes.Length > 0)
+                    {
+                        method.Invoke(null, null);
+                    }
+                }
+            }
+
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
 
             string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -69,6 +84,8 @@ namespace PoolRooms
                 mls.LogError("Failed to load Dungeon assets.");
                 return;
             }
+
+            //LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolRoomsDoor);
 
             harmony.PatchAll(typeof(PoolRooms));
             harmony.PatchAll(typeof(RoundManagerPatch));

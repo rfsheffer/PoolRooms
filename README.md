@@ -23,6 +23,7 @@ A Work-in-progress mod for Lethal Company featuring a dungeon layout all about w
 This repo is templated from https://github.com/rfsheffer/LethalDungeon which it will cherry pick merge to and from.
 
 # How to build and install
+- Install Evaisa Netcode patcher using the command: dotnet tool install -g Evaisa.NetcodePatcher.Cli
 - Pull this repo to a folder to work in
 - Grab the DunGen plugin from here: https://assetstore.unity.com/packages/tools/utilities/dungen-15682
 - Place the DunGen folder into the projects Assets folder, do not replace anything as the .meta files need to be maintained as they are
@@ -39,6 +40,7 @@ This repo is templated from https://github.com/rfsheffer/LethalDungeon which it 
 In Unity open the GenerateDungeon scene and run it. From this you can see what it will look like in game minus the post process effects Lethal Company has.
 
 # Dependencies
+- Evaisa Netcode patcher
 - You will need a copy of the plugin DunGen to use this project. The files must be placed in Assets/DunGen. Do not replace the .meta files already in there.
 - LethalLib : https://github.com/EvaisaDev/LethalLib
 
