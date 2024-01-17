@@ -1429,6 +1429,10 @@ PrefabInstance:
       propertyPath: PropGroupID
       value: 101
       objectReference: {fileID: 0}
+    - target: {fileID: 1365114115347077646, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32
+      objectReference: {fileID: 0}
     - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.4343855
@@ -1476,6 +1480,26 @@ PrefabInstance:
     - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: parameters.size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: parameters.size.z
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.004166667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.004166667
       objectReference: {fileID: 0}
     - target: {fileID: 7000249554058851235, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: m_Name
