@@ -312,26 +312,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_10BE3CD8: 0.37
+    - Vector1_10BE3CD8: 2.07
     - Vector1_2DCE38F4: 0
     - Vector1_3034A0E7: 1.62
     - Vector1_35CC0B3F: 1.91
-    - Vector1_3894EE55: -1.09
-    - Vector1_4159F3F: 0.04
+    - Vector1_3894EE55: 4.32
+    - Vector1_4159F3F: 3.28
     - Vector1_4AC4A68B: 0.01
     - Vector1_4E6C1A96: 0.783
-    - Vector1_4FE3D16D: 5.43
+    - Vector1_4FE3D16D: 4.59
     - Vector1_717AF822: 0
     - Vector1_75458A12: 4.8
     - Vector1_895CAB23: 1.02
-    - Vector1_8DAAF4DB: 0.12
+    - Vector1_8DAAF4DB: 0.62
     - Vector1_9BC3A5CD: 0
-    - Vector1_A8100DE7: 0.39
-    - Vector1_D7555F9C: 0.45
-    - Vector1_D958705D: 0.91
+    - Vector1_A8100DE7: 1.11
+    - Vector1_D7555F9C: 0.695
+    - Vector1_D958705D: 0.67
     - Vector1_DFD3567: 0.01
     - Vector1_E5C822F8: 1
-    - Vector1_EDB9DB3: 6.83
+    - Vector1_EDB9DB3: 8.05
     - _0_1: 0.01
     - _AORemapMax0: 1
     - _AORemapMax1: 1
@@ -487,7 +487,7 @@ Material:
     - _NormalScale1: 1
     - _NormalScale2: 1
     - _NormalScale3: 1
-    - _NormalStrength: 0.15
+    - _NormalStrength: 0.53
     - _ObjectScaleAffectTile: 0
     - _OcclusionStrength: 1
     - _OpacityAsDensity0: 0

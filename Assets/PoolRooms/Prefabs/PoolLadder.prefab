@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6773961394208320011}
   - component: {fileID: 2124880111146255849}
   - component: {fileID: 6095199120159483376}
-  m_Layer: 0
+  - component: {fileID: 6380336089399556311}
+  m_Layer: 9
   m_Name: LadderTrigger
   m_TagString: InteractTrigger
   m_Icon: {fileID: 0}
@@ -111,8 +112,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.5109023, z: 1}
+  m_Center: {x: 0, y: 0.2554496, z: 0}
 --- !u!114 &2124880111146255849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   disabledHoverTip: 
   interactable: 1
   oneHandedItemAllowed: 1
-  twoHandedItemAllowed: 0
+  twoHandedItemAllowed: 1
   holdInteraction: 0
   timeToHold: 0.5
   timeToHoldSpeedMultiplier: 1
@@ -193,6 +194,26 @@ OffMeshLink:
   m_BiDirectional: 1
   m_Activated: 1
   m_AutoUpdatePositions: 0
+--- !u!114 &6380336089399556311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279256413208060656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1887328701026864254
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8726814527859931110}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BottomPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5830075661176136933}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BottomNav
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8836018441783266225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HorizontalPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5283617707676756191}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1288508888884154593}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopNav
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1363507001918467076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerPositionNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

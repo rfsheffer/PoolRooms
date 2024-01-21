@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using DunGen;
 using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace PoolRooms
     {
         private const string modGUID = "PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.0.3";
+        private const string modVersion = "0.0.4";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -36,6 +37,11 @@ namespace PoolRooms
 
         // The loaded dungeon flow
         private static DunGen.Graph.DungeonFlow DungeonFlow = null;
+
+        // Special Dungeon Items
+        private static List<Item> PoolItems = new List<Item>();
+        private static List<int> PoolItemRarities = new List<int>();
+        private static int PoolItemsIndex = 0;
 
         private string[] MoonConfigs = 
         {
@@ -85,8 +91,6 @@ namespace PoolRooms
                 return;
             }
 
-            //LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolRoomsDoor);
-
             harmony.PatchAll(typeof(PoolRooms));
             harmony.PatchAll(typeof(RoundManagerPatch));
 
@@ -128,6 +132,25 @@ namespace PoolRooms
             //DungeonDef.firstTimeDungeonAudio = DungeonAssets.LoadAsset<AudioClip>("TODO?");
 
             LethalLib.Modules.Dungeon.AddDungeon(DungeonDef, LevelType);
+
+            // Register our special dungeon items
+            Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
+            LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
+            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LifeBuoyItem.spawnPrefab);
+            PoolItems.Add(LifeBuoyItem);
+            PoolItemRarities.Add(60);
+
+            Item PoolNetItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolNet.asset");
+            LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
+            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolNetItem.spawnPrefab);
+            PoolItems.Add(PoolNetItem);
+            PoolItemRarities.Add(100);
+
+            Item PoolBallItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolBall.asset");
+            LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
+            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolBallItem.spawnPrefab);
+            PoolItems.Add(PoolBallItem);
+            PoolItemRarities.Add(100);
 
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }
@@ -175,11 +198,11 @@ namespace PoolRooms
             {
                 if (DungeonFlow)
                 {
-                    foreach(DunGen.Graph.DungeonFlow.GlobalPropSettings propSetting in DungeonFlow.GlobalProps)
+                    foreach (DunGen.Graph.DungeonFlow.GlobalPropSettings propSetting in DungeonFlow.GlobalProps)
                     {
-                        if(propSetting.ID == 1231)
+                        if (propSetting.ID == 1231)
                         {
-                            if(___currentLevel.sceneName == "Level4March")
+                            if (___currentLevel.sceneName == "Level4March")
                             {
                                 Instance.mls.LogWarning("Setting Pool Rooms Dungeon Flow to have 3 exits for March");
                                 propSetting.Count = new DunGen.IntRange(3, 3);
@@ -208,7 +231,7 @@ namespace PoolRooms
                 SpawnSyncedObject[] SyncedObjects = FindObjectsOfType<SpawnSyncedObject>();
                 NetworkManager networkManager = FindObjectOfType<NetworkManager>();
                 NetworkPrefab realVentPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "VentEntrance");
-                if (realVentPrefab == null) 
+                if (realVentPrefab == null)
                 {
                     Instance.mls.LogError("Failed to find VentEntrance prefab.");
                     return;
@@ -274,9 +297,9 @@ namespace PoolRooms
                 bool bFoundEntranceB = false;
                 int iVentsFound = 0;
                 int iDoorsFound = 0;
-                foreach (SpawnSyncedObject syncedObject in SyncedObjects) 
+                foreach (SpawnSyncedObject syncedObject in SyncedObjects)
                 {
-                    if(!syncedObject || !syncedObject.spawnPrefab)
+                    if (!syncedObject || !syncedObject.spawnPrefab)
                     {
                         if (syncedObject)
                         {
@@ -284,19 +307,19 @@ namespace PoolRooms
                         }
                         continue;
                     }
-                    if (syncedObject.spawnPrefab.name == "PoolRooms_EntranceTeleportA_DUMMY") 
+                    if (syncedObject.spawnPrefab.name == "PoolRooms_EntranceTeleportA_DUMMY")
                     {
                         Instance.mls.LogInfo("Found and replaced EntranceTeleportA prefab.");
                         bFoundEntranceA = true;
                         syncedObject.spawnPrefab = realEntranceAPrefab.Prefab;
                     }
-                    else if (syncedObject.spawnPrefab.name == "PoolRooms_EntranceTeleportB_DUMMY") 
+                    else if (syncedObject.spawnPrefab.name == "PoolRooms_EntranceTeleportB_DUMMY")
                     {
                         Instance.mls.LogInfo("Found and replaced EntranceTeleportB prefab.");
                         bFoundEntranceB = true;
                         syncedObject.spawnPrefab = realEntranceBPrefab.Prefab;
                     }
-                    else if (syncedObject.spawnPrefab.name == "PoolRooms_Vent_DUMMY") 
+                    else if (syncedObject.spawnPrefab.name == "PoolRooms_Vent_DUMMY")
                     {
                         //Instance.mls.LogInfo("Found and replaced VentEntrance prefab.");
                         iVentsFound++;
@@ -334,7 +357,7 @@ namespace PoolRooms
                         syncedObject.spawnPrefab = realBigDoorPrefab.Prefab;
                     }
                 }
-                if (!bFoundEntranceA && !bFoundEntranceB) 
+                if (!bFoundEntranceA && !bFoundEntranceB)
                 {
                     Instance.mls.LogError("Failed to find entrance teleporters to replace. Map will not be playable!");
                     return;
@@ -408,10 +431,11 @@ namespace PoolRooms
                 }*/
             }
 
+
             // Just before spawning the scrap (the level is ready at this point) fix up our referenes to the item groups
             [HarmonyPatch("SpawnScrapInLevel")]
             [HarmonyPrefix]
-            static void SpawnScrapInLevel(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
+            static void SpawnScrapInLevelPre(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
             {
                 if (___dungeonGenerator.Generator.DungeonFlow.name != "PoolRoomsFlow")
                 {
@@ -444,7 +468,7 @@ namespace PoolRooms
                 // Grab the item groups
                 ItemGroup itemGroupGeneral = itemWithClasses.spawnableItem.spawnPositionTypes.Find(x => x.name == "GeneralItemClass");
                 ItemGroup itemGroupTabletop = itemWithClasses.spawnableItem.spawnPositionTypes.Find(x => x.name == "TabletopItems");
-                if(!itemGroupGeneral || !itemGroupTabletop)
+                if (!itemGroupGeneral || !itemGroupTabletop)
                 {
                     Instance.mls.LogError($"Found an item '{itemWithClasses.spawnableItem.name}' that is suppose to have both general and table top items but no longer does...");
                     return;
@@ -453,6 +477,36 @@ namespace PoolRooms
                 // Grab the small item group from the fancy glass. It is the only item that uses it and if it isn't used will default to table top items which is similar.
                 SpawnableItemWithRarity itemWithSmallItems = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Golden cup");
                 ItemGroup itemGroupSmall = (itemWithSmallItems == null) ? itemGroupTabletop : itemWithSmallItems.spawnableItem.spawnPositionTypes.Find(x => x.name == "SmallItems");
+
+                // Fix the item groups in our special scrap items and add them to the current moon temporarily
+                Int32 rarityIndex = 0;
+                foreach (Item itemToAdd in PoolItems)
+                {
+                    List<ItemGroup> spawnPositionTypes = new List<ItemGroup>();
+                    foreach (ItemGroup group in itemToAdd.spawnPositionTypes)
+                    {
+                        switch (group.name)
+                        {
+                            case "PoolRooms_GeneralItemClass_DUMMY": spawnPositionTypes.Add(itemGroupGeneral); break;
+                            case "PoolRooms_TabletopItems_DUMMY": spawnPositionTypes.Add(itemGroupTabletop); break;
+                            case "PoolRooms_SmallItems_DUMMY": spawnPositionTypes.Add(itemGroupSmall); break;
+                        }
+                    }
+                    if(spawnPositionTypes.Count > 0)
+                    {
+                        Instance.mls.LogInfo($"Fixing pool item '{itemToAdd.name}' item groups");
+                        itemToAdd.spawnPositionTypes = spawnPositionTypes;
+                    }
+
+                    SpawnableItemWithRarity itemRarity = new SpawnableItemWithRarity();
+                    itemRarity.spawnableItem = itemToAdd;
+                    itemRarity.rarity = PoolItemRarities[rarityIndex];
+                    ___currentLevel.spawnableScrap.Add(itemRarity);
+                    ++rarityIndex;
+                }
+
+                // Store the current items index so we can remove the items once all the scrap has been spawned
+                PoolItemsIndex = ___currentLevel.spawnableScrap.Count;
 
                 // Fix all scrap spawners
                 RandomScrapSpawn[] scrapSpawns = FindObjectsOfType<RandomScrapSpawn>();
@@ -465,6 +519,19 @@ namespace PoolRooms
                         case "PoolRooms_SmallItems_DUMMY": scrapSpawn.spawnableItems = itemGroupSmall; break;
                     }
                 }
+            }
+
+            [HarmonyPatch("SpawnScrapInLevel")]
+            [HarmonyPostfix]
+            static void SpawnScrapInLevelPost(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
+            {
+                if (___dungeonGenerator.Generator.DungeonFlow.name != "PoolRoomsFlow")
+                {
+                    return;
+                }
+
+                // Remove our pool items from the scrap list so they don't show up on this moon until the next time this dungeon layout is chosen.
+                ___currentLevel.spawnableScrap.RemoveRange(PoolItemsIndex - PoolItems.Count, PoolItems.Count);
             }
         }
     }

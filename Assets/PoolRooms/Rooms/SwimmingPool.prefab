@@ -756,6 +756,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 5c8f3977dffca30478a44eb65e92008c, type: 2}
   - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
+  - {fileID: -1580535799172915004, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1661,6 +1662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoolLadder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6380336089399556311, guid: ab451d65bd7ae7f4ca3639c750acc790, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 6417429039620077440, guid: ab451d65bd7ae7f4ca3639c750acc790, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -1722,6 +1727,10 @@ PrefabInstance:
     - target: {fileID: 4393195321185455878, guid: ab451d65bd7ae7f4ca3639c750acc790, type: 3}
       propertyPath: m_Name
       value: PoolLadder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380336089399556311, guid: ab451d65bd7ae7f4ca3639c750acc790, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
       objectReference: {fileID: 0}
     - target: {fileID: 6417429039620077440, guid: ab451d65bd7ae7f4ca3639c750acc790, type: 3}
       propertyPath: m_LocalPosition.x
