@@ -190,8 +190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
-  - {fileID: 590520539726664456, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -966,7 +965,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 92209d6ab3af13745b9ae26b3f2f2401, type: 2}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1072,7 +1072,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 92209d6ab3af13745b9ae26b3f2f2401, type: 2}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1274,7 +1275,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 92209d6ab3af13745b9ae26b3f2f2401, type: 2}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1428,7 +1430,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 92209d6ab3af13745b9ae26b3f2f2401, type: 2}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1666,7 +1669,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 92209d6ab3af13745b9ae26b3f2f2401, type: 2}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1772,7 +1776,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 92209d6ab3af13745b9ae26b3f2f2401, type: 2}
+  - {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2133,6 +2138,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928f175fd5949aa40976a174ac42f521, type: 2}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
     - target: {fileID: 6002190629816680647, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
       propertyPath: m_Name
       value: PoolRoomStairs
@@ -2216,6 +2233,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928f175fd5949aa40976a174ac42f521, type: 2}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
     - target: {fileID: 6002190629816680647, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
       propertyPath: m_Name
       value: PoolRoomStairs
@@ -2361,6 +2390,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928f175fd5949aa40976a174ac42f521, type: 2}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
     - target: {fileID: 6002190629816680647, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
       propertyPath: m_Name
       value: PoolRoomStairs
@@ -2692,6 +2733,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928f175fd5949aa40976a174ac42f521, type: 2}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
     - target: {fileID: 6002190629816680647, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
       propertyPath: m_Name
       value: PoolRoomStairs
@@ -2775,6 +2828,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928f175fd5949aa40976a174ac42f521, type: 2}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
     - target: {fileID: 6002190629816680647, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
       propertyPath: m_Name
       value: PoolRoomStairs
@@ -2858,6 +2923,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928f175fd5949aa40976a174ac42f521, type: 2}
+    - target: {fileID: 4375146117597095598, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 890577280141b704f8bd38396d185ba0, type: 2}
     - target: {fileID: 6002190629816680647, guid: 5bfffdcd80075a8448539aa5d2287841, type: 3}
       propertyPath: m_Name
       value: PoolRoomStairs

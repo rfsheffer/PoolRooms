@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952971820905223970}
-  m_Mesh: {fileID: -4088857787095814991, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  m_Mesh: {fileID: -2420179997473630290, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
 --- !u!23 &7500826176714487
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4404839247605695133, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  - {fileID: 2100000, guid: 13d8495597e5a6341bd303f119d8c076, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7608746357284868072}
   m_Layer: 0
-  m_Name: StandardBlockerNoExit
+  m_Name: StuccoRoomBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
