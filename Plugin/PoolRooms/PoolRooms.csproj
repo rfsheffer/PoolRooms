@@ -30,7 +30,7 @@
         <HintPath>D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll</HintPath>
       </Reference>
       <Reference Include="LethalLib">
-        <HintPath>C:\Users\Ryan\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\Ryans\BepInEx\plugins\Evaisa-LethalLib\LethalLib\LethalLib.dll</HintPath>
+        <HintPath>D:\SteamLibrary\steamapps\common\Lethal Company\BepInEx\plugins\Evaisa-LethalLib\LethalLib\LethalLib.dll</HintPath>
       </Reference>
       <Reference Include="Unity.Netcode.Runtime">
         <HintPath>D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>

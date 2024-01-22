@@ -139,18 +139,21 @@ namespace PoolRooms
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LifeBuoyItem.spawnPrefab);
             PoolItems.Add(LifeBuoyItem);
             PoolItemRarities.Add(60);
+            LethalLib.Modules.Items.RegisterScrap(LifeBuoyItem, 60, LevelTypes.None);
 
             Item PoolNetItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolNet.asset");
             LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolNetItem.spawnPrefab);
             PoolItems.Add(PoolNetItem);
             PoolItemRarities.Add(100);
+            LethalLib.Modules.Items.RegisterScrap(PoolNetItem, 100, LevelTypes.None);
 
             Item PoolBallItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolBall.asset");
             LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolBallItem.spawnPrefab);
             PoolItems.Add(PoolBallItem);
             PoolItemRarities.Add(100);
+            LethalLib.Modules.Items.RegisterScrap(PoolBallItem, 100, LevelTypes.None);
 
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }
