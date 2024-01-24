@@ -47,5 +47,8 @@ Plugin/LethalDungeon/obj
 Plugin/PoolRooms/bin
 Plugin/PoolRooms/obj
 
+Plugin/PoolRoomsBehaviours/bin
+Plugin/PoolRoomsBehaviours/obj
+
 Assets/Resources/DunGen Settings.asset
 Assets/Resources/DunGen Settings.asset.meta
