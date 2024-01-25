@@ -12,11 +12,11 @@ A Work-in-progress mod for Lethal Company featuring a dungeon layout all about t
 - Turrets and Landmines
 - Doors and keys
 - Usable pool ladders!
+- Functioning lockers with loot inside
 
 ## TODO
 - General overall tuning
 - More clutter and room details
-- Functioning lockers with loot inside?
 - Replacing the Lethal company facility doors with something more fitting
 - Make the water affect the players speed / splash particles
 
