@@ -155,6 +155,11 @@ namespace PoolRooms
             PoolItemRarities.Add(100);
             LethalLib.Modules.Items.RegisterScrap(PoolBallItem, 100, LevelTypes.None);
 
+            // Pool Rooms Doors
+            GameObject LockerDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/LockerDoor.prefab");
+            LethalLib.Modules.Utilities.FixMixerGroups(LockerDoor);
+            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LockerDoor);
+
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }
 
