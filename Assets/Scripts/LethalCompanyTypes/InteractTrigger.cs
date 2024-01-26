@@ -123,4 +123,14 @@ public class InteractTrigger : NetworkBehaviour
 	private Coroutine useLadderCoroutine;
 
 	private int playerUsingId;
+
+	public void SetInteractionToHold(bool mustHold)
+	{
+
+	}
+
+	public void SetInteractionToHoldOpposite(bool mustHold)
+	{
+
+	}
 }

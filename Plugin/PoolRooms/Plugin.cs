@@ -20,7 +20,7 @@ namespace PoolRooms
     {
         private const string modGUID = "PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.0.5";
+        private const string modVersion = "0.0.6";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -159,6 +159,10 @@ namespace PoolRooms
             GameObject LockerDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/LockerDoor.prefab");
             LethalLib.Modules.Utilities.FixMixerGroups(LockerDoor);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LockerDoor);
+
+            GameObject PoolRoomsDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/PoolRoomsDoor.prefab");
+            LethalLib.Modules.Utilities.FixMixerGroups(PoolRoomsDoor);
+            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolRoomsDoor);
 
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }

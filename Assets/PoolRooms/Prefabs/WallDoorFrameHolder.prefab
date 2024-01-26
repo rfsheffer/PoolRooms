@@ -43,7 +43,9 @@ GameObject:
   - component: {fileID: 2555899932285413169}
   - component: {fileID: 5004693220683408685}
   - component: {fileID: 616433220799517692}
-  - component: {fileID: 2241910012080669372}
+  - component: {fileID: 8152341964454567393}
+  - component: {fileID: 6928784814756184644}
+  - component: {fileID: 7691800153144493445}
   m_Layer: 8
   m_Name: SteelDoorWallFrame
   m_TagString: Untagged
@@ -117,8 +119,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2241910012080669372
-MeshCollider:
+--- !u!65 &8152341964454567393
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,10 +137,51 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6482749113139649006, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.19999985, y: 3.5, z: 1.1238298}
+  m_Center: {x: 0.00000009685754, y: 1.75, z: 1.4380859}
+--- !u!65 &6928784814756184644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580992280077180895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19999985, y: 3.5, z: 1.1278186}
+  m_Center: {x: 0.000000096857555, y: 1.75, z: -1.4360915}
+--- !u!65 &7691800153144493445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580992280077180895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19999985, y: 0.26534867, z: 1.7488028}
+  m_Center: {x: 0.00000009685755, y: 3.3673258, z: 0.004077792}
 --- !u!1 &6852744816660320717
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,8 +207,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6852744816660320717}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071071, z: 0, w: 0.7071064}
-  m_LocalPosition: {x: -0.032, y: 0, z: -0.004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -183,4 +226,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f10ed4536484ae40a507a235b54583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 5709375247644746716, guid: 6a27dc9ea051fb44fb1d10207ca26aab, type: 3}
+  spawnPrefab: {fileID: 4802865586358912835, guid: c5a88fe94c00b4145986ec742e0d7779, type: 3}
