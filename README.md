@@ -13,12 +13,13 @@ A Work-in-progress mod for Lethal Company featuring a dungeon layout all about t
 - Doors and keys
 - Usable pool ladders!
 - Functioning lockers with loot inside
+- Water splashes particles and sounds from players as they move through water areas
 
 ## TODO
 - General overall tuning
 - More clutter and room details
 - Replacing the Lethal company facility doors with something more fitting
-- Make the water affect the players speed / splash particles
+- Allow player drowning and make water a hindrance to speed
 
 This repo is templated from https://github.com/rfsheffer/LethalDungeon which it will cherry pick merge to and from.
 
