@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc615723168fad2d87ed05ea97e3b88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableItems: {fileID: 11400000, guid: 77ba52bacccd14145bcce9b6554e1e81, type: 2}
+  spawnableItems: {fileID: 11400000, guid: 585bac400fdace7439e68201f5dc3a83, type: 2}
   itemSpawnRange: 3
   spawnedItemsCopyPosition: 0
   spawnUsed: 0

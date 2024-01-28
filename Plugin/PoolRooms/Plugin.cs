@@ -11,6 +11,7 @@ using System.Reflection;
 using Unity.Netcode;
 using UnityEngine;
 using static LethalLib.Modules.Levels;
+using PoolRooms;
 
 namespace PoolRooms
 {
@@ -20,7 +21,7 @@ namespace PoolRooms
     {
         private const string modGUID = "PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.0.6";
+        private const string modVersion = "0.1.0";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -58,12 +59,25 @@ namespace PoolRooms
             "march",
         };
 
+        public static string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
+        }
+
         private void Awake()
         {
             if (Instance == null) 
             {
                 Instance = this;
             }
+
+            Assembly.LoadFrom(Path.Combine(AssemblyDirectory, "PoolRoomsBehaviours.dll"));
 
             // Unity Netcode patcher requirement
             var types = Assembly.GetExecutingAssembly().GetTypes();
@@ -163,6 +177,14 @@ namespace PoolRooms
             GameObject PoolRoomsDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/PoolRoomsDoor.prefab");
             LethalLib.Modules.Utilities.FixMixerGroups(PoolRoomsDoor);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolRoomsDoor);
+
+            // Fixup room water stuff
+            GameObject RoomWater = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/RoomWater.prefab");
+            LethalLib.Modules.Utilities.FixMixerGroups(RoomWater);
+
+            GameObject WaterBehavior = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/WaterBehavior.prefab");
+            LethalLib.Modules.Utilities.FixMixerGroups(WaterBehavior);
+
 
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }

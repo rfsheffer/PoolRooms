@@ -71,8 +71,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       TileSet: {fileID: 11400000}
     - Value: {fileID: 7010417667660960894, guid: f30c749ded194a24bafc078d7090d0bb, type: 3}
-      MainPathWeight: 0.8
-      BranchPathWeight: 0.8
+      MainPathWeight: 0.5
+      BranchPathWeight: 0.5
       DepthWeightScale:
         serializedVersion: 2
         m_Curve:

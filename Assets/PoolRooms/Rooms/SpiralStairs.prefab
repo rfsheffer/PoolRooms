@@ -1894,6 +1894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomWater
       objectReference: {fileID: 0}
+    - target: {fileID: 7820922336122085799, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

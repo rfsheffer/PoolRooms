@@ -1431,6 +1431,14 @@ PrefabInstance:
       propertyPath: PropGroupID
       value: 101
       objectReference: {fileID: 0}
+    - target: {fileID: 842006820265491295, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3474344
+      objectReference: {fileID: 0}
+    - target: {fileID: 842006820265491295, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_Center.y
+      value: -0.17371725
+      objectReference: {fileID: 0}
     - target: {fileID: 1365114115347077646, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.32
