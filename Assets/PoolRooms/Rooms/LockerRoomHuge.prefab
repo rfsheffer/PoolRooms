@@ -717,7 +717,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -835,7 +835,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -2078,7 +2078,7 @@ MonoBehaviour:
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
-  - GameObject: {fileID: 2931079645286115151, guid: 358b6a57d5f4ac0489a8d5eaec45d8a4, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: 0b89d78ebcc890b448268553eb7792bb, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
