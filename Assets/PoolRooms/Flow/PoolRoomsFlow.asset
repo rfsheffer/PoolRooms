@@ -62,6 +62,10 @@ MonoBehaviour:
     Count:
       Min: 20
       Max: 20
+  - ID: 99
+    Count:
+      Min: 1
+      Max: 1
   KeyManager: {fileID: 0}
   DoorwayConnectionChance: 0
   RestrictConnectionToSameSection: 0
