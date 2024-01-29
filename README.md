@@ -18,8 +18,13 @@ A Work-in-progress mod for Lethal Company featuring a dungeon layout all about t
 ## TODO
 - General overall tuning
 - More clutter and room details
-- Replacing the Lethal company facility doors with something more fitting
 - Allow player drowning and make water a hindrance to speed
+- Pool Noodle weapon
+- Sauna End cap rooms
+
+## FUTURE
+- More Rooms?
+- More Custom Scrap
 
 This repo is templated from https://github.com/rfsheffer/LethalDungeon which it will cherry pick merge to and from.
 
