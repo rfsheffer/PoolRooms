@@ -264,10 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a188f8ee195cf4cb8b2fdccd193b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorPrefabPriority: 0
+  DoorPrefabPriority: 1
   ConnectorPrefabWeights:
-  - GameObject: {fileID: 5888582611044395842, guid: 18db969b982e79b4185c61c426508eb0, type: 3}
-    Weight: 2
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
@@ -333,10 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a188f8ee195cf4cb8b2fdccd193b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorPrefabPriority: 0
+  DoorPrefabPriority: 1
   ConnectorPrefabWeights:
-  - GameObject: {fileID: 5888582611044395842, guid: 18db969b982e79b4185c61c426508eb0, type: 3}
-    Weight: 2
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:
@@ -593,10 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a188f8ee195cf4cb8b2fdccd193b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorPrefabPriority: 0
+  DoorPrefabPriority: 1
   ConnectorPrefabWeights:
-  - GameObject: {fileID: 5888582611044395842, guid: 18db969b982e79b4185c61c426508eb0, type: 3}
-    Weight: 2
   - GameObject: {fileID: 47953032827061721, guid: 80fa1a63321503b43aab42b67494c923, type: 3}
     Weight: 1
   BlockerPrefabWeights:

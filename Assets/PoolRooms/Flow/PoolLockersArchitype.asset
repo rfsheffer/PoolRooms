@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSets:
   - {fileID: 11400000, guid: 2d3b41ab2d20f454db7f4ba67515e2eb, type: 2}
-  BranchCapTileSets: []
+  BranchCapTileSets:
+  - {fileID: 11400000, guid: 0185ba60a19d82742989b66b509961d6, type: 2}
   BranchCapType: 0
   BranchingDepth:
     Min: 2

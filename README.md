@@ -20,7 +20,6 @@ A Work-in-progress mod for Lethal Company featuring a dungeon layout all about t
 - More clutter and room details
 - Allow player drowning and make water a hindrance to speed
 - Pool Noodle weapon
-- Sauna End cap rooms
 
 ## FUTURE
 - More Rooms?
