@@ -547,11 +547,11 @@ namespace PoolRooms
 
                     foreach (GameObject prop in props)
                     {
-                        if (prop.name == "ExampleDungeon_Turret_DUMMY")
+                        if (prop.name == "PoolRooms_Turret_DUMMY")
                         {
                             newProps.Add(realTurretContainerPrefab.Prefab);
                         }
-                        else if (prop.name == "ExampleDungeon_Landmine_DUMMY")
+                        else if (prop.name == "PoolRooms_Landmine_DUMMY")
                         {
                             newProps.Add(realLandminePrefab.Prefab);
                         }
