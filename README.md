@@ -1,6 +1,8 @@
 # Pool Rooms Dungeon for Lethal Company
 A Work-in-progress mod for Lethal Company featuring a interior layout all about the classic swimming pool asthetic.
 
+Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
+
 ## Features / Supports
 - 13+ Different room variations
 - 3 custom scrap items (more coming!)
