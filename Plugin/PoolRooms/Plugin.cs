@@ -12,16 +12,20 @@ using Unity.Netcode;
 using UnityEngine;
 using static LethalLib.Modules.Levels;
 using PoolRooms;
+using LethalLevelLoader;
+using DunGen.Graph;
+using UnityEngine.UIElements.Collections;
 
 namespace PoolRooms
 {
     [BepInPlugin(modGUID, modName, modVersion)]
-    [BepInDependency(LethalLib.Plugin.ModGUID)]
+    [BepInDependency("evaisa.lethallib", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("imabatby.lethallevelloader", BepInDependency.DependencyFlags.HardDependency)]
     public class PoolRooms : BaseUnityPlugin
     {
-        private const string modGUID = "PoolRooms";
+        private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.2";
+        private const string modVersion = "0.1.3";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -32,7 +36,7 @@ namespace PoolRooms
         public static AssetBundle DungeonAssets;
 
         // Configs
-        private ConfigEntry<int> configRarity;
+        private ConfigEntry<int> configBaseRarity;
         private ConfigEntry<string> configMoons;
         private ConfigEntry<bool> configGuaranteed;
 
@@ -44,19 +48,41 @@ namespace PoolRooms
         private static List<int> PoolItemRarities = new List<int>();
         private static int PoolItemsIndex = 0;
 
-        private string[] MoonConfigs = 
+        private string[] MoonIdentifiers = 
         {
-            "all",
-            "paid",
-            "easy",
-            "titan",
-            "rend",
-            "dine",
-            "experimentation",
-            "assurance",
-            "vow",
-            "offense",
-            "march",
+            "All",
+            "Free",
+            "Paid",
+            "Tier1",
+            "Tier2",
+            "Tier3",
+            "Titan",
+            "Rend",
+            "Dine",
+            "Experimentation",
+            "Assurance",
+            "Vow",
+            "Offense",
+            "March",
+        };
+
+        private Dictionary<string, string[]> MoonIDToMoonsMapping = new Dictionary<string, string[]>
+        {
+            { "all", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March", "Rend", "Dine", "Titan" } },
+            { "free", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March" } },
+            { "paid", new string[] { "Rend", "Dine", "Titan" } },
+            { "tier1", new string[] { "Experimentation", "Assurance", "Vow" } },
+            { "tier2", new string[] { "Offense", "March" } },
+            { "tier3", new string[] { "Rend", "Dine", "Titan" } },
+
+            { "titan", new string[] { "Titan" } },
+            { "rend", new string[] { "Rend" } },
+            { "dine", new string[] { "Dine" } },
+            { "experimentation", new string[] { "Experimentation" } },
+            { "assurance", new string[] { "Assurance" } },
+            { "vow", new string[] { "Vow" } },
+            { "offense", new string[] { "Offense" } },
+            { "march", new string[] { "March" } },
         };
 
         public static string AssemblyDirectory
@@ -94,35 +120,36 @@ namespace PoolRooms
                 }
             }
 
-            mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
-
-            string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            DungeonAssets = AssetBundle.LoadFromFile(Path.Combine(sAssemblyLocation, "poolrooms"));
-            if (DungeonAssets == null) 
-            {
-                mls.LogError("Failed to load Dungeon assets.");
-                return;
-            }
+            mls = BepInEx.Logging.Logger.CreateLogSource(modName);
 
             harmony.PatchAll(typeof(PoolRooms));
             harmony.PatchAll(typeof(RoundManagerPatch));
 
             // Config setup
-            configRarity = Config.Bind("General", 
-                "Rarity", 
-                100, 
-                new ConfigDescription("How rare it is for the dungeon to be chosen. Higher values increases the chance of spawning the dungeon.", 
-                new AcceptableValueRange<int>(0, 300)));
-            configMoons = Config.Bind("General", 
-                "Moons", 
-                "all", 
-                new ConfigDescription("The moon(s) that the dungeon can spawn on, from the given presets.", 
-                new AcceptableValueList<string>(MoonConfigs)));
+            configMoons = Config.Bind("General",
+                "Moons",
+                "All:100",
+                new ConfigDescription("The moon(s) that the dungeon can spawn on with rarity weight, " +
+                                      "from the given presets or combined comma sep list ex 'Vow:100,March:50,Paid:30'. Custom moons should be supported if you know the name. " +
+                                      $"A list of acceptable IDs not including custom: {string.Join(", ", MoonIdentifiers)}",
+                                      null));
+            configBaseRarity = Config.Bind("General",
+                "BaseRarity",
+                100,
+                new ConfigDescription("A baseline rarity weight for each moon. Only used if Guaranteed is false and a moon doesn't have an explicit rarity weight.",
+                new AcceptableValueRange<int>(1, 500)));
             configGuaranteed = Config.Bind("General", 
                 "Guaranteed", 
                 false, 
-                new ConfigDescription("If enabled, the dungeon will be effectively guaranteed to spawn. Only recommended for debugging/sightseeing purposes."));
+                new ConfigDescription("If true the dungeons rarity will be defaulted to a high weighting which will most likely trump all other weights and guarantee this dungeon flow."));
+
+            string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            DungeonAssets = AssetBundle.LoadFromFile(Path.Combine(sAssemblyLocation, "poolrooms"));
+            if (DungeonAssets == null)
+            {
+                mls.LogError("Failed to load Dungeon assets.");
+                return;
+            }
 
             DungeonFlow = DungeonAssets.LoadAsset<DunGen.Graph.DungeonFlow>("assets/PoolRooms/Flow/PoolRoomsFlow.asset");
             if (DungeonFlow == null) 
@@ -131,21 +158,40 @@ namespace PoolRooms
                 return;
             }
 
-            string sMoonType = configMoons.Value.ToLower(); // Convert to lower just in case the user put in caps characters by accident, for leniency
-            LevelTypes LevelType = GetLevelTypeFromMoonConfig(sMoonType);
-            if (LevelType == LevelTypes.None) 
-            {
-                mls.LogError("Config file invalid, moon config does not match one of the preset values.");
-                return;
-            }
-            mls.LogInfo($"Moon type string \"{sMoonType}\" got type(s) {LevelType}");
+            AudioClip FirstTimeDungeonAudio = DungeonAssets.LoadAsset<AudioClip>("Assets/PoolRooms/Sound/PoolRoomsFirstTime.wav");
 
-            LethalLib.Extras.DungeonDef DungeonDef = ScriptableObject.CreateInstance<LethalLib.Extras.DungeonDef>();
-            DungeonDef.dungeonFlow = DungeonFlow;
-            DungeonDef.rarity = configGuaranteed.Value ? 99999 : configRarity.Value; // Set to a value so high it is pretty hard for it not to be chosen.
+            // Lethal Lib version of dungeon addition
+            //string sMoonType = configMoons.Value.ToLower();
+            //LevelTypes LevelType = GetLevelTypeFromMoonConfig(sMoonType);
+            //if (LevelType == LevelTypes.None)
+            //{
+            //    mls.LogError("Config file invalid, moon config does not match one of the preset values.");
+            //    return;
+            //}
+            //mls.LogInfo($"Moon type string \"{sMoonType}\" got type(s) {LevelType}");
+            //LethalLib.Extras.DungeonDef DungeonDef = ScriptableObject.CreateInstance<LethalLib.Extras.DungeonDef>();
+            //DungeonDef.dungeonFlow = DungeonFlow;
+            //DungeonDef.rarity = configGuaranteed.Value ? 99999 : configRarity.Value; // Set to a value so high it is pretty hard for it not to be chosen.
             //DungeonDef.firstTimeDungeonAudio = DungeonAssets.LoadAsset<AudioClip>("TODO?");
+            //LethalLib.Modules.Dungeon.AddDungeon(DungeonDef, LevelType);
 
-            LethalLib.Modules.Dungeon.AddDungeon(DungeonDef, LevelType);
+            // Lethal Level Loader Version
+            ExtendedDungeonFlow myExtendedDungeonFlow = ScriptableObject.CreateInstance<ExtendedDungeonFlow>();
+            myExtendedDungeonFlow.dungeonFlow = DungeonFlow;
+            myExtendedDungeonFlow.dungeonFirstTimeAudio = FirstTimeDungeonAudio;
+            myExtendedDungeonFlow.dungeonDisplayName = modName;
+            myExtendedDungeonFlow.contentSourceName = modName;
+            myExtendedDungeonFlow.generateAutomaticConfigurationOptions = false;
+
+            // Setup levels to spawn in
+            List<StringWithRarity> levels = GetLevelStringsWithRarity(configMoons.Value.ToLower(), configBaseRarity.Value, configGuaranteed.Value ? 9999 : -1);
+            foreach (StringWithRarity level in levels)
+            {
+                myExtendedDungeonFlow.manualPlanetNameReferenceList.Add(level);
+                mls.LogInfo($"Added to moon '{level.Name}' with a rarity weight of {level.Rarity}");
+            }
+            PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
+
 
             // Register our special dungeon items
             Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
@@ -189,7 +235,58 @@ namespace PoolRooms
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }
 
-        private LevelTypes GetLevelTypeFromMoonConfig(string sConfigName)
+        // Converts a string 'vow:100,march:50,paid:100' to a list of maps with rarity weight
+        private List<StringWithRarity> GetLevelStringsWithRarity(string delimitedList, int baseRarity, int fixedRarity)
+        {
+            List<StringWithRarity> listOut = new List<StringWithRarity>();
+            HashSet<string> lookup = new HashSet<string>();
+
+            string[] names = delimitedList.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            foreach(string name in names)
+            {
+                string[] nameAndRarityStr = name.RemoveWhitespace().Split(':');
+                try
+                {
+                    string levelID = nameAndRarityStr[0];
+                    int rarityWeight = baseRarity;
+                    if(fixedRarity > 0)
+                    {
+                        rarityWeight = fixedRarity;
+                    }
+                    else if(nameAndRarityStr.Length >= 2)
+                    {
+                        rarityWeight = int.Parse(nameAndRarityStr[1]);
+                    }
+
+                    string[] levelsToAdd = MoonIDToMoonsMapping.Get(levelID.ToLower());
+                    if(levelsToAdd != null)
+                    {
+                        foreach(string mapLevelID in levelsToAdd)
+                        {
+                            if (!lookup.Contains(mapLevelID))
+                            {
+                                listOut.Add(new StringWithRarity(mapLevelID, rarityWeight));
+                                lookup.Add(mapLevelID);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Allow adding custom moons, they need to have the ID right for it to work I suspect...
+                        if (!lookup.Contains(levelID))
+                        {
+                            listOut.Add(new StringWithRarity(levelID, rarityWeight));
+                            lookup.Add(levelID);
+                        }
+                    }
+                }
+                finally { }
+            }
+
+            return listOut;
+        }
+
+        /*private LevelTypes GetLevelTypeFromMoonConfig(string sConfigName)
         {
             switch (sConfigName)
             {
@@ -219,7 +316,7 @@ namespace PoolRooms
                 default: 
                     return LevelTypes.None;
             }
-        }
+        }*/
 
         // Patch to update our dummy objects (entrances, vents, turrets, mines, scrap, storage shelving) with the real prefab references
         [HarmonyPatch(typeof(RoundManager))]
@@ -261,6 +358,9 @@ namespace PoolRooms
                 {
                     return;
                 }
+
+                Instance.mls.LogWarning("Using Pool Rooms Dungeon Flow!");
+
                 Instance.mls.LogInfo("Fixing SpawnSyncedObject network prefabs...");
                 SpawnSyncedObject[] SyncedObjects = FindObjectsOfType<SpawnSyncedObject>();
                 NetworkManager networkManager = FindObjectOfType<NetworkManager>();
@@ -424,8 +524,7 @@ namespace PoolRooms
                     return;
                 }
 
-                // Lethal Lib does this for us, and if we don't let it it causes an exception @ Dungeon.cs line 196 (Sequence contains no matching element)
-                /*RandomMapObject[] RandomObjects = FindObjectsOfType<RandomMapObject>();
+                RandomMapObject[] RandomObjects = FindObjectsOfType<RandomMapObject>();
                 NetworkManager networkManager = FindObjectOfType<NetworkManager>();
                 NetworkPrefab realLandminePrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "Landmine");
                 if (realLandminePrefab == null)
@@ -462,7 +561,7 @@ namespace PoolRooms
                     {
                         randomObject.spawnablePrefabs = newProps;
                     }
-                }*/
+                }
             }
 
 
@@ -568,5 +667,17 @@ namespace PoolRooms
                 ___currentLevel.spawnableScrap.RemoveRange(PoolItemsIndex - PoolItems.Count, PoolItems.Count);
             }
         }
+    }
+
+    // https://stackoverflow.com/questions/4135317/make-first-letter-of-a-string-upper-case-with-maximum-performance
+    public static class StringExtensions
+    {
+        public static string FirstCharToUpper(this string input) =>
+            input switch
+            {
+                null => throw new ArgumentNullException(nameof(input)),
+                "" => throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input)),
+                _ => input[0].ToString().ToUpper() + input.Substring(1)
+            };
     }
 }

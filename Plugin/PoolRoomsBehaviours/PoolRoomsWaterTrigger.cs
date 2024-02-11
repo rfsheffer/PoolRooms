@@ -213,8 +213,8 @@ namespace PoolRooms
                 PlayerControllerB component = other.gameObject.GetComponent<PlayerControllerB>();
                 if (component != GameNetworkManager.Instance.localPlayerController && component != null && component.underwaterCollider != this)
                 {
-                    component.underwaterCollider = base.gameObject.GetComponent<Collider>();
-                    print("Setting underwater collider");
+                    component.underwaterCollider = gameObject.GetComponent<Collider>();
+                    print($"Setting underwater collider to {component.underwaterCollider.name}");
                     return;
                 }
             }
@@ -230,9 +230,9 @@ namespace PoolRooms
             }
             if (isWater && !component2.isUnderwater)
             {
-                component2.underwaterCollider = base.gameObject.GetComponent<Collider>();
+                component2.underwaterCollider = gameObject.GetComponent<Collider>();
                 component2.isUnderwater = true;
-                print("Setting underwater!");
+                print($"Setting underwater collider to {component2.underwaterCollider.name}");
             }
             component2.statusEffectAudioIndex = audioClipIndex;
             if (component2.isSinking)

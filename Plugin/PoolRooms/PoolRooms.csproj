@@ -35,6 +35,9 @@
       <Reference Include="LethalLib">
         <HintPath>D:\SteamLibrary\steamapps\common\Lethal Company\BepInEx\plugins\Evaisa-LethalLib\LethalLib\LethalLib.dll</HintPath>
       </Reference>
+      <Reference Include="LethalLevelLoader">
+        <HintPath>D:\SteamLibrary\steamapps\common\Lethal Company\BepInEx\plugins\IAmBatby-LethalLevelLoader\LethalLevelLoader.dll</HintPath>
+      </Reference>
       <Reference Include="Unity.Netcode.Runtime">
         <HintPath>D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
       </Reference>

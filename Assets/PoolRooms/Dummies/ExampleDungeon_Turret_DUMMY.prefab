@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6371301974021087640}
   m_Layer: 0
-  m_Name: TurretContainer
+  m_Name: ExampleDungeon_Turret_DUMMY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

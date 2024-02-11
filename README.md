@@ -48,6 +48,7 @@ In Unity open the GeneratePoolRooms scene and run it.
 - Evaisa Netcode patcher
 - You will need a copy of the plugin DunGen to use this project. The files must be placed in Assets/DunGen. Do not replace the .meta files already in there.
 - LethalLib : https://github.com/EvaisaDev/LethalLib
+- LethalLevelLoader : https://github.com/IAmBatby/LethalLevelLoader
 
 # Attributions and licenses
 The plugin was initially based on Badhamknibbs SCP dungeon code which can be found here:
@@ -55,5 +56,9 @@ The plugin was initially based on Badhamknibbs SCP dungeon code which can be fou
 
 Water Shader:
  https://github.com/flamacore/UnityHDRPSimpleWater
+
+First Time Audio:
+soundscape: Underwater Eerie Ocean Ambience
+ https://www.youtube.com/watch?v=xr2ARQFnF8k
 
 The code of this mod is provided under the MIT license (see license file)
