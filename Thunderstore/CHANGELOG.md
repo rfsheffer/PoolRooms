@@ -1,6 +1,12 @@
 **Changelog**
 --
 
+**<details><summary>Version 0.1.6</summary>**
+
+* Hopeful fix for the console spam
+
+</details>
+
 **<details><summary>Version 0.1.5</summary>**
 
 * Fix for incorrect LethalLevelLoader version in the manifest
