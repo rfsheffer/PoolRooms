@@ -1,18 +1,14 @@
 **Pool Rooms**
 --
 
-**Pool Rooms Dungeon for Lethal Company**
-
-**Thunderstore Link:** *https://thunderstore.io/c/lethal-company/p/*
-
-**Discord Thread:** *https://discord.com/channels/*
+**Pool Rooms interior for Lethal Company**
 
 **Description**
 --
 
-### **0.1.2 Has Released!** *https://github.com/rfsheffer/PoolRooms/releases/tag/v0.1.2*
+### **0.1.3 Has Released!** *https://github.com/rfsheffer/PoolRooms/releases/tag/v0.1.3*
 
-**Pool Rooms** is a Lethal Company dungeon featuring a layout all about the classic swimming pool asthetic.
+**Pool Rooms** is a Lethal Company interior featuring a layout all about the classic swimming pool aesthetic.
 
 **Features / Supports**
 --
@@ -33,7 +29,7 @@
 --
 * General overall tuning
 * More clutter and room details
-* Allow player drowning and make water a hindrance to speed
+* Allow player to drown and make water a hindrance to speed
 * Pool Noodle weapon
 
 **Known Issues**
@@ -57,7 +53,7 @@
 
 * Initial Thunderstore release
 * Now using Lethal Level Loader
-* Highly customizable moon settings
+* Highly customizable settings for which moons to show Pool Rooms
 * First appearance dungeon music
 * General Tweaks and fixes
 

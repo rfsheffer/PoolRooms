@@ -1,5 +1,5 @@
 # Pool Rooms Dungeon for Lethal Company
-A Work-in-progress mod for Lethal Company featuring a dungeon layout all about the classic swimming pool asthetic.
+A Work-in-progress mod for Lethal Company featuring a interior layout all about the classic swimming pool asthetic.
 
 ## Features / Supports
 - 13+ Different room variations
@@ -18,7 +18,7 @@ A Work-in-progress mod for Lethal Company featuring a dungeon layout all about t
 ## TODO
 - General overall tuning
 - More clutter and room details
-- Allow player drowning and make water a hindrance to speed
+- Allow player to drown and make water a hindrance to speed
 - Pool Noodle weapon
 
 ## FUTURE
