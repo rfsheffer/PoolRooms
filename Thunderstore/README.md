@@ -6,7 +6,7 @@
 **Description**
 --
 
-### **0.1.3 Has Released!** *https://github.com/rfsheffer/PoolRooms/releases/tag/v0.1.3*
+### **0.1.4 Has Released!** *https://github.com/rfsheffer/PoolRooms/releases/tag/v0.1.4*
 
 **Pool Rooms** is a Lethal Company interior featuring a layout all about the classic swimming pool aesthetic.
 
@@ -48,6 +48,12 @@
 
 **Changelog**
 --
+
+**<details><summary>Version 0.1.4</summary>**
+
+* Thunderstore Release
+
+</details>
 
 **<details><summary>Version 0.1.3</summary>**
 
