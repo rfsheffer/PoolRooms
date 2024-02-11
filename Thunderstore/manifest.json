@@ -1,12 +1,12 @@
 {
     "name": "PoolRooms",
-    "version_number": "0.1.4",
+    "version_number": "0.1.5",
     "website_url": "https://github.com/rfsheffer/PoolRooms",
     "description": "Pool Rooms is a Lethal Company interior featuring a layout all about the classic swimming pool aesthetic",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100",
         "Evaisa-HookGenPatcher-0.0.5",
-        "Evaisa-LethalLib-0.13.2",
-		"IAmBatby-LethalLevelLoader-1.0.7"
+        "Evaisa-LethalLib-0.14.2",
+		"IAmBatby-LethalLevelLoader-1.1.4"
     ]
 }
