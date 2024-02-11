@@ -11,7 +11,6 @@ using System.Reflection;
 using Unity.Netcode;
 using UnityEngine;
 using static LethalLib.Modules.Levels;
-using PoolRooms;
 using LethalLevelLoader;
 using DunGen.Graph;
 using UnityEngine.UIElements.Collections;
@@ -85,17 +84,6 @@ namespace PoolRooms
             { "march", new string[] { "March" } },
         };
 
-        public static string AssemblyDirectory
-        {
-            get
-            {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetDirectoryName(path);
-            }
-        }
-
         private void Awake()
         {
             if (Instance == null) 
@@ -103,7 +91,9 @@ namespace PoolRooms
                 Instance = this;
             }
 
-            Assembly.LoadFrom(Path.Combine(AssemblyDirectory, "PoolRoomsBehaviours.dll"));
+            mls = BepInEx.Logging.Logger.CreateLogSource(modName);
+
+            mls.LogInfo($"Behaviors Loaded: {PoolRoomsWaterBehaviour.BehaviorsVer}");
 
             // Unity Netcode patcher requirement
             var types = Assembly.GetExecutingAssembly().GetTypes();
@@ -119,8 +109,6 @@ namespace PoolRooms
                     }
                 }
             }
-
-            mls = BepInEx.Logging.Logger.CreateLogSource(modName);
 
             harmony.PatchAll(typeof(PoolRooms));
             harmony.PatchAll(typeof(RoundManagerPatch));

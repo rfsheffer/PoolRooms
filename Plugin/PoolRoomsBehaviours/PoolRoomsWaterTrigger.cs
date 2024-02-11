@@ -11,6 +11,8 @@ namespace PoolRooms
 {
     public class PoolRoomsWaterBehaviour : MonoBehaviour
     {
+        public static string BehaviorsVer = "0.1.4";
+
         public AudioSource SplashSound = null;
         public AudioSource WaterMovementSound = null;
         public ParticleSystem SplashParticles = null;
