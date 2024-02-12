@@ -1,3 +1,8 @@
+**<details><summary>Version 0.1.8</summary>**
+
+* Fixed sounds playing everywhere
+
+</details>
 
 **<details><summary>Version 0.1.7</summary>**
 

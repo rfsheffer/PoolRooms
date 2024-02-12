@@ -26,7 +26,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.7";
+        private const string modVersion = "0.1.8";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -50,6 +50,8 @@ namespace PoolRooms
         private static List<Item> PoolItems = new List<Item>();
         private static List<int> PoolItemRarities = new List<int>();
         private static int PoolItemsIndex = 0;
+
+        private static List<GameObject> PrefabsToFix = new List<GameObject>();
 
         private string[] MoonIdentifiers =
         {
@@ -204,21 +206,24 @@ namespace PoolRooms
 
             // Register our special dungeon items
             Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
-            LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
+            //LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
+            PrefabsToFix.Add(LifeBuoyItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LifeBuoyItem.spawnPrefab);
             PoolItems.Add(LifeBuoyItem);
             PoolItemRarities.Add(60);
             LethalLib.Modules.Items.RegisterScrap(LifeBuoyItem, 60, LevelTypes.None);
 
             Item PoolNetItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolNet.asset");
-            LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
+            //LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
+            PrefabsToFix.Add(PoolNetItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolNetItem.spawnPrefab);
             PoolItems.Add(PoolNetItem);
             PoolItemRarities.Add(100);
             LethalLib.Modules.Items.RegisterScrap(PoolNetItem, 100, LevelTypes.None);
 
             Item PoolBallItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolBall.asset");
-            LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
+            //LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
+            PrefabsToFix.Add(PoolBallItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolBallItem.spawnPrefab);
             PoolItems.Add(PoolBallItem);
             PoolItemRarities.Add(100);
@@ -226,19 +231,23 @@ namespace PoolRooms
 
             // Pool Rooms Doors
             GameObject LockerDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/LockerDoor.prefab");
-            LethalLib.Modules.Utilities.FixMixerGroups(LockerDoor);
+            //LethalLib.Modules.Utilities.FixMixerGroups(LockerDoor);
+            PrefabsToFix.Add(LockerDoor);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LockerDoor);
 
             GameObject PoolRoomsDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/PoolRoomsDoor.prefab");
-            LethalLib.Modules.Utilities.FixMixerGroups(PoolRoomsDoor);
+            //LethalLib.Modules.Utilities.FixMixerGroups(PoolRoomsDoor);
+            PrefabsToFix.Add(PoolRoomsDoor);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolRoomsDoor);
 
             // Fixup room water stuff
             GameObject RoomWater = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/RoomWater.prefab");
-            LethalLib.Modules.Utilities.FixMixerGroups(RoomWater);
+            //LethalLib.Modules.Utilities.FixMixerGroups(RoomWater);
+            PrefabsToFix.Add(RoomWater);
 
             GameObject WaterBehavior = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/WaterBehavior.prefab");
-            LethalLib.Modules.Utilities.FixMixerGroups(WaterBehavior);
+            //LethalLib.Modules.Utilities.FixMixerGroups(WaterBehavior);
+            PrefabsToFix.Add(WaterBehavior);
 
 
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
@@ -434,6 +443,25 @@ namespace PoolRooms
                 {
                     Instance.mls.LogError("Failed to find BigDoor prefab.");
                     return;
+                }
+
+                AudioSource doorAudioSource = realSteelDoorMapModelPrefab.Prefab.GetComponentInChildren<AudioSource>();
+                if (doorAudioSource == null || doorAudioSource.outputAudioMixerGroup == null)
+                {
+                    Instance.mls.LogError("Failed to find SteelDoorMapModel audio source! Audios mixer groups have not been assigned properly!");
+                }
+                else
+                {
+                    Instance.mls.LogInfo($"Applying {doorAudioSource.outputAudioMixerGroup.name} to custom audio sources...");
+                    foreach (GameObject prefab in PrefabsToFix)
+                    {
+                        AudioSource[] audioSources = prefab.GetComponentsInChildren<AudioSource>();
+                        foreach (AudioSource src in audioSources)
+                        {
+                            src.outputAudioMixerGroup = doorAudioSource.outputAudioMixerGroup;
+                        }
+                        Instance.mls.LogInfo($"Fixed {audioSources.Length} audio source mixer groups in '{prefab.name}'");
+                    }
                 }
 
                 bool bFoundEntranceA = false;
