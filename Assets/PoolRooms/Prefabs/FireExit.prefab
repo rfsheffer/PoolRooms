@@ -223,51 +223,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2983011682602444031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7486741573381406355}
-  - component: {fileID: 4614365920064826982}
-  m_Layer: 9
-  m_Name: SpawnEntranceBTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7486741573381406355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2983011682602444031}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00010496378}
-  m_LocalPosition: {x: -0.004, y: 1.630585, z: -0.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5281666771900447943}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &4614365920064826982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2983011682602444031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f10ed4536484ae40a507a235b54583, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 5709375247644746716, guid: 965b2bd07d71ed7498ceabc629e0f71d, type: 3}
 --- !u!1 &4579915714322165041
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +288,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5308156450048314574}
-  - {fileID: 7486741573381406355}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1828641062744318637
@@ -722,6 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8761783488882143089}
+  - component: {fileID: 1879956589355127378}
   m_Layer: 0
   m_Name: SpawnEntranceBTrigger
   m_TagString: Untagged
@@ -744,3 +699,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5308156450048314574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879956589355127378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146309021271340412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f10ed4536484ae40a507a235b54583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 5709375247644746716, guid: 965b2bd07d71ed7498ceabc629e0f71d, type: 3}

@@ -1,5 +1,12 @@
-**Changelog**
---
+
+**<details><summary>Version 0.1.7</summary>**
+
+* Fixed splashing sounds playing outside of the facility if teleporting from a fire escape while standing in water
+* Reduced the volume on splashing sounds
+* Fixed fire escape teleport triggers not properly aligned to the doors
+* Added controlling the Min and Max scale applied to the dungeon generation. Defaults to 1.0
+
+</details>
 
 **<details><summary>Version 0.1.6</summary>**
 

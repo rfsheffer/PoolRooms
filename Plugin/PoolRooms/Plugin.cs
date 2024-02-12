@@ -14,6 +14,8 @@ using static LethalLib.Modules.Levels;
 using LethalLevelLoader;
 using DunGen.Graph;
 using UnityEngine.UIElements.Collections;
+using GameNetcodeStuff;
+using LethalLib.Modules;
 
 namespace PoolRooms
 {
@@ -24,7 +26,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.6";
+        private const string modVersion = "0.1.7";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -49,7 +51,7 @@ namespace PoolRooms
         private static List<int> PoolItemRarities = new List<int>();
         private static int PoolItemsIndex = 0;
 
-        private string[] MoonIdentifiers = 
+        private string[] MoonIdentifiers =
         {
             "All",
             "Free",
@@ -88,14 +90,14 @@ namespace PoolRooms
 
         private void Awake()
         {
-            if (Instance == null) 
+            if (Instance == null)
             {
                 Instance = this;
             }
 
             mls = BepInEx.Logging.Logger.CreateLogSource(modName);
 
-            mls.LogInfo($"Behaviors Loaded: {PoolRoomsWaterBehaviour.BehaviorsVer}");
+            mls.LogInfo($"Behaviors Version {PoolRoomsWaterBehaviour.BehaviorsVer} Loaded!");
 
             // Unity Netcode patcher requirement
             var types = Assembly.GetExecutingAssembly().GetTypes();
@@ -114,6 +116,7 @@ namespace PoolRooms
 
             harmony.PatchAll(typeof(PoolRooms));
             harmony.PatchAll(typeof(RoundManagerPatch));
+            harmony.PatchAll(typeof(EntranceTeleportPatch));
 
             // Config setup
             configMoons = Config.Bind("General",
@@ -138,9 +141,9 @@ namespace PoolRooms
                 1.0f,
                 new ConfigDescription("The maximum scale to generate the dungeon.",
                 new AcceptableValueRange<float>(0.1f, 5.0f)));
-            configGuaranteed = Config.Bind("General", 
-                "Guaranteed", 
-                false, 
+            configGuaranteed = Config.Bind("General",
+                "Guaranteed",
+                false,
                 new ConfigDescription("If true the dungeons rarity will be defaulted to a high weighting which will most likely trump all other weights and guarantee this dungeon flow."));
 
             string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -152,7 +155,7 @@ namespace PoolRooms
             }
 
             DungeonFlow = DungeonAssets.LoadAsset<DunGen.Graph.DungeonFlow>("assets/PoolRooms/Flow/PoolRoomsFlow.asset");
-            if (DungeonFlow == null) 
+            if (DungeonFlow == null)
             {
                 mls.LogError("Failed to load Dungeon Flow.");
                 return;
@@ -248,26 +251,26 @@ namespace PoolRooms
             HashSet<string> lookup = new HashSet<string>();
 
             string[] names = delimitedList.Split(',', StringSplitOptions.RemoveEmptyEntries);
-            foreach(string name in names)
+            foreach (string name in names)
             {
                 string[] nameAndRarityStr = name.RemoveWhitespace().Split(':');
                 try
                 {
                     string levelID = nameAndRarityStr[0];
                     int rarityWeight = baseRarity;
-                    if(fixedRarity > 0)
+                    if (fixedRarity > 0)
                     {
                         rarityWeight = fixedRarity;
                     }
-                    else if(nameAndRarityStr.Length >= 2)
+                    else if (nameAndRarityStr.Length >= 2)
                     {
                         rarityWeight = int.Parse(nameAndRarityStr[1]);
                     }
 
                     string[] levelsToAdd = MoonIDToMoonsMapping.Get(levelID.ToLower());
-                    if(levelsToAdd != null)
+                    if (levelsToAdd != null)
                     {
-                        foreach(string mapLevelID in levelsToAdd)
+                        foreach (string mapLevelID in levelsToAdd)
                         {
                             if (!lookup.Contains(mapLevelID))
                             {
@@ -523,7 +526,7 @@ namespace PoolRooms
             // Fix up turret and landmine prefab references before trying to spawn map objects
             [HarmonyPatch("SpawnMapObjects")]
             [HarmonyPrefix]
-            static void SpawnMapObjects(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
+            static void SpawnMapObjectsPre(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
             {
                 if (___dungeonGenerator.Generator.DungeonFlow.name != "PoolRoomsFlow")
                 {
@@ -563,13 +566,12 @@ namespace PoolRooms
                         }
                     }
 
-                    if(newProps.Count() > 0)
+                    if (newProps.Count() > 0)
                     {
                         randomObject.spawnablePrefabs = newProps;
                     }
                 }
             }
-
 
             // Just before spawning the scrap (the level is ready at this point) fix up our referenes to the item groups
             [HarmonyPatch("SpawnScrapInLevel")]
@@ -631,7 +633,7 @@ namespace PoolRooms
                             case "PoolRooms_SmallItems_DUMMY": spawnPositionTypes.Add(itemGroupSmall); break;
                         }
                     }
-                    if(spawnPositionTypes.Count > 0)
+                    if (spawnPositionTypes.Count > 0)
                     {
                         Instance.mls.LogInfo($"Fixing pool item '{itemToAdd.name}' item groups");
                         itemToAdd.spawnPositionTypes = spawnPositionTypes;
@@ -671,6 +673,50 @@ namespace PoolRooms
 
                 // Remove our pool items from the scrap list so they don't show up on this moon until the next time this dungeon layout is chosen.
                 ___currentLevel.spawnableScrap.RemoveRange(PoolItemsIndex - PoolItems.Count, PoolItems.Count);
+            }
+        }
+
+        [HarmonyPatch(typeof(EntranceTeleport))]
+        internal class EntranceTeleportPatch
+        {
+            [HarmonyPatch("TeleportPlayer")]
+            [HarmonyPrefix]
+            static void TeleportPlayerPre()
+            {
+                Instance.mls.LogInfo("Local Player Teleporting! Broadcasting!");
+                BroadcastPlayerTeleported(GameNetworkManager.Instance.localPlayerController);
+            }
+
+            [HarmonyPatch("TeleportPlayerClientRpc")]
+            [HarmonyPrefix]
+            static void TeleportPlayerClientPre(int playerObj)
+            {
+                Instance.mls.LogInfo($"Client Player '{playerObj}' Teleporting...");
+                StartOfRound playersManager = FindObjectOfType<StartOfRound>();
+
+                if (playersManager && playerObj >= 0 && playerObj < playersManager.allPlayerScripts.Length)
+                {
+                    Instance.mls.LogInfo("Found Client Player! Broadcasting!");
+                    BroadcastPlayerTeleported(playersManager.allPlayerScripts[playerObj]);
+                }
+                else
+                {
+                    Instance.mls.LogWarning("Unable to find the client player script!");
+                }
+            }
+
+            static void BroadcastPlayerTeleported(PlayerControllerB player)
+            {
+                // When the player is about to teleport let the water triggers know they are moving far away and should be removed from their lists
+                // Zeekers does this as well with Quicksand/Water so players don't teleport into the facility drowning.
+                PoolRoomsWaterTrigger[] waterTriggers = FindObjectsOfType<PoolRoomsWaterTrigger>();
+                foreach (PoolRoomsWaterTrigger trigger in waterTriggers)
+                {
+                    if (trigger != null)
+                    {
+                        trigger.OnLocalPlayerTeleported(player);
+                    }
+                }
             }
         }
     }

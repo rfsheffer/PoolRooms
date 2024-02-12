@@ -11,7 +11,7 @@ namespace PoolRooms
 {
     public class PoolRoomsWaterBehaviour : MonoBehaviour
     {
-        public static string BehaviorsVer = "0.1.4";
+        public static string BehaviorsVer = "2";
 
         public AudioSource SplashSound = null;
         public AudioSource WaterMovementSound = null;
@@ -147,7 +147,7 @@ namespace PoolRooms
                             poolRoomsWaterBehaviour.NextSplashTime = Time.unscaledTime + (playerMoveSpeed > 0.1f ? 0.3f : 0.5f);
                             poolRoomsWaterBehaviour.SplashParticles.Play();
                             poolRoomsWaterBehaviour.SplashSound.clip = poolRoomsWaterBehaviour.GetRandomSplashSound();
-                            poolRoomsWaterBehaviour.SplashSound.volume = playerMoveSpeed > 0.1f ? 0.3f : 0.1f;
+                            poolRoomsWaterBehaviour.SplashSound.volume = playerMoveSpeed > 0.1f ? 0.15f : 0.05f;
                             poolRoomsWaterBehaviour.SplashSound.Play();
                         }
                     }
@@ -199,6 +199,22 @@ namespace PoolRooms
                         poolRoomsWaterBehaviour.WaterMovementSound.Stop();
                     }
                 }
+            }
+        }
+
+        public void OnLocalPlayerTeleported(PlayerControllerB player)
+        {
+            if (player != null)
+            {
+                EnteredThingTransforms.Remove(player.transform);
+                PoolRoomsWaterBehaviour poolRoomsWaterBehaviour = FindGameObjectChildWaterBehaviour(player.gameObject);
+                if (poolRoomsWaterBehaviour != null)
+                {
+                    poolRoomsWaterBehaviour.WaterMovementSound.Stop();
+                }
+
+                // Same as quick sand, call OnExit
+                OnExit(player.gameObject.GetComponent<Collider>());
             }
         }
 
