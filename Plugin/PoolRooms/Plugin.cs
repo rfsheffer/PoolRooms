@@ -36,6 +36,8 @@ namespace PoolRooms
 
         // Configs
         private ConfigEntry<int> configBaseRarity;
+        private ConfigEntry<float> configMinGenerationScale;
+        private ConfigEntry<float> configMaxGenerationScale;
         private ConfigEntry<string> configMoons;
         private ConfigEntry<bool> configGuaranteed;
 
@@ -126,6 +128,16 @@ namespace PoolRooms
                 100,
                 new ConfigDescription("A baseline rarity weight for each moon. Only used if Guaranteed is false and a moon doesn't have an explicit rarity weight.",
                 new AcceptableValueRange<int>(1, 500)));
+            configMinGenerationScale = Config.Bind("General",
+                "MinGenerationScale",
+                1.0f,
+                new ConfigDescription("The minimum scale to generate the dungeon.",
+                new AcceptableValueRange<float>(0.1f, 5.0f)));
+            configMaxGenerationScale = Config.Bind("General",
+                "MaxGenerationScale",
+                1.0f,
+                new ConfigDescription("The maximum scale to generate the dungeon.",
+                new AcceptableValueRange<float>(0.1f, 5.0f)));
             configGuaranteed = Config.Bind("General", 
                 "Guaranteed", 
                 false, 
@@ -167,8 +179,11 @@ namespace PoolRooms
             ExtendedDungeonFlow myExtendedDungeonFlow = ScriptableObject.CreateInstance<ExtendedDungeonFlow>();
             myExtendedDungeonFlow.dungeonFlow = DungeonFlow;
             myExtendedDungeonFlow.dungeonFirstTimeAudio = FirstTimeDungeonAudio;
-            myExtendedDungeonFlow.dungeonDisplayName = modName;
+            myExtendedDungeonFlow.dungeonSizeMin = configMinGenerationScale.Value;
+            myExtendedDungeonFlow.dungeonSizeMax = Math.Max(configMinGenerationScale.Value, configMaxGenerationScale.Value);
             myExtendedDungeonFlow.contentSourceName = modName;
+            // LLL new
+            myExtendedDungeonFlow.dungeonDisplayName = modName;
             myExtendedDungeonFlow.generateAutomaticConfigurationOptions = false;
 
             // Setup levels to spawn in
@@ -178,7 +193,10 @@ namespace PoolRooms
                 myExtendedDungeonFlow.manualPlanetNameReferenceList.Add(level);
                 mls.LogInfo($"Added to moon '{level.Name}' with a rarity weight of {level.Rarity}");
             }
+            // LLL new
             PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
+            // LLL old
+            //AssetBundleLoader.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
 
 
             // Register our special dungeon items
