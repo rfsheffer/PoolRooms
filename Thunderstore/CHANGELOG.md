@@ -1,3 +1,9 @@
+**<details><summary>Version 0.1.9</summary>**
+
+* Setting Dungeon min / max to default clamped 1.0 to 2.5 respectively.
+
+</details>
+
 **<details><summary>Version 0.1.8</summary>**
 
 * Fixed sounds playing everywhere

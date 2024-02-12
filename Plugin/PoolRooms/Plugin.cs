@@ -26,7 +26,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.8";
+        private const string modVersion = "0.1.9";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -137,12 +137,12 @@ namespace PoolRooms
                 "MinGenerationScale",
                 1.0f,
                 new ConfigDescription("The minimum scale to generate the dungeon.",
-                new AcceptableValueRange<float>(0.1f, 5.0f)));
+                new AcceptableValueRange<float>(1.0f, 10.0f)));
             configMaxGenerationScale = Config.Bind("General",
                 "MaxGenerationScale",
-                1.0f,
+                2.5f,
                 new ConfigDescription("The maximum scale to generate the dungeon.",
-                new AcceptableValueRange<float>(0.1f, 5.0f)));
+                new AcceptableValueRange<float>(2.5f, 10.0f)));
             configGuaranteed = Config.Bind("General",
                 "Guaranteed",
                 false,
