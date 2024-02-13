@@ -16,6 +16,7 @@ using DunGen.Graph;
 using UnityEngine.UIElements.Collections;
 using GameNetcodeStuff;
 using LethalLib.Modules;
+using System.Runtime.CompilerServices;
 
 namespace PoolRooms
 {
@@ -26,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.9";
+        private const string modVersion = "0.1.10";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -49,9 +50,8 @@ namespace PoolRooms
         // Special Dungeon Items
         private static List<Item> PoolItems = new List<Item>();
         private static List<int> PoolItemRarities = new List<int>();
-        private static int PoolItemsIndex = 0;
-
-        private static List<GameObject> PrefabsToFix = new List<GameObject>();
+        private static List<SpawnableItemWithRarity> PoolItemsAdded = new List<SpawnableItemWithRarity>();
+        //private static int PoolItemsIndex = 0;
 
         private string[] MoonIdentifiers =
         {
@@ -165,21 +165,6 @@ namespace PoolRooms
 
             AudioClip FirstTimeDungeonAudio = DungeonAssets.LoadAsset<AudioClip>("Assets/PoolRooms/Sound/PoolRoomsFirstTime.wav");
 
-            // Lethal Lib version of dungeon addition
-            //string sMoonType = configMoons.Value.ToLower();
-            //LevelTypes LevelType = GetLevelTypeFromMoonConfig(sMoonType);
-            //if (LevelType == LevelTypes.None)
-            //{
-            //    mls.LogError("Config file invalid, moon config does not match one of the preset values.");
-            //    return;
-            //}
-            //mls.LogInfo($"Moon type string \"{sMoonType}\" got type(s) {LevelType}");
-            //LethalLib.Extras.DungeonDef DungeonDef = ScriptableObject.CreateInstance<LethalLib.Extras.DungeonDef>();
-            //DungeonDef.dungeonFlow = DungeonFlow;
-            //DungeonDef.rarity = configGuaranteed.Value ? 99999 : configRarity.Value; // Set to a value so high it is pretty hard for it not to be chosen.
-            //DungeonDef.firstTimeDungeonAudio = DungeonAssets.LoadAsset<AudioClip>("TODO?");
-            //LethalLib.Modules.Dungeon.AddDungeon(DungeonDef, LevelType);
-
             // Lethal Level Loader Version
             ExtendedDungeonFlow myExtendedDungeonFlow = ScriptableObject.CreateInstance<ExtendedDungeonFlow>();
             myExtendedDungeonFlow.dungeonFlow = DungeonFlow;
@@ -206,24 +191,21 @@ namespace PoolRooms
 
             // Register our special dungeon items
             Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
-            //LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
-            PrefabsToFix.Add(LifeBuoyItem.spawnPrefab);
+            LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LifeBuoyItem.spawnPrefab);
             PoolItems.Add(LifeBuoyItem);
             PoolItemRarities.Add(60);
             LethalLib.Modules.Items.RegisterScrap(LifeBuoyItem, 60, LevelTypes.None);
 
             Item PoolNetItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolNet.asset");
-            //LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
-            PrefabsToFix.Add(PoolNetItem.spawnPrefab);
+            LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolNetItem.spawnPrefab);
             PoolItems.Add(PoolNetItem);
             PoolItemRarities.Add(100);
             LethalLib.Modules.Items.RegisterScrap(PoolNetItem, 100, LevelTypes.None);
 
             Item PoolBallItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolBall.asset");
-            //LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
-            PrefabsToFix.Add(PoolBallItem.spawnPrefab);
+            LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolBallItem.spawnPrefab);
             PoolItems.Add(PoolBallItem);
             PoolItemRarities.Add(100);
@@ -231,23 +213,19 @@ namespace PoolRooms
 
             // Pool Rooms Doors
             GameObject LockerDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/LockerDoor.prefab");
-            //LethalLib.Modules.Utilities.FixMixerGroups(LockerDoor);
-            PrefabsToFix.Add(LockerDoor);
+            LethalLib.Modules.Utilities.FixMixerGroups(LockerDoor);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LockerDoor);
 
             GameObject PoolRoomsDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/PoolRoomsDoor.prefab");
-            //LethalLib.Modules.Utilities.FixMixerGroups(PoolRoomsDoor);
-            PrefabsToFix.Add(PoolRoomsDoor);
+            LethalLib.Modules.Utilities.FixMixerGroups(PoolRoomsDoor);
             LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolRoomsDoor);
 
             // Fixup room water stuff
             GameObject RoomWater = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/RoomWater.prefab");
-            //LethalLib.Modules.Utilities.FixMixerGroups(RoomWater);
-            PrefabsToFix.Add(RoomWater);
+            LethalLib.Modules.Utilities.FixMixerGroups(RoomWater);
 
             GameObject WaterBehavior = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/WaterBehavior.prefab");
-            //LethalLib.Modules.Utilities.FixMixerGroups(WaterBehavior);
-            PrefabsToFix.Add(WaterBehavior);
+            LethalLib.Modules.Utilities.FixMixerGroups(WaterBehavior);
 
 
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
@@ -257,15 +235,29 @@ namespace PoolRooms
         private List<StringWithRarity> GetLevelStringsWithRarity(string delimitedList, int baseRarity, int fixedRarity)
         {
             List<StringWithRarity> listOut = new List<StringWithRarity>();
-            HashSet<string> lookup = new HashSet<string>();
+            Dictionary<string, int> lookup = new Dictionary<string, int>();
+
+            void AddRarity(string mapLevelID, int rarity)
+            {
+                int elmIndex = lookup.Get(mapLevelID, -1);
+                if (elmIndex == -1)
+                {
+                    listOut.Add(new StringWithRarity(mapLevelID, rarity));
+                    lookup.Add(mapLevelID, listOut.Count - 1);
+                }
+                else
+                {
+                    listOut[elmIndex].Rarity = rarity;
+                }
+            }
 
             string[] names = delimitedList.Split(',', StringSplitOptions.RemoveEmptyEntries);
             foreach (string name in names)
             {
-                string[] nameAndRarityStr = name.RemoveWhitespace().Split(':');
+                string[] nameAndRarityStr = name.Split(':');
                 try
                 {
-                    string levelID = nameAndRarityStr[0];
+                    string levelID = nameAndRarityStr[0].Trim();
                     int rarityWeight = baseRarity;
                     if (fixedRarity > 0)
                     {
@@ -281,21 +273,13 @@ namespace PoolRooms
                     {
                         foreach (string mapLevelID in levelsToAdd)
                         {
-                            if (!lookup.Contains(mapLevelID))
-                            {
-                                listOut.Add(new StringWithRarity(mapLevelID, rarityWeight));
-                                lookup.Add(mapLevelID);
-                            }
+                            AddRarity(mapLevelID, rarityWeight);
                         }
                     }
                     else
                     {
                         // Allow adding custom moons, they need to have the ID right for it to work I suspect...
-                        if (!lookup.Contains(levelID))
-                        {
-                            listOut.Add(new StringWithRarity(levelID, rarityWeight));
-                            lookup.Add(levelID);
-                        }
+                        AddRarity(levelID, rarityWeight);
                     }
                 }
                 finally { }
@@ -304,44 +288,12 @@ namespace PoolRooms
             return listOut;
         }
 
-        /*private LevelTypes GetLevelTypeFromMoonConfig(string sConfigName)
-        {
-            switch (sConfigName)
-            {
-                // Special names to use several at once
-                case "all": return (LevelTypes.ExperimentationLevel | LevelTypes.AssuranceLevel | LevelTypes.VowLevel | LevelTypes.OffenseLevel | LevelTypes.MarchLevel |
-                                    LevelTypes.RendLevel | LevelTypes.DineLevel | LevelTypes.TitanLevel);
-                case "paid": return (LevelTypes.TitanLevel | LevelTypes.DineLevel | LevelTypes.RendLevel);
-                case "easy": return (LevelTypes.ExperimentationLevel | LevelTypes.AssuranceLevel | LevelTypes.VowLevel | LevelTypes.OffenseLevel | LevelTypes.MarchLevel);
-
-                // Single moons
-                case "titan": 
-                    return LevelTypes.TitanLevel;
-                case "rend": 
-                    return LevelTypes.RendLevel;
-                case "dine": 
-                    return LevelTypes.DineLevel;
-                case "experimentation": 
-                    return LevelTypes.ExperimentationLevel;
-                case "assurance": 
-                    return LevelTypes.AssuranceLevel;
-                case "vow": 
-                    return LevelTypes.VowLevel;
-                case "offense": 
-                    return LevelTypes.OffenseLevel;
-                case "march": 
-                    return LevelTypes.MarchLevel;
-                default: 
-                    return LevelTypes.None;
-            }
-        }*/
-
         // Patch to update our dummy objects (entrances, vents, turrets, mines, scrap, storage shelving) with the real prefab references
         [HarmonyPatch(typeof(RoundManager))]
         internal class RoundManagerPatch
         {
             // Before generating, update the Pool Rooms flow to have three exits if heading to march, otherwise 1
-            [HarmonyPatch("GenerateNewFloor")]
+            /*[HarmonyPatch("GenerateNewFloor")]
             [HarmonyPrefix]
             static void GenerateNewFloorPre(ref SelectableLevel ___currentLevel)
             {
@@ -365,10 +317,10 @@ namespace PoolRooms
                         }
                     }
                 }
-            }
+            }*/
 
             // After generating the dungeon fix up the sync'd objects which contain our dummies with the real prefabs
-            [HarmonyPatch("GenerateNewFloor")]
+            /*[HarmonyPatch("GenerateNewFloor")]
             [HarmonyPostfix]
             static void GenerateNewFloorPost(ref RuntimeDungeon ___dungeonGenerator)
             {
@@ -382,6 +334,7 @@ namespace PoolRooms
                 Instance.mls.LogInfo("Fixing SpawnSyncedObject network prefabs...");
                 SpawnSyncedObject[] SyncedObjects = FindObjectsOfType<SpawnSyncedObject>();
                 NetworkManager networkManager = FindObjectOfType<NetworkManager>();
+
                 NetworkPrefab realVentPrefab = networkManager.NetworkConfig.Prefabs.Prefabs.First(x => x.Prefab.name == "VentEntrance");
                 if (realVentPrefab == null)
                 {
@@ -549,7 +502,7 @@ namespace PoolRooms
                 {
                     Instance.mls.LogInfo($"{iDoorsFound} doors found and replaced with network prefab.");
                 }
-            }
+            }*/
 
             // Fix up turret and landmine prefab references before trying to spawn map objects
             [HarmonyPatch("SpawnMapObjects")]
@@ -597,6 +550,7 @@ namespace PoolRooms
                     if (newProps.Count() > 0)
                     {
                         randomObject.spawnablePrefabs = newProps;
+                        Instance.mls.LogInfo($"Fixed random objects spawner '{randomObject.name}' prefabs.");
                     }
                 }
             }
@@ -610,42 +564,47 @@ namespace PoolRooms
                 {
                     return;
                 }
-                // Look for items with stored classes.
-                SpawnableItemWithRarity itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Bottles");
-                if (itemWithClasses == null)
+
+                StartOfRound playersManager = FindObjectOfType<StartOfRound>();
+
+                Item BottlesItem = null;
+                Item GoldenCupItem = null;
+                foreach (Item item in playersManager.allItemsList.itemsList)
                 {
-                    itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Cash register");
-                    if (itemWithClasses == null)
+                    if(item.itemName == "Bottles")
                     {
-                        itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Chemical jug");
-                        if (itemWithClasses == null)
-                        {
-                            itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Gift");
-                            if (itemWithClasses == null)
-                            {
-                                itemWithClasses = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Tea kettle");
-                                if (itemWithClasses == null)
-                                {
-                                    Instance.mls.LogError("Unable to find an item with spawn positions to pull from. No junk will spawn in this dungeon!");
-                                    return;
-                                }
-                            }
-                        }
+                        BottlesItem = item;
                     }
+                    else if (item.itemName == "Golden cup")
+                    {
+                        GoldenCupItem = item;
+                    }
+                    if(BottlesItem && GoldenCupItem)
+                    {
+                        break;
+                    }
+                }
+                if (BottlesItem == null)
+                {
+                    Instance.mls.LogError("Unable to find the Bottles item with spawn positions to pull from. No junk will spawn in this dungeon!");
+                    return;
+                }
+                if (GoldenCupItem == null)
+                {
+                    Instance.mls.LogWarning("Unable to find the GoldenCup item with spawn positions to pull from. No small items will be able to spawn!");
                 }
 
                 // Grab the item groups
-                ItemGroup itemGroupGeneral = itemWithClasses.spawnableItem.spawnPositionTypes.Find(x => x.name == "GeneralItemClass");
-                ItemGroup itemGroupTabletop = itemWithClasses.spawnableItem.spawnPositionTypes.Find(x => x.name == "TabletopItems");
+                ItemGroup itemGroupGeneral = BottlesItem.spawnPositionTypes.Find(x => x.name == "GeneralItemClass");
+                ItemGroup itemGroupTabletop = BottlesItem.spawnPositionTypes.Find(x => x.name == "TabletopItems");
                 if (!itemGroupGeneral || !itemGroupTabletop)
                 {
-                    Instance.mls.LogError($"Found an item '{itemWithClasses.spawnableItem.name}' that is suppose to have both general and table top items but no longer does...");
+                    Instance.mls.LogError($"Found an item '{BottlesItem.name}' that is suppose to have both general and table top items but no longer does...");
                     return;
                 }
 
                 // Grab the small item group from the fancy glass. It is the only item that uses it and if it isn't used will default to table top items which is similar.
-                SpawnableItemWithRarity itemWithSmallItems = ___currentLevel.spawnableScrap.Find(x => x.spawnableItem.itemName == "Golden cup");
-                ItemGroup itemGroupSmall = (itemWithSmallItems == null) ? itemGroupTabletop : itemWithSmallItems.spawnableItem.spawnPositionTypes.Find(x => x.name == "SmallItems");
+                ItemGroup itemGroupSmall = (GoldenCupItem == null) ? itemGroupTabletop : GoldenCupItem.spawnPositionTypes.Find(x => x.name == "SmallItems");
 
                 // Fix the item groups in our special scrap items and add them to the current moon temporarily
                 Int32 rarityIndex = 0;
@@ -671,11 +630,13 @@ namespace PoolRooms
                     itemRarity.spawnableItem = itemToAdd;
                     itemRarity.rarity = PoolItemRarities[rarityIndex];
                     ___currentLevel.spawnableScrap.Add(itemRarity);
+                    PoolItemsAdded.Add(itemRarity);
+                    Instance.mls.LogInfo($"Added pool rooms item '{itemToAdd.name}' to spawnable scrap!");
                     ++rarityIndex;
                 }
 
                 // Store the current items index so we can remove the items once all the scrap has been spawned
-                PoolItemsIndex = ___currentLevel.spawnableScrap.Count;
+                //PoolItemsIndex = ___currentLevel.spawnableScrap.Count;
 
                 // Fix all scrap spawners
                 RandomScrapSpawn[] scrapSpawns = FindObjectsOfType<RandomScrapSpawn>();
@@ -699,14 +660,29 @@ namespace PoolRooms
                     return;
                 }
 
+                foreach(SpawnableItemWithRarity item in PoolItemsAdded)
+                {
+                    if(___currentLevel.spawnableScrap.Remove(item))
+                    {
+                        Instance.mls.LogInfo($"Removed pool rooms item '{item.spawnableItem.name}' from spawnable scrap!");
+                    }
+                    else
+                    {
+                        Instance.mls.LogError($"Unable to remove pool rooms item '{item.spawnableItem.name}' from spawnable scrap!");
+                    }
+                }
+
+                PoolItemsAdded.Clear();
+
                 // Remove our pool items from the scrap list so they don't show up on this moon until the next time this dungeon layout is chosen.
-                ___currentLevel.spawnableScrap.RemoveRange(PoolItemsIndex - PoolItems.Count, PoolItems.Count);
+                //___currentLevel.spawnableScrap.RemoveRange(PoolItemsIndex - PoolItems.Count, PoolItems.Count);
             }
         }
 
         [HarmonyPatch(typeof(EntranceTeleport))]
         internal class EntranceTeleportPatch
         {
+            // Called on the local client
             [HarmonyPatch("TeleportPlayer")]
             [HarmonyPrefix]
             static void TeleportPlayerPre()
@@ -715,6 +691,7 @@ namespace PoolRooms
                 BroadcastPlayerTeleported(GameNetworkManager.Instance.localPlayerController);
             }
 
+            // Called on the client from the server
             [HarmonyPatch("TeleportPlayerClientRpc")]
             [HarmonyPrefix]
             static void TeleportPlayerClientPre(int playerObj)

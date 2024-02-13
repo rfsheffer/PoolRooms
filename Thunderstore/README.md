@@ -15,7 +15,6 @@
 * Breaker box, Apparatus room, Steam Valves
 * Lighting controlled by the breaker box and apparatus
 * Big Locking Doors controllable via the ship computer
-* Supports replacing the moon March by dynamically adjusting the dungeon generator to create three fire exits
 * Monster vent spawners
 * Turrets and Landmines
 * Doors and keys

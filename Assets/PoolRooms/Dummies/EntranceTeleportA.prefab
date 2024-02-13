@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6371301974021087640}
   m_Layer: 0
-  m_Name: PoolRooms_SteamValve_DUMMY
+  m_Name: EntranceTeleportA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
