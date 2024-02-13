@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.10";
+        private const string modVersion = "0.1.11";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -43,6 +43,13 @@ namespace PoolRooms
         private ConfigEntry<float> configMaxGenerationScale;
         private ConfigEntry<string> configMoons;
         private ConfigEntry<bool> configGuaranteed;
+        private ConfigEntry<bool> configEnableCustomScrap;
+        private ConfigEntry<bool> configUseCustomScrapGlobally;
+
+        // Config for the custom scrap weights
+        private ConfigEntry<int> configPoolBallWeighting;
+        private ConfigEntry<int> configPoolNetWeighting;
+        private ConfigEntry<int> configLifeBuoyWeighting;
 
         // The loaded dungeon flow
         private static DunGen.Graph.DungeonFlow DungeonFlow = null;
@@ -146,6 +153,30 @@ namespace PoolRooms
                 "Guaranteed",
                 false,
                 new ConfigDescription("If true the dungeons rarity will be defaulted to a high weighting which will most likely trump all other weights and guarantee this dungeon flow."));
+            configEnableCustomScrap = Config.Bind("General",
+                "EnableCustomScrap",
+                true,
+                new ConfigDescription("If true, custom pool rooms scrap will be spawned. EnableCustomScrap must also be true for this to function."));
+            configUseCustomScrapGlobally = Config.Bind("General",
+                "UseCustomScrapGlobally",
+                false,
+                new ConfigDescription("If true, the custom pool rooms scrap will be added to all interiors."));
+
+            configPoolBallWeighting = Config.Bind("General",
+                "PoolBallWeighting",
+                100,
+                new ConfigDescription("The pool ball spawning weight",
+                new AcceptableValueRange<int>(1, 9999)));
+            configPoolNetWeighting = Config.Bind("General",
+                "PoolNetWeighting",
+                100,
+                new ConfigDescription("The pool net spawning weight",
+                new AcceptableValueRange<int>(1, 9999)));
+            configLifeBuoyWeighting = Config.Bind("General",
+                "LifeBuoyWeighting",
+                60,
+                new ConfigDescription("The pool net spawning weight",
+                new AcceptableValueRange<int>(1, 9999)));
 
             string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             DungeonAssets = AssetBundle.LoadFromFile(Path.Combine(sAssemblyLocation, "poolrooms"));
@@ -187,27 +218,30 @@ namespace PoolRooms
             // LLL old
             //AssetBundleLoader.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
 
-            // Register our special dungeon items
-            Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
-            LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
-            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LifeBuoyItem.spawnPrefab);
-            PoolItems.Add(LifeBuoyItem);
-            PoolItemRarities.Add(60);
-            LethalLib.Modules.Items.RegisterScrap(LifeBuoyItem, 60, LevelTypes.None);
+            if (configEnableCustomScrap.Value)
+            {
+                // Register our special dungeon items
+                Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
+                LethalLib.Modules.Utilities.FixMixerGroups(LifeBuoyItem.spawnPrefab);
+                LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(LifeBuoyItem.spawnPrefab);
+                PoolItems.Add(LifeBuoyItem);
+                PoolItemRarities.Add(configLifeBuoyWeighting.Value);
+                LethalLib.Modules.Items.RegisterScrap(LifeBuoyItem, configLifeBuoyWeighting.Value, configUseCustomScrapGlobally.Value ? LevelTypes.All : LevelTypes.None);
 
-            Item PoolNetItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolNet.asset");
-            LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
-            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolNetItem.spawnPrefab);
-            PoolItems.Add(PoolNetItem);
-            PoolItemRarities.Add(100);
-            LethalLib.Modules.Items.RegisterScrap(PoolNetItem, 100, LevelTypes.None);
+                Item PoolNetItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolNet.asset");
+                LethalLib.Modules.Utilities.FixMixerGroups(PoolNetItem.spawnPrefab);
+                LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolNetItem.spawnPrefab);
+                PoolItems.Add(PoolNetItem);
+                PoolItemRarities.Add(configPoolNetWeighting.Value);
+                LethalLib.Modules.Items.RegisterScrap(PoolNetItem, configPoolNetWeighting.Value, configUseCustomScrapGlobally.Value ? LevelTypes.All : LevelTypes.None);
 
-            Item PoolBallItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolBall.asset");
-            LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
-            LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolBallItem.spawnPrefab);
-            PoolItems.Add(PoolBallItem);
-            PoolItemRarities.Add(100);
-            LethalLib.Modules.Items.RegisterScrap(PoolBallItem, 100, LevelTypes.None);
+                Item PoolBallItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/PoolBall.asset");
+                LethalLib.Modules.Utilities.FixMixerGroups(PoolBallItem.spawnPrefab);
+                LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(PoolBallItem.spawnPrefab);
+                PoolItems.Add(PoolBallItem);
+                PoolItemRarities.Add(configPoolBallWeighting.Value);
+                LethalLib.Modules.Items.RegisterScrap(PoolBallItem, configPoolBallWeighting.Value, configUseCustomScrapGlobally.Value ? LevelTypes.All : LevelTypes.None);
+            }
 
             // Pool Rooms Doors
             GameObject LockerDoor = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/LockerDoor.prefab");
@@ -503,7 +537,7 @@ namespace PoolRooms
             }*/
 
             // Fix up turret and landmine prefab references before trying to spawn map objects
-            [HarmonyPatch("SpawnMapObjects")]
+            /*[HarmonyPatch("SpawnMapObjects")]
             [HarmonyPrefix]
             static void SpawnMapObjectsPre(ref SelectableLevel ___currentLevel, ref RuntimeDungeon ___dungeonGenerator)
             {
@@ -551,7 +585,7 @@ namespace PoolRooms
                         Instance.mls.LogInfo($"Fixed random objects spawner '{randomObject.name}' prefabs.");
                     }
                 }
-            }
+            }*/
 
             // Just before spawning the scrap (the level is ready at this point) fix up our referenes to the item groups
             [HarmonyPatch("SpawnScrapInLevel")]
@@ -604,33 +638,36 @@ namespace PoolRooms
                 // Grab the small item group from the fancy glass. It is the only item that uses it and if it isn't used will default to table top items which is similar.
                 ItemGroup itemGroupSmall = (GoldenCupItem == null) ? itemGroupTabletop : GoldenCupItem.spawnPositionTypes.Find(x => x.name == "SmallItems");
 
-                // Fix the item groups in our special scrap items and add them to the current moon temporarily
-                Int32 rarityIndex = 0;
-                foreach (Item itemToAdd in PoolItems)
+                if (Instance.configEnableCustomScrap.Value && !Instance.configUseCustomScrapGlobally.Value)
                 {
-                    List<ItemGroup> spawnPositionTypes = new List<ItemGroup>();
-                    foreach (ItemGroup group in itemToAdd.spawnPositionTypes)
+                    // Fix the item groups in our special scrap items and add them to the current moon temporarily
+                    Int32 rarityIndex = 0;
+                    foreach (Item itemToAdd in PoolItems)
                     {
-                        switch (group.name)
+                        List<ItemGroup> spawnPositionTypes = new List<ItemGroup>();
+                        foreach (ItemGroup group in itemToAdd.spawnPositionTypes)
                         {
-                            case "PoolRooms_GeneralItemClass_DUMMY": spawnPositionTypes.Add(itemGroupGeneral); break;
-                            case "PoolRooms_TabletopItems_DUMMY": spawnPositionTypes.Add(itemGroupTabletop); break;
-                            case "PoolRooms_SmallItems_DUMMY": spawnPositionTypes.Add(itemGroupSmall); break;
+                            switch (group.name)
+                            {
+                                case "PoolRooms_GeneralItemClass_DUMMY": spawnPositionTypes.Add(itemGroupGeneral); break;
+                                case "PoolRooms_TabletopItems_DUMMY": spawnPositionTypes.Add(itemGroupTabletop); break;
+                                case "PoolRooms_SmallItems_DUMMY": spawnPositionTypes.Add(itemGroupSmall); break;
+                            }
                         }
-                    }
-                    if (spawnPositionTypes.Count > 0)
-                    {
-                        Instance.mls.LogInfo($"Fixing pool item '{itemToAdd.name}' item groups");
-                        itemToAdd.spawnPositionTypes = spawnPositionTypes;
-                    }
+                        if (spawnPositionTypes.Count > 0)
+                        {
+                            Instance.mls.LogInfo($"Fixing pool item '{itemToAdd.name}' item groups");
+                            itemToAdd.spawnPositionTypes = spawnPositionTypes;
+                        }
 
-                    SpawnableItemWithRarity itemRarity = new SpawnableItemWithRarity();
-                    itemRarity.spawnableItem = itemToAdd;
-                    itemRarity.rarity = PoolItemRarities[rarityIndex];
-                    ___currentLevel.spawnableScrap.Add(itemRarity);
-                    PoolItemsAdded.Add(itemRarity);
-                    Instance.mls.LogInfo($"Added pool rooms item '{itemToAdd.name}' to spawnable scrap!");
-                    ++rarityIndex;
+                        SpawnableItemWithRarity itemRarity = new SpawnableItemWithRarity();
+                        itemRarity.spawnableItem = itemToAdd;
+                        itemRarity.rarity = PoolItemRarities[rarityIndex];
+                        ___currentLevel.spawnableScrap.Add(itemRarity);
+                        PoolItemsAdded.Add(itemRarity);
+                        Instance.mls.LogInfo($"Added pool rooms item '{itemToAdd.name}' to spawnable scrap!");
+                        ++rarityIndex;
+                    }
                 }
 
                 // Fix all scrap spawners
@@ -655,19 +692,22 @@ namespace PoolRooms
                     return;
                 }
 
-                foreach(SpawnableItemWithRarity item in PoolItemsAdded)
+                if (Instance.configEnableCustomScrap.Value && !Instance.configUseCustomScrapGlobally.Value)
                 {
-                    if(___currentLevel.spawnableScrap.Remove(item))
+                    foreach (SpawnableItemWithRarity item in PoolItemsAdded)
                     {
-                        Instance.mls.LogInfo($"Removed pool rooms item '{item.spawnableItem.name}' from spawnable scrap!");
+                        if (___currentLevel.spawnableScrap.Remove(item))
+                        {
+                            Instance.mls.LogInfo($"Removed pool rooms item '{item.spawnableItem.name}' from spawnable scrap!");
+                        }
+                        else
+                        {
+                            Instance.mls.LogError($"Unable to remove pool rooms item '{item.spawnableItem.name}' from spawnable scrap!");
+                        }
                     }
-                    else
-                    {
-                        Instance.mls.LogError($"Unable to remove pool rooms item '{item.spawnableItem.name}' from spawnable scrap!");
-                    }
-                }
 
-                PoolItemsAdded.Clear();
+                    PoolItemsAdded.Clear();
+                }
             }
         }
 

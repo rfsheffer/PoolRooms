@@ -1,3 +1,10 @@
+**<details><summary>Version 0.1.11</summary>**
+
+* Hopeful fix for the incompatibility with LethalThings (Index out of range exception)
+* Added tuning for the Interiors custom scrap. Can now set each scraps weight, if it shows up at all, and if it should show up in all maps not just PoolRooms
+
+</details>
+
 **<details><summary>Version 0.1.10</summary>**
 
 * Added a bit of extra room depth to the entrance outward from the entrance door so other rooms wont be generated on the other side of the entrance door
