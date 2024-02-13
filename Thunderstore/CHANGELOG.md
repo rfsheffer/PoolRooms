@@ -1,3 +1,13 @@
+**<details><summary>Version 0.1.10</summary>**
+
+* Added a bit of extra room depth to the entrance outward from the entrance door so other rooms wont be generated on the other side of the entrance door
+* All prefabs are now setup to be fixed by LethalLevelLoader instead of my own scripts, not including RandomMapObject spawners
+* Improvements to level weight parsing from config
+* Dungeon fire escape counts are handled by LethalLevelLoader now
+* Improvements to setting up item groups for scrap and adding the custom items
+
+</details>
+
 **<details><summary>Version 0.1.9</summary>**
 
 * Setting Dungeon min / max to default clamped 1.0 to 2.5 respectively.

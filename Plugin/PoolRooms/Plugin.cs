@@ -51,7 +51,6 @@ namespace PoolRooms
         private static List<Item> PoolItems = new List<Item>();
         private static List<int> PoolItemRarities = new List<int>();
         private static List<SpawnableItemWithRarity> PoolItemsAdded = new List<SpawnableItemWithRarity>();
-        //private static int PoolItemsIndex = 0;
 
         private string[] MoonIdentifiers =
         {
@@ -187,7 +186,6 @@ namespace PoolRooms
             PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
             // LLL old
             //AssetBundleLoader.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
-
 
             // Register our special dungeon items
             Item LifeBuoyItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/LifeBuoy.asset");
@@ -635,9 +633,6 @@ namespace PoolRooms
                     ++rarityIndex;
                 }
 
-                // Store the current items index so we can remove the items once all the scrap has been spawned
-                //PoolItemsIndex = ___currentLevel.spawnableScrap.Count;
-
                 // Fix all scrap spawners
                 RandomScrapSpawn[] scrapSpawns = FindObjectsOfType<RandomScrapSpawn>();
                 foreach (RandomScrapSpawn scrapSpawn in scrapSpawns)
@@ -673,9 +668,6 @@ namespace PoolRooms
                 }
 
                 PoolItemsAdded.Clear();
-
-                // Remove our pool items from the scrap list so they don't show up on this moon until the next time this dungeon layout is chosen.
-                //___currentLevel.spawnableScrap.RemoveRange(PoolItemsIndex - PoolItems.Count, PoolItems.Count);
             }
         }
 
