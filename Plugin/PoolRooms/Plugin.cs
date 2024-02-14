@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.11";
+        private const string modVersion = "0.1.12";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -38,6 +38,7 @@ namespace PoolRooms
         public static AssetBundle DungeonAssets;
 
         // Configs
+        private ConfigEntry<bool> configUsePoolRoomsMoonsConfig;
         private ConfigEntry<int> configBaseRarity;
         private ConfigEntry<float> configMinGenerationScale;
         private ConfigEntry<float> configMaxGenerationScale;
@@ -61,7 +62,9 @@ namespace PoolRooms
 
         private string[] MoonIdentifiers =
         {
+            "Vanilla",
             "All",
+            "Custom",
             "Free",
             "Paid",
             "Tier1",
@@ -79,7 +82,8 @@ namespace PoolRooms
 
         private Dictionary<string, string[]> MoonIDToMoonsMapping = new Dictionary<string, string[]>
         {
-            { "all", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March", "Rend", "Dine", "Titan" } },
+            { "vanilla", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March", "Rend", "Dine", "Titan" } },
+            { "all", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March", "Rend", "Dine", "Titan", "Custom" } },
             { "free", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March" } },
             { "paid", new string[] { "Rend", "Dine", "Titan" } },
             { "tier1", new string[] { "Experimentation", "Assurance", "Vow" } },
@@ -127,6 +131,10 @@ namespace PoolRooms
             harmony.PatchAll(typeof(EntranceTeleportPatch));
 
             // Config setup
+            configUsePoolRoomsMoonsConfig = Config.Bind("General",
+                "UsePoolRoomsMoonsConfig",
+                false,
+                new ConfigDescription("If true, will use the plugins moon config over Lethal Level Loaders config generation."));
             configMoons = Config.Bind("General",
                 "Moons",
                 "All:100",
@@ -138,7 +146,7 @@ namespace PoolRooms
                 "BaseRarity",
                 100,
                 new ConfigDescription("A baseline rarity weight for each moon. Only used if Guaranteed is false and a moon doesn't have an explicit rarity weight.",
-                new AcceptableValueRange<int>(1, 500)));
+                new AcceptableValueRange<int>(1, 9999)));
             configMinGenerationScale = Config.Bind("General",
                 "MinGenerationScale",
                 1.0f,
@@ -175,7 +183,7 @@ namespace PoolRooms
             configLifeBuoyWeighting = Config.Bind("General",
                 "LifeBuoyWeighting",
                 60,
-                new ConfigDescription("The pool net spawning weight",
+                new ConfigDescription("The Life Buoy spawning weight",
                 new AcceptableValueRange<int>(1, 9999)));
 
             string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -202,21 +210,26 @@ namespace PoolRooms
             myExtendedDungeonFlow.dungeonSizeMin = configMinGenerationScale.Value;
             myExtendedDungeonFlow.dungeonSizeMax = Math.Max(configMinGenerationScale.Value, configMaxGenerationScale.Value);
             myExtendedDungeonFlow.contentSourceName = modName;
-            // LLL new
             myExtendedDungeonFlow.dungeonDisplayName = modName;
-            myExtendedDungeonFlow.generateAutomaticConfigurationOptions = false;
+            myExtendedDungeonFlow.generateAutomaticConfigurationOptions = !configUsePoolRoomsMoonsConfig.Value;
 
             // Setup levels to spawn in
-            List<StringWithRarity> levels = GetLevelStringsWithRarity(configMoons.Value.ToLower(), configBaseRarity.Value, configGuaranteed.Value ? 9999 : -1);
+            List<StringWithRarity> levels = GetLevelStringsWithRarity(configMoons.Value.ToLowerInvariant(), configBaseRarity.Value, configGuaranteed.Value ? 99999 : -1);
             foreach (StringWithRarity level in levels)
             {
-                myExtendedDungeonFlow.manualPlanetNameReferenceList.Add(level);
-                mls.LogInfo($"Added to moon '{level.Name}' with a rarity weight of {level.Rarity}");
+                if (level.Name.ToLowerInvariant() == "custom" || level.Name.ToLowerInvariant() == "modded")
+                {
+                    myExtendedDungeonFlow.manualContentSourceNameReferenceList.Add(new StringWithRarity("Custom", level.Rarity));
+                    mls.LogInfo($"Added all custom moons with a rarity weight of {level.Rarity}");
+                }
+                else
+                {
+                    myExtendedDungeonFlow.manualPlanetNameReferenceList.Add(level);
+                    mls.LogInfo($"Added to moon '{level.Name}' with a rarity weight of {level.Rarity}");
+                }
             }
-            // LLL new
+
             PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
-            // LLL old
-            //AssetBundleLoader.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
 
             if (configEnableCustomScrap.Value)
             {
@@ -300,7 +313,7 @@ namespace PoolRooms
                         rarityWeight = int.Parse(nameAndRarityStr[1]);
                     }
 
-                    string[] levelsToAdd = MoonIDToMoonsMapping.Get(levelID.ToLower());
+                    string[] levelsToAdd = MoonIDToMoonsMapping.Get(levelID);
                     if (levelsToAdd != null)
                     {
                         foreach (string mapLevelID in levelsToAdd)

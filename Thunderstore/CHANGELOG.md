@@ -1,3 +1,10 @@
+**<details><summary>Version 0.1.12</summary>**
+
+* Pool Rooms will now defer to Lethal Level Loaders moon configuration by default (generateAutomaticConfigurationOptions). You can turn this off by setting UsePoolRoomsMoonsConfig to true.
+* Pool Rooms configuration now supports "Custom" moons. You can still name them individually if you choose but you can include "Custom:100" for example in the comma sep list and it will tell Lethal Level Loader to add all custom moons with a weight of 100. The "All" identifier has had "Custom" added to it as well so by default the mod adds all vanilla moons and now all custom moons.
+
+</details>
+
 **<details><summary>Version 0.1.11</summary>**
 
 * Hopeful fix for the incompatibility with LethalThings (Index out of range exception)
