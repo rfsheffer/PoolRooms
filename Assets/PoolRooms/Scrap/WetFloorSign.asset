@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WetFloorSign
   m_EditorClassIdentifier: 
   itemId: 0
-  itemName: Lifebuoy
+  itemName: Wet Floor Sign
   spawnPositionTypes:
   - {fileID: 11400000, guid: 08fa34cc277486b44a716ce65ba36a02, type: 2}
   twoHanded: 1
