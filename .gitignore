@@ -44,6 +44,10 @@ Plugin/.vs
 Plugin/LethalDungeon/bin
 Plugin/LethalDungeon/obj
 
+Assets/IndoorSwimmingPool
+Assets/IndoorSwimmingPool/**
+Assets/IndoorSwimmingPool.meta
+
 Plugin/PoolRooms/bin
 Plugin/PoolRooms/obj
 
