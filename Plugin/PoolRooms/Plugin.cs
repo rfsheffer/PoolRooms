@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.12";
+        private const string modVersion = "0.1.13";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -51,6 +51,7 @@ namespace PoolRooms
         private ConfigEntry<int> configPoolBallWeighting;
         private ConfigEntry<int> configPoolNetWeighting;
         private ConfigEntry<int> configLifeBuoyWeighting;
+        private ConfigEntry<int> configWetFloorSignWeighting;
 
         // The loaded dungeon flow
         private static DunGen.Graph.DungeonFlow DungeonFlow = null;
@@ -185,6 +186,11 @@ namespace PoolRooms
                 60,
                 new ConfigDescription("The Life Buoy spawning weight",
                 new AcceptableValueRange<int>(1, 9999)));
+            configWetFloorSignWeighting = Config.Bind("General",
+                "WetFloorSignWeighting",
+                60,
+                new ConfigDescription("The Wet Floor Sign spawning weight",
+                new AcceptableValueRange<int>(1, 9999)));
 
             string sAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             DungeonAssets = AssetBundle.LoadFromFile(Path.Combine(sAssemblyLocation, "poolrooms"));
@@ -254,6 +260,13 @@ namespace PoolRooms
                 PoolItems.Add(PoolBallItem);
                 PoolItemRarities.Add(configPoolBallWeighting.Value);
                 LethalLib.Modules.Items.RegisterScrap(PoolBallItem, configPoolBallWeighting.Value, configUseCustomScrapGlobally.Value ? LevelTypes.All : LevelTypes.None);
+
+                Item WetFloorSignItem = DungeonAssets.LoadAsset<Item>("Assets/PoolRooms/Scrap/WetFloorSign.asset");
+                LethalLib.Modules.Utilities.FixMixerGroups(WetFloorSignItem.spawnPrefab);
+                LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(WetFloorSignItem.spawnPrefab);
+                PoolItems.Add(WetFloorSignItem);
+                PoolItemRarities.Add(configWetFloorSignWeighting.Value);
+                LethalLib.Modules.Items.RegisterScrap(WetFloorSignItem, configWetFloorSignWeighting.Value, configUseCustomScrapGlobally.Value ? LevelTypes.All : LevelTypes.None);
             }
 
             // Pool Rooms Doors

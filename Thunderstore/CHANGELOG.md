@@ -1,3 +1,11 @@
+**<details><summary>Version 0.1.13</summary>**
+
+* Wet floor sign scrap
+* Bathrooms
+* Pool Area art and design pass
+
+</details>
+
 **<details><summary>Version 0.1.12</summary>**
 
 * Pool Rooms will now defer to Lethal Level Loaders moon configuration by default (generateAutomaticConfigurationOptions). You can turn this off by setting UsePoolRoomsMoonsConfig to true.

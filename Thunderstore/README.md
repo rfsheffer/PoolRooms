@@ -24,10 +24,14 @@
 
 **Coming Soon!**
 --
+* Pool Noodle weapon
+* large, laberinth hallways. Similar to the criss cross halls in factory. Maybe a 3x3 with a large, changing interior. Blue hallways style like the 4 way.
+* Larger entrance
+* Bathrooms, sorta like a pool right?
+* Bind to LLL DungeonEvents::onApparatusTaken and make the pool lights red when taken
 * General overall tuning
 * More clutter and room details
 * Allow player to drown and make water a hindrance to speed
-* Pool Noodle weapon
 
 **Screenshots**
 --
@@ -46,6 +50,7 @@
 --
 * **Water Shader** *https://github.com/flamacore/UnityHDRPSimpleWater*
 * **First Time Audio** *https://www.youtube.com/watch?v=xr2ARQFnF8k*
+* **Wet Floor Sign by charliej1** *https://sketchfab.com/3d-models/wet-floor-sign-71b17fc733134616b1d87a5e7d669717*
 
 **Special Thanks**
 --

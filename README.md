@@ -16,15 +16,15 @@ Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 - Functioning lockers with loot inside
 - Water splashes particles and sounds from players as they move through water areas
 
-## TODO
+## FUTURE LIST
+- Pool Noodle weapon
+- large, laberinth hallways. Similar to the criss cross halls in factory. Maybe a 3x3 with a large, changing interior. Blue hallways style like the 4 way.
+- Larger entrance
+- Bathrooms, sorta like a pool right?
+- Bind to LLL DungeonEvents::onApparatusTaken and make the pool lights red when taken
 - General overall tuning
 - More clutter and room details
 - Allow player to drown and make water a hindrance to speed
-- Pool Noodle weapon
-
-## FUTURE
-- More Rooms?
-- More Custom Scrap
 
 ## Screenshots
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot1.jpg?raw=true "Shot 1")
@@ -58,7 +58,7 @@ In Unity open the GeneratePoolRooms scene and run it.
 - LethalLevelLoader : https://github.com/IAmBatby/LethalLevelLoader
 
 # Attributions and licenses
-The plugin was initially based on Badhamknibbs SCP dungeon code which can be found here:
+The plugin was initially based on Badhamknibbs SCP dungeon plugin code which can be found here:
  https://github.com/Badhamknibbs/SCPCB_DunGen_LC
 
 Water Shader:
@@ -67,5 +67,8 @@ Water Shader:
 First Time Audio:
 soundscape: Underwater Eerie Ocean Ambience
  https://www.youtube.com/watch?v=xr2ARQFnF8k
+
+Wet Floor Sign by charliej1:
+ https://sketchfab.com/3d-models/wet-floor-sign-71b17fc733134616b1d87a5e7d669717
 
 The code of this mod is provided under the MIT license (see license file)
