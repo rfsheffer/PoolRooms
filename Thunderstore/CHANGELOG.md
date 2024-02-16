@@ -3,6 +3,7 @@
 * Wet floor sign scrap
 * Bathrooms
 * Pool Area art and design pass
+* New Labyrinth tunnel room type
 
 </details>
 
