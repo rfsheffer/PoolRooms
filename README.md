@@ -18,9 +18,7 @@ Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 
 ## FUTURE LIST
 - Pool Noodle weapon
-- large, laberinth hallways. Similar to the criss cross halls in factory. Maybe a 3x3 with a large, changing interior. Blue hallways style like the 4 way.
 - Larger entrance
-- Bathrooms, sorta like a pool right?
 - Bind to LLL DungeonEvents::onApparatusTaken and make the pool lights red when taken
 - General overall tuning
 - More clutter and room details
@@ -30,9 +28,8 @@ Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot1.jpg?raw=true "Shot 1")
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot2.jpg?raw=true "Shot 2")
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot3.jpg?raw=true "Shot 3")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot4.jpg?raw=true "Shot 4")
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot5.jpg?raw=true "Shot 5")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot6.jpg?raw=true "Shot 6")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/poolupgrades.png?raw=true "Shot 6")
 
 # How to build and install
 - Install Evaisa Netcode patcher using the command: dotnet tool install -g Evaisa.NetcodePatcher.Cli
