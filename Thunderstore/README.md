@@ -6,7 +6,7 @@
 **Description**
 --
 
-**Pool Rooms** is a Lethal Company interior featuring a layout all about the classic swimming pool aesthetic.
+**Pool Rooms** is a Lethal Company interior featuring a layout all about the classic swimming pool aesthetic, with a hint of liminality.
 
 **Features / Supports**
 --
