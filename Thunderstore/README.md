@@ -33,13 +33,13 @@
 
 **Screenshots**
 --
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/poolupgrades.jpg?raw=true "Shot 1")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/lockers.jpg?raw=true "Shot 2")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/bathrooms.jpg?raw=true "Shot 3")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/poolupgrades.png?raw=true "Shot 1")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/lockers.png?raw=true "Shot 2")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/bathrooms.png?raw=true "Shot 3")
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot2.jpg?raw=true "Shot 4")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot1.png?raw=true "Shot 5")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot3.png?raw=true "Shot 6")
-![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot5.png?raw=true "Shot 7")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot1.jpg?raw=true "Shot 5")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot3.jpg?raw=true "Shot 6")
+![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/shot5.jpg?raw=true "Shot 7")
 
 **Known Issues**
 --
