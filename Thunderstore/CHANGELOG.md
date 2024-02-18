@@ -1,6 +1,5 @@
 **<details><summary>Version 0.1.14</summary>**
 
-* Updated screenshots
 * Updated LLL dependency to 1.1.6
 * Minimum value of MaxGenerationScale set to 1.0
 * Added a Nav mesh obstacle component with carve to all tile blockers just in case two rooms are close enough that nav mesh would be generated between them
