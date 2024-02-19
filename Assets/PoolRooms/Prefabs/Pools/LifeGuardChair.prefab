@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4736681698440864}
-  m_Layer: 24
+  m_Layer: 8
   m_Name: LifeGuardChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 33568243741783294}
   - component: {fileID: 23262402260707924}
   - component: {fileID: 8027635408881230218}
-  m_Layer: 24
+  - component: {fileID: 5388979589044637228}
+  m_Layer: 8
   m_Name: LifeGuard_Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,3 +139,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6322111, y: 0.64882314, z: 1.8532141}
   m_Center: {x: 0, y: 0, z: 0.9266071}
+--- !u!208 &5388979589044637228
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788649649585310}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.316, y: 0.324, z: 0.92700005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.92700005}
+  m_TimeToStationary: 0.5

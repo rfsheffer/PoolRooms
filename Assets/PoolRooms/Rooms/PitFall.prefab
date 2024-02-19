@@ -2378,7 +2378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowImmediateRepeats: 1
   AllowRotation: 1
-  RepeatMode: 2
+  RepeatMode: 1
   OverrideAutomaticTileBounds: 1
   TileBoundsOverride:
     m_Center: {x: 0, y: -4.05, z: 6}

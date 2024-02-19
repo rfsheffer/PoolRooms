@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.14";
+        private const string modVersion = "0.1.15";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -147,7 +147,7 @@ namespace PoolRooms
                 "BaseRarity",
                 100,
                 new ConfigDescription("A baseline rarity weight for each moon. Only used if Guaranteed is false and a moon doesn't have an explicit rarity weight.",
-                new AcceptableValueRange<int>(1, 9999)));
+                new AcceptableValueRange<int>(0, 9999)));
             configMinGenerationScale = Config.Bind("General",
                 "MinGenerationScale",
                 1.0f,
