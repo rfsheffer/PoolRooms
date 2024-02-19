@@ -252,7 +252,7 @@ MonoBehaviour:
   boolValue: 0
   setInitialState: 0
   initialBoolState: 0
-  thisAudioSource: {fileID: 492979624405842295}
+  thisAudioSource: {fileID: 2882582898373549942}
   boolFalseAudios:
   - {fileID: 8300000, guid: c97e477f507b7a94ba4a35ba442ee3f1, type: 3}
   boolTrueAudios:
@@ -489,10 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5722756102158747052}
-  - component: {fileID: 492979624405842295}
-  - component: {fileID: 8976200821285023731}
-  - component: {fileID: 7483180388528181724}
-  - component: {fileID: 6770597289058517749}
+  - component: {fileID: 2882582898373549942}
   m_Layer: 24
   m_Name: DoorSound
   m_TagString: Untagged
@@ -515,7 +512,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3534069184208202609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &492979624405842295
+--- !u!82 &2882582898373549942
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,7 +533,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 3
-  MaxDistance: 17
+  MaxDistance: 12
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -611,70 +608,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8976200821285023731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254158907660893953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e857ed656e96a4fb166662994c9ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useReverb: 1
-  overridingLowPass: 0
-  lowPassOverride: 20000
-  debugLog: 0
---- !u!169 &7483180388528181724
-AudioLowPassFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254158907660893953}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_LowpassResonanceQ: 1
-  lowpassLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.9090496
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!164 &6770597289058517749
-AudioReverbFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254158907660893953}
-  m_Enabled: 1
-  m_DryLevel: 0
-  m_Room: 0
-  m_RoomHF: 0
-  m_DecayTime: 1
-  m_DecayHFRatio: 0.5
-  m_ReflectionsLevel: -10000
-  m_ReverbLevel: 0
-  m_ReverbDelay: 0.04
-  m_Diffusion: 100
-  m_Density: 100
-  m_HFReference: 5000
-  m_RoomLF: 0
-  m_LFReference: 250
-  m_ReflectionsDelay: 0
-  m_ReverbPreset: 27
 --- !u!1 &9088752422505154889
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,10 @@
+**<details><summary>Version 0.1.15</summary>**
+
+* Truss details added to all large rooms
+* Details pass in locker rooms
+* Connections will now be generated between rooms more often
+* General generation tweaking based on feedback and testing
+
 **<details><summary>Version 0.1.14</summary>**
 
 * Updated LLL dependency to 1.1.6
