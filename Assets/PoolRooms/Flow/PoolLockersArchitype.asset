@@ -19,9 +19,9 @@ MonoBehaviour:
   BranchCapType: 0
   BranchingDepth:
     Min: 2
-    Max: 4
+    Max: 3
   BranchCount:
     Min: 2
-    Max: 4
+    Max: 3
   StraightenChance: 0
   Unique: 0

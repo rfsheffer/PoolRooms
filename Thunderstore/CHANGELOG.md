@@ -1,3 +1,13 @@
+**<details><summary>Version 0.1.16</summary>**
+
+* Changed "all", "custom", "modded", and "vanilla" configMoons to use dynamicLevelTagsList which should fixing the interior spawning on Custom moons
+* More art details
+* Reduced the dungeon main path length and branching lengths a bit
+* Detecting teleports out of water and stopping the water splashing behavior when noticed
+* Added radar rendering blockers on hallway blockers and to mask out 4 way and labyrinth non-traversable areas
+
+</details>
+
 **<details><summary>Version 0.1.15</summary>**
 
 * Truss details added to all large rooms
@@ -5,11 +15,15 @@
 * Connections will now be generated between rooms more often
 * General generation tweaking based on feedback and testing
 
+</details>
+
 **<details><summary>Version 0.1.14</summary>**
 
 * Updated LLL dependency to 1.1.6
 * Minimum value of MaxGenerationScale set to 1.0
 * Added a Nav mesh obstacle component with carve to all tile blockers just in case two rooms are close enough that nav mesh would be generated between them
+
+</details>
 
 **<details><summary>Version 0.1.13</summary>**
 

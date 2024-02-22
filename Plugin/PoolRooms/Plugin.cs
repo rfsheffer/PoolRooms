@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.15";
+        private const string modVersion = "0.1.16";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -83,8 +83,6 @@ namespace PoolRooms
 
         private Dictionary<string, string[]> MoonIDToMoonsMapping = new Dictionary<string, string[]>
         {
-            { "vanilla", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March", "Rend", "Dine", "Titan" } },
-            { "all", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March", "Rend", "Dine", "Titan", "Custom" } },
             { "free", new string[] { "Experimentation", "Assurance", "Vow", "Offense", "March" } },
             { "paid", new string[] { "Rend", "Dine", "Titan" } },
             { "tier1", new string[] { "Experimentation", "Assurance", "Vow" } },
@@ -152,12 +150,12 @@ namespace PoolRooms
                 "MinGenerationScale",
                 1.0f,
                 new ConfigDescription("The minimum scale to generate the dungeon.",
-                new AcceptableValueRange<float>(1.0f, 10.0f)));
+                new AcceptableValueRange<float>(0.1f, 10.0f)));
             configMaxGenerationScale = Config.Bind("General",
                 "MaxGenerationScale",
                 2.5f,
                 new ConfigDescription("The maximum scale to generate the dungeon.",
-                new AcceptableValueRange<float>(1.0f, 10.0f)));
+                new AcceptableValueRange<float>(0.1f, 10.0f)));
             configGuaranteed = Config.Bind("General",
                 "Guaranteed",
                 false,
@@ -223,10 +221,22 @@ namespace PoolRooms
             List<StringWithRarity> levels = GetLevelStringsWithRarity(configMoons.Value.ToLowerInvariant(), configBaseRarity.Value, configGuaranteed.Value ? 99999 : -1);
             foreach (StringWithRarity level in levels)
             {
-                if (level.Name.ToLowerInvariant() == "custom" || level.Name.ToLowerInvariant() == "modded")
+                string levelNameLower = level.Name.ToLowerInvariant();
+                if (levelNameLower == "all")
                 {
-                    myExtendedDungeonFlow.manualContentSourceNameReferenceList.Add(new StringWithRarity("Custom", level.Rarity));
+                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Vanilla", level.Rarity));
+                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Custom", level.Rarity));
+                    mls.LogInfo($"Added all moons + custom with a rarity weight of {level.Rarity}");
+                }
+                else if (levelNameLower == "custom" || levelNameLower == "modded")
+                {
+                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Custom", level.Rarity));
                     mls.LogInfo($"Added all custom moons with a rarity weight of {level.Rarity}");
+                }
+                else if (levelNameLower == "vanilla")
+                {
+                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Vanilla", level.Rarity));
+                    mls.LogInfo($"Added all vanilla moons with a rarity weight of {level.Rarity}");
                 }
                 else
                 {

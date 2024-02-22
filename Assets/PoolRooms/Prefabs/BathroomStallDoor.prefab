@@ -253,10 +253,8 @@ MonoBehaviour:
   setInitialState: 0
   initialBoolState: 0
   thisAudioSource: {fileID: 2882582898373549942}
-  boolFalseAudios:
-  - {fileID: 8300000, guid: c97e477f507b7a94ba4a35ba442ee3f1, type: 3}
-  boolTrueAudios:
-  - {fileID: 8300000, guid: 8eb0ca25e44b5994f94b28309807f2a8, type: 3}
+  boolFalseAudios: []
+  boolTrueAudios: []
   secondaryAudios: []
   playWhileTrue: {fileID: 0}
   resetAudioWhenFalse: 0

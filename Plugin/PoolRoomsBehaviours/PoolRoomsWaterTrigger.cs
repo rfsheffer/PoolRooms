@@ -11,7 +11,7 @@ namespace PoolRooms
 {
     public class PoolRoomsWaterBehaviour : MonoBehaviour
     {
-        public static string BehaviorsVer = "2";
+        public static string BehaviorsVer = "3";
 
         public AudioSource SplashSound = null;
         public AudioSource WaterMovementSound = null;
@@ -109,7 +109,8 @@ namespace PoolRooms
 
         private void Update()
         {
-            foreach(Transform enteredThing in EnteredThingTransforms)
+            List<Transform> thingsToRemove = new List<Transform>();
+            foreach (Transform enteredThing in EnteredThingTransforms)
             {
                 PoolRoomsWaterBehaviour poolRoomsWaterBehaviour = FindGameObjectChildWaterBehaviour(enteredThing.gameObject);
                 if (poolRoomsWaterBehaviour != null)
@@ -123,6 +124,12 @@ namespace PoolRooms
 
                     // Player moving this frame?
                     float playerMoveSpeed = (poolRoomsWaterBehaviour.LastPosition - enteredThing.position).magnitude;
+                    if(playerMoveSpeed > 5.0f)
+                    {
+                        // The player moved a very far distance in a short period of time, probably teleported by something. Stop being in water!
+                        thingsToRemove.Add(enteredThing);
+                        continue;
+                    }
                     bool moving = playerMoveSpeed > (0.04f * Time.deltaTime);
                     poolRoomsWaterBehaviour.LastPosition = enteredThing.position;
 
@@ -153,6 +160,17 @@ namespace PoolRooms
                     }
                 }
             }
+            // Remove things which were teleported
+            foreach (Transform enteredThing in thingsToRemove)
+            {
+                EnteredThingTransforms.Remove(enteredThing);
+                PoolRoomsWaterBehaviour poolRoomsWaterBehaviour = FindGameObjectChildWaterBehaviour(enteredThing.gameObject);
+                if (poolRoomsWaterBehaviour != null)
+                {
+                    poolRoomsWaterBehaviour.WaterMovementSound.Stop();
+                    OnExit(enteredThing.gameObject.GetComponent<Collider>());
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -177,6 +195,7 @@ namespace PoolRooms
                         poolRoomsWaterBehaviour = behaviorGO.GetComponent<PoolRoomsWaterBehaviour>();
                     }
 
+                    poolRoomsWaterBehaviour.LastPosition = component.transform.position;
                     poolRoomsWaterBehaviour.WaterMovementSound.Play();
                     poolRoomsWaterBehaviour.WaterMovementSound.volume = 0;
                 }
