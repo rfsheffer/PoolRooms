@@ -1,3 +1,12 @@
+**<details><summary>Version 0.1.17</summary>**
+
+* Added collision to the props and trusses above the wave room, and it isn't so safe up there anymore...
+* Pool lights turn red when pulling the apparatus
+* Added some more extra/random details
+* New long room
+
+</details>
+
 **<details><summary>Version 0.1.16</summary>**
 
 * Changed "all", "custom", "modded", and "vanilla" configMoons to use dynamicLevelTagsList which should fixing the interior spawning on Custom moons

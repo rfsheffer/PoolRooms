@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.16";
+        private const string modVersion = "0.1.17";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -207,7 +207,7 @@ namespace PoolRooms
 
             AudioClip FirstTimeDungeonAudio = DungeonAssets.LoadAsset<AudioClip>("Assets/PoolRooms/Sound/PoolRoomsFirstTime.wav");
 
-            // Lethal Level Loader Version
+            // Lethal Level Loader setup
             ExtendedDungeonFlow myExtendedDungeonFlow = ScriptableObject.CreateInstance<ExtendedDungeonFlow>();
             myExtendedDungeonFlow.dungeonFlow = DungeonFlow;
             myExtendedDungeonFlow.dungeonFirstTimeAudio = FirstTimeDungeonAudio;
@@ -244,6 +244,9 @@ namespace PoolRooms
                     mls.LogInfo($"Added to moon '{level.Name}' with a rarity weight of {level.Rarity}");
                 }
             }
+
+            // Make the pool lights red when apparatus taken
+            myExtendedDungeonFlow.dungeonEvents.onApparatusTaken.AddListener(OnDungeonApparatusTaken);
 
             PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
 
@@ -295,8 +298,16 @@ namespace PoolRooms
             GameObject WaterBehavior = DungeonAssets.LoadAsset<GameObject>("Assets/PoolRooms/Prefabs/WaterBehavior.prefab");
             LethalLib.Modules.Utilities.FixMixerGroups(WaterBehavior);
 
-
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
+        }
+
+        private void OnDungeonApparatusTaken(LungProp lung)
+        {
+            PoolLightBehaviour[] poolLights = FindObjectsOfType<PoolLightBehaviour>();
+            foreach (PoolLightBehaviour light in poolLights)
+            {
+                light.OnApparatusPulled();
+            }
         }
 
         // Converts a string 'vow:100,march:50,paid:100' to a list of maps with rarity weight

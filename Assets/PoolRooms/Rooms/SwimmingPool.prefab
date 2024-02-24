@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 8847560898269672444}
   - component: {fileID: 6097012866016166149}
   - component: {fileID: 5322006481060624998}
+  - component: {fileID: 4240579223171260118}
   m_Layer: 0
   m_Name: PoolLights
   m_TagString: Untagged
@@ -1379,6 +1380,20 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &4240579223171260118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161621929388201860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1154231644, guid: 63da9ea0fbe25f742ba00dd11022453f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightToUpdate: {fileID: 6097012866016166149}
+  RedAlertColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &2285670164771553796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,6 +3710,7 @@ GameObject:
   - component: {fileID: 5757184793800500682}
   - component: {fileID: 8660420135741022788}
   - component: {fileID: 7382586107976213442}
+  - component: {fileID: 8994951922293857830}
   m_Layer: 0
   m_Name: PoolLights
   m_TagString: Untagged
@@ -3901,6 +3917,20 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &8994951922293857830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639455952537566144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1154231644, guid: 63da9ea0fbe25f742ba00dd11022453f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightToUpdate: {fileID: 8660420135741022788}
+  RedAlertColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5742194412201551408
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,6 @@ Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 ## FUTURE LIST
 - Pool Noodle weapon
 - Larger entrance
-- Bind to LLL DungeonEvents::onApparatusTaken and make the pool lights red when taken
 - General overall tuning
 - More clutter and room details
 - Allow player to drown and make water a hindrance to speed
