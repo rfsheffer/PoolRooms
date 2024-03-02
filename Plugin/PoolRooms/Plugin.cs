@@ -387,7 +387,7 @@ namespace PoolRooms
                 Item GoldenCupItem = null;
                 foreach (Item item in playersManager.allItemsList.itemsList)
                 {
-                    if(item.itemName == "Bottles")
+                    if (item.itemName == "Bottles")
                     {
                         BottlesItem = item;
                     }
@@ -395,7 +395,7 @@ namespace PoolRooms
                     {
                         GoldenCupItem = item;
                     }
-                    if(BottlesItem && GoldenCupItem)
+                    if (BottlesItem && GoldenCupItem)
                     {
                         break;
                     }
@@ -493,6 +493,21 @@ namespace PoolRooms
                     PoolItemsAdded.Clear();
                 }
             }
+
+            /*[HarmonyPatch("SyncScrapValuesClientRpc")]
+            [HarmonyPrefix]
+            static void SyncScrapValuesClientRpc(NetworkObjectReference[] spawnedScrap, int[] allScrapValue)
+            {
+                Vector3 mainEntranceLocation = RoundManager.FindMainEntrancePosition();
+
+                for (int i = 0; i < spawnedScrap.Length; i++)
+                {
+                    if (spawnedScrap[i].TryGet(out var networkObject))
+                    {
+                        Instance.mls.LogInfo($"Added scrap item '{networkObject.gameObject.name}' {Vector3.Distance(mainEntranceLocation, networkObject.gameObject.transform.position)} Meters from the entrance");
+                    }
+                }
+            }*/
         }
 
         [HarmonyPatch(typeof(EntranceTeleport))]

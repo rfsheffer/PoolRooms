@@ -773,7 +773,7 @@ Transform:
   m_GameObject: {fileID: 815919785217864247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31, y: -0.241, z: 0.007}
+  m_LocalPosition: {x: -0.31, y: -0.241, z: -11.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -1702,6 +1702,37 @@ MonoBehaviour:
   connectedDoorway: {fileID: 0}
   hideConditionalObjects: 0
   fileVersion: 1
+--- !u!1 &2231135453014651829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649934253886334909}
+  m_Layer: 0
+  m_Name: AINode (2)
+  m_TagString: AINode
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649934253886334909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231135453014651829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.14, y: -0.179, z: -12.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7638616332241309380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2350319602852418846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,7 +2143,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -2433,7 +2464,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -2934,6 +2965,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &3537692367330589116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7569315591972584744}
+  m_Layer: 0
+  m_Name: AINode (3)
+  m_TagString: AINode
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7569315591972584744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537692367330589116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31, y: -0.241, z: 12.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7638616332241309380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3902119942331903415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,7 +3291,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -3490,7 +3552,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -3727,7 +3789,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -4211,7 +4273,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -4850,6 +4912,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1383506462739795096, guid: 80445d482f062e940a5465c355d9b90f, type: 3}
+--- !u!1 &6156238598266308521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035097310571376051}
+  m_Layer: 0
+  m_Name: AINode (4)
+  m_TagString: AINode
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035097310571376051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156238598266308521}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.85, y: -0.241, z: 12.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7638616332241309380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6372247366841125953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,7 +5479,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -5548,7 +5641,11 @@ Transform:
   - {fileID: 9037211650333067630}
   - {fileID: 4676762601680159872}
   - {fileID: 1729032493728170731}
+  - {fileID: 7569315591972584744}
+  - {fileID: 1035097310571376051}
+  - {fileID: 8894919406359016240}
   - {fileID: 1886177751636961728}
+  - {fileID: 1649934253886334909}
   - {fileID: 7691131893088251106}
   - {fileID: 3760329503521088185}
   - {fileID: 816872958359104760}
@@ -5714,7 +5811,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -6166,7 +6263,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -6267,6 +6364,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7936565817628782508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8894919406359016240}
+  m_Layer: 0
+  m_Name: AINode (5)
+  m_TagString: AINode
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8894919406359016240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7936565817628782508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.85, y: -0.241, z: -11.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7638616332241309380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8053064357721867545
 GameObject:
   m_ObjectHideFlags: 0
@@ -6320,7 +6448,7 @@ MonoBehaviour:
   BlockerPrefabWeights:
   - GameObject: {fileID: 2931079645286115151, guid: f1a2aa0ca154eae4c91ec4b8d8ada582, type: 3}
     Weight: 2
-  - GameObject: {fileID: 2931079645286115151, guid: 31c2b46e2620ba24c91fb3f5cb75f5bf, type: 3}
+  - GameObject: {fileID: 2931079645286115151, guid: b456d343e3fb0474ca6d2cdd8e429eac, type: 3}
     Weight: 1
   AvoidRotatingDoorPrefab: 0
   AvoidRotatingBlockerPrefab: 0
@@ -6446,7 +6574,7 @@ Transform:
   m_GameObject: {fileID: 8138976041739076953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.14, y: -0.179, z: -0.04}
+  m_LocalPosition: {x: 24.14, y: -0.179, z: 11.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,3 +1,13 @@
+**<details><summary>Version 0.1.18</summary>**
+
+* Art improvement for the entrance
+* Long lockers will no longer always have an openable locker door
+* AI pathing improvements and fixes
+* Fire exits will now only show up in a couple "room" types, no tunnels
+* Loot distribution changes
+
+</details>
+
 **<details><summary>Version 0.1.17</summary>**
 
 * Added collision to the props and trusses above the wave room, and it isn't so safe up there anymore...

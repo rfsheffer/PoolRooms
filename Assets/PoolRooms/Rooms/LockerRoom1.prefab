@@ -670,54 +670,6 @@ MonoBehaviour:
   connectedDoorway: {fileID: 0}
   hideConditionalObjects: 0
   fileVersion: 1
---- !u!1 &6310454236295001166
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2257283397695832512}
-  - component: {fileID: 3113341272861725896}
-  m_Layer: 0
-  m_Name: ScrapSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2257283397695832512
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6310454236295001166}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.543, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7638616332241309380}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3113341272861725896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6310454236295001166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc615723168fad2d87ed05ea97e3b88f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnableItems: {fileID: 11400000, guid: 77ba52bacccd14145bcce9b6554e1e81, type: 2}
-  itemSpawnRange: 5
-  spawnedItemsCopyPosition: 0
-  spawnUsed: 0
 --- !u!1 &7010417667660960894
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +716,6 @@ Transform:
   - {fileID: 2292168510573561661}
   - {fileID: 2032956689045383018}
   - {fileID: 6783029443411952739}
-  - {fileID: 2257283397695832512}
   - {fileID: 1541740517876435027}
   - {fileID: 3459422951954866634}
   m_Father: {fileID: 0}
@@ -1063,7 +1014,7 @@ Transform:
   m_GameObject: {fileID: 8381619609768793855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.348, y: 1, z: 0}
+  m_LocalPosition: {x: -0.014, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1081,9 +1032,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc615723168fad2d87ed05ea97e3b88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableItems: {fileID: 11400000, guid: 08fa34cc277486b44a716ce65ba36a02, type: 2}
+  spawnableItems: {fileID: 11400000, guid: 585bac400fdace7439e68201f5dc3a83, type: 2}
   itemSpawnRange: 5
-  spawnedItemsCopyPosition: 0
+  spawnedItemsCopyPosition: 1
   spawnUsed: 0
 --- !u!1001 &2218889707416290261
 PrefabInstance:

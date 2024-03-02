@@ -1,6 +1,6 @@
 {
     "name": "PoolRooms",
-    "version_number": "0.1.17",
+    "version_number": "0.1.18",
     "website_url": "https://github.com/rfsheffer/PoolRooms",
     "description": "Pool Rooms is a Lethal Company interior featuring a layout all about the classic swimming pool aesthetic, with a hint of liminality.",
     "dependencies": [
