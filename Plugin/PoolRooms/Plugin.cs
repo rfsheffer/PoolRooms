@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.18";
+        private const string modVersion = "0.1.19";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -214,7 +214,7 @@ namespace PoolRooms
             myExtendedDungeonFlow.dungeonSizeMin = configMinGenerationScale.Value;
             myExtendedDungeonFlow.dungeonSizeMax = Math.Max(configMinGenerationScale.Value, configMaxGenerationScale.Value);
             myExtendedDungeonFlow.contentSourceName = modName;
-            myExtendedDungeonFlow.dungeonDisplayName = modName;
+            myExtendedDungeonFlow.dungeonDisplayName = "Pool Rooms";
             myExtendedDungeonFlow.generateAutomaticConfigurationOptions = !configUsePoolRoomsMoonsConfig.Value;
 
             // Setup levels to spawn in
@@ -510,6 +510,25 @@ namespace PoolRooms
             }*/
         }
 
+        // Thanks @drako1245
+        [HarmonyPatch(typeof(PlayerControllerB))]
+        internal class PlayerControllerPatch
+        {
+            private static int footstepSurfaceStorage;
+
+            [HarmonyPatch("CheckConditionsForSinkingInQuicksand")]
+            [HarmonyPrefix]
+            private static void CheckPrefix(ref PlayerControllerB __instance)
+            {
+                bool isInsideFactory = GameNetworkManager.Instance.localPlayerController.isInsideFactory;
+                if (isInsideFactory)
+                {
+                    footstepSurfaceStorage = __instance.currentFootstepSurfaceIndex;
+                    __instance.currentFootstepSurfaceIndex = 1;
+                }
+            }
+        }
+
         [HarmonyPatch(typeof(EntranceTeleport))]
         internal class EntranceTeleportPatch
         {
@@ -518,7 +537,7 @@ namespace PoolRooms
             [HarmonyPrefix]
             static void TeleportPlayerPre()
             {
-                Instance.mls.LogInfo("Local Player Teleporting! Broadcasting!");
+                //Instance.mls.LogInfo("Local Player Teleporting! Broadcasting!");
                 BroadcastPlayerTeleported(GameNetworkManager.Instance.localPlayerController);
             }
 
@@ -527,12 +546,12 @@ namespace PoolRooms
             [HarmonyPrefix]
             static void TeleportPlayerClientPre(int playerObj)
             {
-                Instance.mls.LogInfo($"Client Player '{playerObj}' Teleporting...");
+                //Instance.mls.LogInfo($"Client Player '{playerObj}' Teleporting...");
                 StartOfRound playersManager = FindObjectOfType<StartOfRound>();
 
                 if (playersManager && playerObj >= 0 && playerObj < playersManager.allPlayerScripts.Length)
                 {
-                    Instance.mls.LogInfo("Found Client Player! Broadcasting!");
+                    //Instance.mls.LogInfo("Found Client Player! Broadcasting!");
                     BroadcastPlayerTeleported(playersManager.allPlayerScripts[playerObj]);
                 }
                 else
