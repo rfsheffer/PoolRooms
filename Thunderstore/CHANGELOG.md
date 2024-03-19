@@ -1,3 +1,10 @@
+**<details><summary>Version 0.1.19</summary>**
+
+* Fix for spraypaint by @drako1245
+* Fix for water hindrance by @drako1245
+
+</details>
+
 **<details><summary>Version 0.1.18</summary>**
 
 * Art improvement for the entrance

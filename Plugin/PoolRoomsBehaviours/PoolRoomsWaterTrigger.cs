@@ -11,7 +11,7 @@ namespace PoolRooms
 {
     public class PoolRoomsWaterBehaviour : MonoBehaviour
     {
-        public static string BehaviorsVer = "4";
+        public static string BehaviorsVer = "5";
 
         public AudioSource SplashSound = null;
         public AudioSource WaterMovementSound = null;
@@ -250,32 +250,39 @@ namespace PoolRooms
                 PlayerControllerB component = other.gameObject.GetComponent<PlayerControllerB>();
                 if (component != GameNetworkManager.Instance.localPlayerController && component != null && component.underwaterCollider != this)
                 {
-                    component.underwaterCollider = gameObject.GetComponent<Collider>();
-                    print($"Setting underwater collider to {component.underwaterCollider.name}");
+                    component.underwaterCollider = base.gameObject.GetComponent<Collider>();
+                    //print($"Setting underwater collider to {component.underwaterCollider.name}");
                     return;
                 }
             }
-            if (!isWater && !other.gameObject.CompareTag("Player"))
+            if (GameNetworkManager.Instance.localPlayerController.isInHangarShipRoom || (!isWater && !other.gameObject.CompareTag("Player")))
             {
                 return;
             }
             PlayerControllerB component2 = other.gameObject.GetComponent<PlayerControllerB>();
             if (component2 != GameNetworkManager.Instance.localPlayerController)
             {
-                print("Player is not local player controller!");
+                //print("Player is not local player controller!");
                 return;
             }
             if (isWater && !component2.isUnderwater)
             {
-                component2.underwaterCollider = gameObject.GetComponent<Collider>();
+                component2.underwaterCollider = base.gameObject.GetComponent<Collider>();
                 component2.isUnderwater = true;
-                print($"Setting underwater collider to {component2.underwaterCollider.name}");
+                //print($"Setting underwater collider to {component2.underwaterCollider.name}");
             }
             component2.statusEffectAudioIndex = audioClipIndex;
+
+            if (component2.isUnderwater)
+            {
+                component2.statusEffectAudio.volume = component2.statusEffectAudio.volume * 0.25f;
+            }
+
             if (component2.isSinking)
             {
                 return;
             }
+
             if (sinkingLocalPlayer)
             {
                 if (!component2.CheckConditionsForSinkingInQuicksand())
@@ -285,7 +292,7 @@ namespace PoolRooms
             }
             else if (component2.CheckConditionsForSinkingInQuicksand())
             {
-                Debug.Log("Set local player to sinking!");
+                //Debug.Log("Set local player to sinking!");
                 sinkingLocalPlayer = true;
                 component2.sourcesCausingSinking++;
                 component2.isMovementHindered++;
