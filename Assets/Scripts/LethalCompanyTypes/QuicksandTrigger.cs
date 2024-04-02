@@ -6,6 +6,7 @@ public class QuicksandTrigger : MonoBehaviour
 
 	public int audioClipIndex;
 
+	[Space(5f)]
 	public bool sinkingLocalPlayer;
 
 	public float movementHinderance = 1.6f;

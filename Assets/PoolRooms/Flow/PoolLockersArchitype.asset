@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0185ba60a19d82742989b66b509961d6, type: 2}
   BranchCapType: 0
   BranchingDepth:
-    Min: 2
-    Max: 3
+    Min: 1
+    Max: 2
   BranchCount:
     Min: 2
     Max: 3
