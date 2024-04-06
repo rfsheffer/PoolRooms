@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.19";
+        private const string modVersion = "0.1.20";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 

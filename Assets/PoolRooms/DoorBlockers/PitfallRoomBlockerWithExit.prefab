@@ -111,26 +111,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.86
       objectReference: {fileID: 0}
-    - target: {fileID: 1828641062744318637, guid: 011be88f974e4c440915e5f6bc66b4b0, type: 3}
-      propertyPath: DepthWeightScale.m_Curve.Array.data[1].time
-      value: 0.41194245
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828641062744318637, guid: 011be88f974e4c440915e5f6bc66b4b0, type: 3}
-      propertyPath: DepthWeightScale.m_Curve.Array.data[2].time
-      value: 0.518476
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828641062744318637, guid: 011be88f974e4c440915e5f6bc66b4b0, type: 3}
-      propertyPath: DepthWeightScale.m_Curve.Array.data[3].time
-      value: 0.6126709
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828641062744318637, guid: 011be88f974e4c440915e5f6bc66b4b0, type: 3}
-      propertyPath: DepthWeightScale.m_Curve.Array.data[4].time
-      value: 0.8364015
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828641062744318637, guid: 011be88f974e4c440915e5f6bc66b4b0, type: 3}
-      propertyPath: DepthWeightScale.m_Curve.Array.data[2].value
-      value: 0.6773163
-      objectReference: {fileID: 0}
     - target: {fileID: 4758034720689514109, guid: 011be88f974e4c440915e5f6bc66b4b0, type: 3}
       propertyPath: m_Name
       value: NormalDoorBlockerWhiteCement

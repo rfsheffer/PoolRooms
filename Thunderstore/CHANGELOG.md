@@ -1,3 +1,10 @@
+**<details><summary>Version 0.1.20</summary>**
+
+* Overall dungeon size reduction
+* Upped to Evaisa 0.15.0
+
+</details>
+
 **<details><summary>Version 0.1.19</summary>**
 
 * Fix for spraypaint by @drako1245
