@@ -1,5 +1,5 @@
 # Pool Rooms Dungeon for Lethal Company
-A Work-in-progress mod for Lethal Company featuring a interior layout all about the classic swimming pool asthetic, with a hint of liminality.
+A Lethal Company interior featuring a layout all about the classic swimming pool aesthetic, with a hint of liminality.
 
 Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 
@@ -16,12 +16,10 @@ Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 - Functioning lockers with loot inside
 - Water splashes particles and sounds from players as they move through water areas
 
-## FUTURE LIST
+## Coming Soon!
 - Pool Noodle weapon
-- Larger entrance
-- General overall tuning
-- More clutter and room details
-- Allow player to drown and make water a hindrance to speed
+- Staff Office Room End Cap
+- Allow players to drown and create some potential drowning spots
 
 ## Screenshots
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/poolupgrades.png?raw=true "Shot 1")

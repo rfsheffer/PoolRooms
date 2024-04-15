@@ -25,10 +25,8 @@
 **Coming Soon!**
 --
 * Pool Noodle weapon
-* Larger entrance
-* General overall tuning
-* More clutter and room details
-* Allow player to drown and make water a hindrance to speed
+* Staff Office Room End Cap
+* Allow players to drown and create some potential drowning spots
 
 **Screenshots**
 --
@@ -54,4 +52,4 @@
 --
 * **Evaisa** *LethalLib*
 * **IAmBatby** *LethalLevelLoader*
-
+* **Drako1245** *Code fixes, spraypaint fix*

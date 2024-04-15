@@ -1,6 +1,13 @@
+**<details><summary>Version 0.1.21</summary>**
+
+* Size increase and details pass on the entrance
+
+</details>
+
 **<details><summary>Version 0.1.20</summary>**
 
 * Overall dungeon size reduction
+* Fire exits added to more tiles
 * Upped to Evaisa 0.15.0
 
 </details>
