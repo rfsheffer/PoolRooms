@@ -1,6 +1,9 @@
 **<details><summary>Version 0.1.21</summary>**
 
 * Size increase and details pass on the entrance
+* Updated to the latest versions of support libraries (LethalLevelLoader, LethalLib)
+* Fixed some misaligned vents
+* Fixed some nav mesh in the walls of the wave room...
 
 </details>
 

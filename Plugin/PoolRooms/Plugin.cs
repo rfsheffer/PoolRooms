@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.20";
+        private const string modVersion = "0.1.21";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -209,13 +209,13 @@ namespace PoolRooms
 
             // Lethal Level Loader setup
             ExtendedDungeonFlow myExtendedDungeonFlow = ScriptableObject.CreateInstance<ExtendedDungeonFlow>();
-            myExtendedDungeonFlow.dungeonFlow = DungeonFlow;
-            myExtendedDungeonFlow.dungeonFirstTimeAudio = FirstTimeDungeonAudio;
-            myExtendedDungeonFlow.dungeonSizeMin = configMinGenerationScale.Value;
-            myExtendedDungeonFlow.dungeonSizeMax = Math.Max(configMinGenerationScale.Value, configMaxGenerationScale.Value);
-            myExtendedDungeonFlow.contentSourceName = modName;
-            myExtendedDungeonFlow.dungeonDisplayName = "Pool Rooms";
-            myExtendedDungeonFlow.generateAutomaticConfigurationOptions = !configUsePoolRoomsMoonsConfig.Value;
+            myExtendedDungeonFlow.DungeonFlow = DungeonFlow;
+            myExtendedDungeonFlow.FirstTimeDungeonAudio = FirstTimeDungeonAudio;
+            myExtendedDungeonFlow.DynamicDungeonSizeMinMax = new Vector2(configMinGenerationScale.Value, Math.Max(configMinGenerationScale.Value, configMaxGenerationScale.Value));
+            myExtendedDungeonFlow.DungeonName = "Pool Rooms";
+            myExtendedDungeonFlow.GenerateAutomaticConfigurationOptions = !configUsePoolRoomsMoonsConfig.Value;
+
+            LevelMatchingProperties matchingProperties = LevelMatchingProperties.Create(myExtendedDungeonFlow);
 
             // Setup levels to spawn in
             List<StringWithRarity> levels = GetLevelStringsWithRarity(configMoons.Value.ToLowerInvariant(), configBaseRarity.Value, configGuaranteed.Value ? 99999 : -1);
@@ -224,26 +224,28 @@ namespace PoolRooms
                 string levelNameLower = level.Name.ToLowerInvariant();
                 if (levelNameLower == "all")
                 {
-                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Vanilla", level.Rarity));
-                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Custom", level.Rarity));
+                    matchingProperties.levelTags.Add(new StringWithRarity("Vanilla", level.Rarity));
+                    matchingProperties.levelTags.Add(new StringWithRarity("Custom", level.Rarity));
                     mls.LogInfo($"Added all moons + custom with a rarity weight of {level.Rarity}");
                 }
                 else if (levelNameLower == "custom" || levelNameLower == "modded")
                 {
-                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Custom", level.Rarity));
+                    matchingProperties.levelTags.Add(new StringWithRarity("Custom", level.Rarity));
                     mls.LogInfo($"Added all custom moons with a rarity weight of {level.Rarity}");
                 }
                 else if (levelNameLower == "vanilla")
                 {
-                    myExtendedDungeonFlow.dynamicLevelTagsList.Add(new StringWithRarity("Vanilla", level.Rarity));
+                    matchingProperties.levelTags.Add(new StringWithRarity("Vanilla", level.Rarity));
                     mls.LogInfo($"Added all vanilla moons with a rarity weight of {level.Rarity}");
                 }
                 else
                 {
-                    myExtendedDungeonFlow.manualPlanetNameReferenceList.Add(level);
+                    matchingProperties.planetNames.Add(level);
                     mls.LogInfo($"Added to moon '{level.Name}' with a rarity weight of {level.Rarity}");
                 }
             }
+
+            myExtendedDungeonFlow.LevelMatchingProperties = matchingProperties;
 
             // Make the pool lights red when apparatus taken
             myExtendedDungeonFlow.dungeonEvents.onApparatusTaken.AddListener(OnDungeonApparatusTaken);

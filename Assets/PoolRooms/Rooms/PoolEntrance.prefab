@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 893959378054069695}
   - component: {fileID: 5411955747319109495}
   - component: {fileID: 3003100083976566164}
+  - component: {fileID: 4269425853931069159}
   m_Layer: 16
   m_Name: SkyLightRect
   m_TagString: Untagged
@@ -163,6 +164,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4269425853931069159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729307702189533546}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1.8409662, z: 10}
+  m_Center: {x: 0, y: -0.9204831, z: -0.00000030151477}
 --- !u!1 &815919785217864247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2111,12 @@ GameObject:
   - component: {fileID: 8004878183908556488}
   - component: {fileID: 392025868277410725}
   - component: {fileID: 7665824835686849128}
+  - component: {fileID: 1906033192073147606}
+  - component: {fileID: 7130036666403173408}
+  - component: {fileID: 6226150351010407502}
+  - component: {fileID: 2056149871505337801}
+  - component: {fileID: 4260365212257207919}
+  - component: {fileID: 3288105803971143379}
   m_Layer: 8
   m_Name: EntranceTruss
   m_TagString: Untagged
@@ -2161,6 +2189,132 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1906033192073147606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437417529658561146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.23691368, y: 1.4601974, z: 15.860111}
+  m_Center: {x: -8.560094, y: 5.271243, z: -2.030056}
+--- !u!65 &7130036666403173408
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437417529658561146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.23753738, y: 1.4601974, z: 15.860111}
+  m_Center: {x: -3.4598007, y: 5.271243, z: -2.030056}
+--- !u!65 &6226150351010407502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437417529658561146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.761543, y: 1.4601974, z: 0.2109853}
+  m_Center: {x: -6.040722, y: 5.271243, z: 0.0012664199}
+--- !u!65 &2056149871505337801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437417529658561146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.761543, y: 1.4601974, z: 0.2109853}
+  m_Center: {x: -6.040722, y: 5.271243, z: -5.79}
+--- !u!65 &4260365212257207919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437417529658561146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.23781967, y: 1.4601974, z: 15.860111}
+  m_Center: {x: -13.317614, y: 5.271243, z: -2.030056}
+--- !u!65 &3288105803971143379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437417529658561146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22488403, y: 1.4601974, z: 15.860111}
+  m_Center: {x: 1.4617195, y: 5.271243, z: -2.030056}
 --- !u!1 &7010417667660960894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,7 +3315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598882022628492809, guid: 0e3ce06fa1b3d0546b8a5595ee51ba41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.071
       objectReference: {fileID: 0}
     - target: {fileID: 4598882022628492809, guid: 0e3ce06fa1b3d0546b8a5595ee51ba41, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3169,7 +3323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598882022628492809, guid: 0e3ce06fa1b3d0546b8a5595ee51ba41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -9.858
       objectReference: {fileID: 0}
     - target: {fileID: 4598882022628492809, guid: 0e3ce06fa1b3d0546b8a5595ee51ba41, type: 3}
       propertyPath: m_LocalRotation.w
