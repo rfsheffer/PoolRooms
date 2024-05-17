@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.21";
+        private const string modVersion = "0.1.22";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -248,7 +248,7 @@ namespace PoolRooms
             myExtendedDungeonFlow.LevelMatchingProperties = matchingProperties;
 
             // Make the pool lights red when apparatus taken
-            myExtendedDungeonFlow.dungeonEvents.onApparatusTaken.AddListener(OnDungeonApparatusTaken);
+            myExtendedDungeonFlow.DungeonEvents.onApparatusTaken.AddListener(OnDungeonApparatusTaken);
 
             PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
 

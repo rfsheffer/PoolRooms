@@ -1,3 +1,9 @@
+**<details><summary>Version 0.1.22</summary>**
+
+* Update for LethalLevelLoader API updates
+
+</details>
+
 **<details><summary>Version 0.1.21</summary>**
 
 * Size increase and details pass on the entrance
