@@ -167,7 +167,7 @@ MonoBehaviour:
     OverrideAllowTileRotation: 0
     AllowTileRotation: 0
     DebugRender: 0
-    LengthMultiplier: 1
+    LengthMultiplier: 1.18
     PlaceTileTriggers: 1
     TileTriggerLayer: 2
     GenerateAsynchronously: 1

@@ -27,7 +27,7 @@ namespace PoolRooms
     {
         private const string modGUID = "skidz.PoolRooms";
         private const string modName = "PoolRooms";
-        private const string modVersion = "0.1.22";
+        private const string modVersion = "0.1.23";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
@@ -148,12 +148,12 @@ namespace PoolRooms
                 new AcceptableValueRange<int>(0, 9999)));
             configMinGenerationScale = Config.Bind("General",
                 "MinGenerationScale",
-                1.0f,
+                1.18f,
                 new ConfigDescription("The minimum scale to generate the dungeon.",
                 new AcceptableValueRange<float>(0.1f, 10.0f)));
             configMaxGenerationScale = Config.Bind("General",
                 "MaxGenerationScale",
-                2.5f,
+                2.0f,
                 new ConfigDescription("The maximum scale to generate the dungeon.",
                 new AcceptableValueRange<float>(0.1f, 10.0f)));
             configGuaranteed = Config.Bind("General",
@@ -513,7 +513,7 @@ namespace PoolRooms
         }
 
         // Thanks @drako1245
-        [HarmonyPatch(typeof(PlayerControllerB))]
+        /*[HarmonyPatch(typeof(PlayerControllerB))]
         internal class PlayerControllerPatch
         {
             private static int footstepSurfaceStorage;
@@ -529,7 +529,7 @@ namespace PoolRooms
                     __instance.currentFootstepSurfaceIndex = 1;
                 }
             }
-        }
+        }*/
 
         [HarmonyPatch(typeof(EntranceTeleport))]
         internal class EntranceTeleportPatch

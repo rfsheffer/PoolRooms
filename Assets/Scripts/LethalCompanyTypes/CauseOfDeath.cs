@@ -14,5 +14,8 @@ public enum CauseOfDeath
 	Electrocution = 11,
 	Kicking = 12,
 	Burning = 13,
-	Stabbing = 14
+	Stabbing = 14,
+	Fan = 15,
+	Inertia = 16,
+	Snipped = 17
 }

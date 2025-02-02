@@ -1,3 +1,15 @@
+**<details><summary>Version 0.1.23</summary>**
+
+* Update for LethalLevelLoader API updates
+* Sauna room always has a light now and improved lighting
+* Pool water added to main pool and fixed pool water in bridges room
+* Reduced water hinderance and removed it in very shallow cases
+* Reduced dungeon generation path size
+* Removed extra stalls in female bathroom for gameplay reasons
+* Reduced package size by enabling crunch and ensuring textures stay at max 1024
+
+</details>
+
 **<details><summary>Version 0.1.22</summary>**
 
 * Update for LethalLevelLoader API updates

@@ -6013,6 +6013,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2607803176389919035, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: movementHinderance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: parameters.size.y
       value: 1.5

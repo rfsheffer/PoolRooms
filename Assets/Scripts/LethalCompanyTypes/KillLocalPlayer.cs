@@ -24,6 +24,11 @@ public class KillLocalPlayer : MonoBehaviour
 
 	public int playAudioOnDeath = -1;
 
+	public GameObject spawnPrefab;
+
+	public bool disallowKillingInShip;
+
+	public bool destroyEnemies;
 	public void KillPlayer(NetworkBehaviour playerWhoTriggered)
 	{
 	}

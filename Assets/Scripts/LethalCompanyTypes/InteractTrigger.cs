@@ -62,6 +62,7 @@ public class InteractTrigger : NetworkBehaviour
 	public int randomChancePercentage;
 
 	[Header("Events")]
+	public UnityEvent<NetworkBehaviour> onInteractEarlyOtherClients;
 	public UnityEvent<NetworkBehaviour> onInteract;
 
 	public UnityEvent<NetworkBehaviour> onInteractEarly;
@@ -91,6 +92,20 @@ public class InteractTrigger : NetworkBehaviour
 	public Transform playerPositionNode;
 
 	private Transform lockedPlayer;
+
+	public bool clampLooking;
+
+	public bool setVehicleAnimation;
+
+	public float minVerticalClamp;
+
+	public float maxVerticalClamp;
+
+	public float horizontalClamp;
+
+	public bool allowUseWhileInAnimation;
+
+	public Transform overridePlayerParent;
 
 	private bool usedByOtherClient;
 

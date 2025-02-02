@@ -39,6 +39,8 @@ public class AnimatedObjectTrigger : NetworkBehaviour
 	[Space(3f)]
 	public ParticleSystem playParticle;
 
+	public int playParticleOnTimesTriggered;
+
 	[Space(4f)]
 	private NetworkBehaviour playersManager;
 

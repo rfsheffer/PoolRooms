@@ -43,6 +43,13 @@ public class DoorLock : NetworkBehaviour
 
 	private float playerPickingLockProgress;
 
+	[Space(3f)]
+	public float defaultTimeToHold = 0.3f;
+
+	private bool hauntedDoor;
+
+	private float doorHauntInterval;
+
 
 	public void OnHoldInteract()
 	{

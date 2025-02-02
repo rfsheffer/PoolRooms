@@ -67,7 +67,7 @@ public abstract class GrabbableObject : NetworkBehaviour
 
 	public MeshRenderer mainObjectRenderer;
 
-	private int isSendingItemRPC;
+	public int isSendingItemRPC;
 
 	public bool scrapPersistedThroughRounds;
 
@@ -81,5 +81,5 @@ public abstract class GrabbableObject : NetworkBehaviour
 	[Space(3f)]
 	public bool grabbableToEnemies = true;
 
-	private bool hasBeenHeld;
+	public bool hasBeenHeld;
 }

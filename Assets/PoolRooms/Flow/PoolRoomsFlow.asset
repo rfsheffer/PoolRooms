@@ -15,8 +15,8 @@ MonoBehaviour:
   globalPropGroupID_obsolete: 
   globalPropRanges_obsolete: []
   Length:
-    Min: 8
-    Max: 10
+    Min: 6
+    Max: 6
   BranchMode: 0
   BranchCount:
     Min: 1
@@ -28,8 +28,8 @@ MonoBehaviour:
       Max: 1
   - ID: 3
     Count:
-      Min: 16
-      Max: 22
+      Min: 20
+      Max: 28
   - ID: 5
     Count:
       Min: 5
@@ -66,8 +66,12 @@ MonoBehaviour:
     Count:
       Min: 1
       Max: 1
+  - ID: 1337
+    Count:
+      Min: 20
+      Max: 20
   KeyManager: {fileID: 0}
-  DoorwayConnectionChance: 1
+  DoorwayConnectionChance: 0.8
   RestrictConnectionToSameSection: 0
   TileInjectionRules: []
   TileTagConnectionMode: 0
@@ -98,14 +102,14 @@ MonoBehaviour:
     DungeonArchetypes:
     - {fileID: 11400000, guid: 28f1af44b55e59249a5d6a393680f39d, type: 2}
     Position: 0
-    Length: 0.15902965
+    Length: 0.23854448
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
     - {fileID: 11400000, guid: 5bc2dc9a0bd835442962a3a2d8787075, type: 2}
-    Position: 0.15902965
-    Length: 0.53638816
+    Position: 0.23854448
+    Length: 0.45687333
     Keys: []
     Locks: []
   - Graph: {fileID: 11400000}

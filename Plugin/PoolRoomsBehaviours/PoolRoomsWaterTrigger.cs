@@ -33,7 +33,7 @@ namespace PoolRooms
         }
     }
 
-    // A simple replication of the QuicksandTrigger in Lethal Company which also works in the facility
+    // Splashing FX and such
     public class PoolRoomsWaterTrigger : MonoBehaviour
     {
         public bool isWater;
@@ -168,7 +168,7 @@ namespace PoolRooms
                 if (poolRoomsWaterBehaviour != null)
                 {
                     poolRoomsWaterBehaviour.WaterMovementSound.Stop();
-                    OnExit(enteredThing.gameObject.GetComponent<Collider>());
+                    //OnExit(enteredThing.gameObject.GetComponent<Collider>());
                 }
             }
         }
@@ -202,9 +202,25 @@ namespace PoolRooms
             }
         }
 
+        public void OnLocalPlayerTeleported(PlayerControllerB player)
+        {
+            if (player != null)
+            {
+                EnteredThingTransforms.Remove(player.transform);
+                PoolRoomsWaterBehaviour poolRoomsWaterBehaviour = FindGameObjectChildWaterBehaviour(player.gameObject);
+                if (poolRoomsWaterBehaviour != null)
+                {
+                    poolRoomsWaterBehaviour.WaterMovementSound.Stop();
+                }
+
+                // Same as quick sand, call OnExit
+                //OnExit(player.gameObject.GetComponent<Collider>());
+            }
+        }
+
         private void OnTriggerExit(Collider other)
         {
-            OnExit(other);
+            //OnExit(other);
 
             if (isWater && other.gameObject.CompareTag("Player"))
             {
@@ -221,23 +237,7 @@ namespace PoolRooms
             }
         }
 
-        public void OnLocalPlayerTeleported(PlayerControllerB player)
-        {
-            if (player != null)
-            {
-                EnteredThingTransforms.Remove(player.transform);
-                PoolRoomsWaterBehaviour poolRoomsWaterBehaviour = FindGameObjectChildWaterBehaviour(player.gameObject);
-                if (poolRoomsWaterBehaviour != null)
-                {
-                    poolRoomsWaterBehaviour.WaterMovementSound.Stop();
-                }
-
-                // Same as quick sand, call OnExit
-                OnExit(player.gameObject.GetComponent<Collider>());
-            }
-        }
-
-        private void OnTriggerStay(Collider other)
+        /*private void OnTriggerStay(Collider other)
         {
             if (isWater)
             {
@@ -340,6 +340,6 @@ namespace PoolRooms
                     playerScript.isUnderwater = false;
                 }
             }
-        }
+        }*/
     }
 }
