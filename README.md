@@ -19,7 +19,6 @@ Thunderstore Link: https://thunderstore.io/c/lethal-company/p/skidz/PoolRooms/
 ## Coming Soon!
 - Pool Noodle weapon
 - Staff Office Room End Cap
-- Allow players to drown and create some potential drowning spots
 
 ## Screenshots
 ![Alt text](https://github.com/rfsheffer/PoolRooms/blob/main/Screenshots/entrance.png?raw=true "Entrance")
