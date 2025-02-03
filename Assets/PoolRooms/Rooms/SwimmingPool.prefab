@@ -4446,7 +4446,7 @@ GameObject:
   - component: {fileID: 4550170046463425266}
   m_Layer: 8
   m_Name: PoolPeopleStairs
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6894,6 +6894,10 @@ PrefabInstance:
     - target: {fileID: 1572000929636660, guid: 07711b239782fd848b9898d91585762b, type: 3}
       propertyPath: m_Name
       value: Wall_Short (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572000929636660, guid: 07711b239782fd848b9898d91585762b, type: 3}
+      propertyPath: m_TagString
+      value: Concrete
       objectReference: {fileID: 0}
     - target: {fileID: 4897939079909574, guid: 07711b239782fd848b9898d91585762b, type: 3}
       propertyPath: m_LocalScale.y

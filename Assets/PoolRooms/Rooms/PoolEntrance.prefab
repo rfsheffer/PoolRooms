@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 4654984813755121525}
   m_Layer: 8
   m_Name: Room
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1992,7 +1992,7 @@ GameObject:
   - component: {fileID: 6742852301081190823}
   m_Layer: 8
   m_Name: EntranceDesk
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2456,7 +2456,7 @@ GameObject:
   - component: {fileID: 7184229056317526551}
   m_Layer: 8
   m_Name: EntranceMailShelves
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

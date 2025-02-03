@@ -2087,7 +2087,7 @@ GameObject:
   - component: {fileID: 1655653698418186026}
   m_Layer: 8
   m_Name: Corner2
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2870,7 +2870,7 @@ GameObject:
   - component: {fileID: 2226811347403767441}
   m_Layer: 8
   m_Name: Wang
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3589,7 +3589,7 @@ GameObject:
   - component: {fileID: 3491069724582488576}
   m_Layer: 8
   m_Name: Corner2
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4197,7 +4197,7 @@ GameObject:
   - component: {fileID: 8691492279145358826}
   m_Layer: 8
   m_Name: Corner3
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
