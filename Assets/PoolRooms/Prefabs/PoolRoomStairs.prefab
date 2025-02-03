@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1395713969980270092}
   m_Layer: 8
   m_Name: PoolRoomStairs
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 7466948761636922449}
   m_Layer: 8
   m_Name: NavCol
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -2828,7 +2828,7 @@ GameObject:
   - component: {fileID: 7485427715945314744}
   m_Layer: 8
   m_Name: Edge
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3139,7 +3139,7 @@ GameObject:
   - component: {fileID: 3661820633258536060}
   m_Layer: 8
   m_Name: Pool
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6115,9 +6115,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2607803176389919035, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
-      propertyPath: movementHinderance
-      value: 0.7
+    - target: {fileID: 4686916194755482149, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4686916194755482149, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: movementHinderance
@@ -6198,8 +6198,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 528588698582706791, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834643264613978523}
   m_SourcePrefab: {fileID: 100100000, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+--- !u!1 &1009771207896017000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 528588698582706791, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
+  m_PrefabInstance: {fileID: 672867094357983759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &834643264613978523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009771207896017000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce820ea3d24521649bb7d88946067178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWater: 1
+  isInsideWater: 1
+  audioClipIndex: 1
+  sinkingLocalPlayer: 0
+  movementHinderance: 0.8
+  sinkingSpeedMultiplier: 0.08
 --- !u!4 &3002346813368796880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}

@@ -55,6 +55,7 @@ namespace PoolRooms
 
         // The loaded dungeon flow
         private static DunGen.Graph.DungeonFlow DungeonFlow = null;
+        private static bool InPoolRooms = false;
 
         // Special Dungeon Items
         private static List<Item> PoolItems = new List<Item>();
@@ -128,6 +129,7 @@ namespace PoolRooms
             harmony.PatchAll(typeof(PoolRooms));
             harmony.PatchAll(typeof(RoundManagerPatch));
             harmony.PatchAll(typeof(EntranceTeleportPatch));
+            harmony.PatchAll(typeof(PlayerControllerPatch));
 
             // Config setup
             configUsePoolRoomsMoonsConfig = Config.Bind("General",
@@ -249,6 +251,8 @@ namespace PoolRooms
 
             // Make the pool lights red when apparatus taken
             myExtendedDungeonFlow.DungeonEvents.onApparatusTaken.AddListener(OnDungeonApparatusTaken);
+            myExtendedDungeonFlow.DungeonEvents.onBeforeDungeonGenerate.AddListener(OnBeforeDungeonGenerate);
+            myExtendedDungeonFlow.DungeonEvents.onShipLeave.AddListener(OnShipLeave);
 
             PatchedContent.RegisterExtendedDungeonFlow(myExtendedDungeonFlow);
 
@@ -303,6 +307,7 @@ namespace PoolRooms
             mls.LogInfo($"Pool Rooms [Version {modVersion}] successfully loaded.");
         }
 
+
         private void OnDungeonApparatusTaken(LungProp lung)
         {
             PoolLightBehaviour[] poolLights = FindObjectsOfType<PoolLightBehaviour>();
@@ -310,6 +315,18 @@ namespace PoolRooms
             {
                 light.OnApparatusPulled();
             }
+        }
+
+        private void OnBeforeDungeonGenerate(RoundManager roundManger)
+        {
+            InPoolRooms = true;
+            mls.LogInfo("On Entered Pool Rooms!");
+        }
+
+        private void OnShipLeave()
+        {
+            InPoolRooms = false;
+            mls.LogInfo("On Leaving Pool Rooms!");
         }
 
         // Converts a string 'vow:100,march:50,paid:100' to a list of maps with rarity weight
@@ -512,24 +529,41 @@ namespace PoolRooms
             }*/
         }
 
-        // Thanks @drako1245
-        /*[HarmonyPatch(typeof(PlayerControllerB))]
+        // Thanks @drako1245 for directing me to this function
+        [HarmonyPatch(typeof(PlayerControllerB))]
         internal class PlayerControllerPatch
         {
-            private static int footstepSurfaceStorage;
+            private static bool DidChangeSurface = false;
 
             [HarmonyPatch("CheckConditionsForSinkingInQuicksand")]
             [HarmonyPrefix]
-            private static void CheckPrefix(ref PlayerControllerB __instance)
+            private static void CheckConditionsForSinkingInQuicksand_Prefix(ref PlayerControllerB __instance)
             {
-                bool isInsideFactory = GameNetworkManager.Instance.localPlayerController.isInsideFactory;
-                if (isInsideFactory)
+                if (!InPoolRooms)
                 {
-                    footstepSurfaceStorage = __instance.currentFootstepSurfaceIndex;
-                    __instance.currentFootstepSurfaceIndex = 1;
+                    return;
+                }
+
+                // If inside and standing on tile, change it to rock so the function thinks it is OK to sink
+                if(__instance.isInsideFactory && __instance.currentFootstepSurfaceIndex == 7)
+                {
+                    __instance.currentFootstepSurfaceIndex = 5;
+                    DidChangeSurface = true;
                 }
             }
-        }*/
+
+            [HarmonyPatch("CheckConditionsForSinkingInQuicksand")]
+            [HarmonyPostfix]
+            private static void CheckConditionsForSinkingInQuicksand_PostFix(ref PlayerControllerB __instance)
+            {
+                // Change it back to tile if we changed it
+                if(DidChangeSurface)
+                {
+                    __instance.currentFootstepSurfaceIndex = 7;
+                    DidChangeSurface = false;
+                }
+            }
+        }
 
         [HarmonyPatch(typeof(EntranceTeleport))]
         internal class EntranceTeleportPatch

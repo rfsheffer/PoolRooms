@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 4654984813755121525}
   m_Layer: 8
   m_Name: Room
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 8749989298937583216}
   m_Layer: 8
   m_Name: Seat2
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3981,7 +3981,7 @@ GameObject:
   - component: {fileID: 7302991777588619281}
   m_Layer: 8
   m_Name: Seat1
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6012,10 +6012,6 @@ PrefabInstance:
     - target: {fileID: 2377051280634692831, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2607803176389919035, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
-      propertyPath: movementHinderance
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6691080827605747968, guid: 7bdbab78d8336dd4c969ee775c2602b2, type: 3}
       propertyPath: parameters.size.y

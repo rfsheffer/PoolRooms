@@ -7,6 +7,7 @@
 * Reduced dungeon generation path size
 * Removed extra stalls in female bathroom for gameplay reasons
 * Reduced package size by enabling crunch and ensuring textures stay at max 1024
+* Assigned tiles tag to most ground surfaces and now allow tiles surfaces as a valid sinking surface
 
 </details>
 

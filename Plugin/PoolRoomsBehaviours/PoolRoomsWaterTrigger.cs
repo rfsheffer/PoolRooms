@@ -11,7 +11,7 @@ namespace PoolRooms
 {
     public class PoolRoomsWaterBehaviour : MonoBehaviour
     {
-        public static string BehaviorsVer = "5";
+        public static string BehaviorsVer = "6";
 
         public AudioSource SplashSound = null;
         public AudioSource WaterMovementSound = null;
@@ -168,7 +168,6 @@ namespace PoolRooms
                 if (poolRoomsWaterBehaviour != null)
                 {
                     poolRoomsWaterBehaviour.WaterMovementSound.Stop();
-                    //OnExit(enteredThing.gameObject.GetComponent<Collider>());
                 }
             }
         }
@@ -212,16 +211,11 @@ namespace PoolRooms
                 {
                     poolRoomsWaterBehaviour.WaterMovementSound.Stop();
                 }
-
-                // Same as quick sand, call OnExit
-                //OnExit(player.gameObject.GetComponent<Collider>());
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            //OnExit(other);
-
             if (isWater && other.gameObject.CompareTag("Player"))
             {
                 PlayerControllerB component = other.gameObject.GetComponent<PlayerControllerB>();
@@ -236,110 +230,5 @@ namespace PoolRooms
                 }
             }
         }
-
-        /*private void OnTriggerStay(Collider other)
-        {
-            if (isWater)
-            {
-                if (!other.gameObject.CompareTag("Player"))
-                {
-                    return;
-                }
-
-                // If this isn't the local player and this remote players underwaterCollider isn't set to this, set it and return.
-                PlayerControllerB component = other.gameObject.GetComponent<PlayerControllerB>();
-                if (component != GameNetworkManager.Instance.localPlayerController && component != null && component.underwaterCollider != this)
-                {
-                    component.underwaterCollider = base.gameObject.GetComponent<Collider>();
-                    //print($"Setting underwater collider to {component.underwaterCollider.name}");
-                    return;
-                }
-            }
-            if (GameNetworkManager.Instance.localPlayerController.isInHangarShipRoom || (!isWater && !other.gameObject.CompareTag("Player")))
-            {
-                return;
-            }
-            PlayerControllerB component2 = other.gameObject.GetComponent<PlayerControllerB>();
-            if (component2 != GameNetworkManager.Instance.localPlayerController)
-            {
-                //print("Player is not local player controller!");
-                return;
-            }
-            if (isWater && !component2.isUnderwater)
-            {
-                component2.underwaterCollider = base.gameObject.GetComponent<Collider>();
-                component2.isUnderwater = true;
-                //print($"Setting underwater collider to {component2.underwaterCollider.name}");
-            }
-            component2.statusEffectAudioIndex = audioClipIndex;
-
-            if (component2.isUnderwater)
-            {
-                component2.statusEffectAudio.volume = component2.statusEffectAudio.volume * 0.25f;
-            }
-
-            if (component2.isSinking)
-            {
-                return;
-            }
-
-            if (sinkingLocalPlayer)
-            {
-                if (!component2.CheckConditionsForSinkingInQuicksand())
-                {
-                    StopSinkingLocalPlayer(component2);
-                }
-            }
-            else if (component2.CheckConditionsForSinkingInQuicksand())
-            {
-                //Debug.Log("Set local player to sinking!");
-                sinkingLocalPlayer = true;
-                component2.sourcesCausingSinking++;
-                component2.isMovementHindered++;
-                component2.hinderedMultiplier *= movementHinderance;
-                if (isWater)
-                {
-                    component2.sinkingSpeedMultiplier = 0f;
-                }
-                else
-                {
-                    component2.sinkingSpeedMultiplier = sinkingSpeedMultiplier;
-                }
-            }
-        }
-
-        public void OnExit(Collider other)
-        {
-            if (!sinkingLocalPlayer)
-            {
-                if (isWater && other.CompareTag("Player") && !(other.gameObject.GetComponent<PlayerControllerB>() == GameNetworkManager.Instance.localPlayerController))
-                {
-                    other.gameObject.GetComponent<PlayerControllerB>().isUnderwater = false;
-                }
-            }
-            else if (other.CompareTag("Player"))
-            {
-                PlayerControllerB component = other.gameObject.GetComponent<PlayerControllerB>();
-                if (!(component != GameNetworkManager.Instance.localPlayerController))
-                {
-                    StopSinkingLocalPlayer(component);
-                }
-            }
-        }
-
-        public void StopSinkingLocalPlayer(PlayerControllerB playerScript)
-        {
-            if (sinkingLocalPlayer)
-            {
-                sinkingLocalPlayer = false;
-                playerScript.sourcesCausingSinking = Mathf.Clamp(playerScript.sourcesCausingSinking - 1, 0, 100);
-                playerScript.isMovementHindered = Mathf.Clamp(playerScript.isMovementHindered - 1, 0, 100);
-                playerScript.hinderedMultiplier = Mathf.Clamp(playerScript.hinderedMultiplier / movementHinderance, 1f, 100f);
-                if (playerScript.isMovementHindered == 0 && isWater)
-                {
-                    playerScript.isUnderwater = false;
-                }
-            }
-        }*/
     }
 }

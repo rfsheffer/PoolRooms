@@ -487,7 +487,7 @@ Material:
     - _NormalScale1: 1
     - _NormalScale2: 1
     - _NormalScale3: 1
-    - _NormalStrength: 0.1
+    - _NormalStrength: 0.2
     - _ObjectScaleAffectTile: 0
     - _OcclusionStrength: 1
     - _OpacityAsDensity0: 0
@@ -613,7 +613,7 @@ Material:
     - Color_A0995202: {r: 0.095007114, g: 0.25094274, b: 0.3301887, a: 1}
     - Color_DD167ECF: {r: 0.9433962, g: 0, b: 0, a: 1}
     - Color_F4D2E00B: {r: 0.14195444, g: 0.5134238, b: 0.5471698, a: 1}
-    - Vector2_6E1E59F4: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_6E1E59F4: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _BaseColor0: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor1: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}

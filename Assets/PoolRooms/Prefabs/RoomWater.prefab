@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 842006820265491295}
   - component: {fileID: 353261033661170052}
   - component: {fileID: 4686916194755482149}
-  - component: {fileID: 2607803176389919035}
   m_Layer: 13
   m_Name: WaterTrigger
   m_TagString: Untagged
@@ -222,24 +221,6 @@ MonoBehaviour:
   sinkingSpeedMultiplier: 0.08
   WaterSurface: {fileID: 3057739000294099097}
   WaterBehaviourPrefab: {fileID: 6933396093324012281, guid: 106ef7d8933bacf4a8e00c94db040cb6, type: 3}
---- !u!114 &2607803176389919035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528588698582706791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce820ea3d24521649bb7d88946067178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWater: 1
-  isInsideWater: 1
-  audioClipIndex: 1
-  sinkingLocalPlayer: 0
-  movementHinderance: 0
-  sinkingSpeedMultiplier: 0.08
 --- !u!1 &7000249554058851235
 GameObject:
   m_ObjectHideFlags: 0
