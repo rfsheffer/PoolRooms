@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4906845689120260653}
   m_Layer: 8
   m_Name: Railing (1)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 4934830920270271596}
   m_Layer: 8
   m_Name: Railing
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 3453003942978762579}
   m_Layer: 8
   m_Name: Pipes (6)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 3750498662777040366}
   m_Layer: 8
   m_Name: Boiler1
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 1970815821975931938}
   m_Layer: 11
   m_Name: Cube (2)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 1124865767709316200}
   m_Layer: 11
   m_Name: Cube (1)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 3213731265298719065}
   m_Layer: 8
   m_Name: Pump1
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2011,7 +2011,7 @@ GameObject:
   - component: {fileID: 7093469964023617527}
   m_Layer: 8
   m_Name: Pipes (4)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2178,7 +2178,7 @@ GameObject:
   - component: {fileID: 6835981756719332547}
   m_Layer: 8
   m_Name: Boiler2
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2610,7 +2610,7 @@ GameObject:
   - component: {fileID: 2453613216431312981}
   m_Layer: 8
   m_Name: Pipes (9)
-  m_TagString: Untagged
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2768,7 +2768,7 @@ GameObject:
   - component: {fileID: 6996704233305801857}
   m_Layer: 8
   m_Name: Pump2
-  m_TagString: Untagged
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3128,7 +3128,7 @@ GameObject:
   - component: {fileID: 2753839566243015338}
   m_Layer: 8
   m_Name: Pipes (7)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

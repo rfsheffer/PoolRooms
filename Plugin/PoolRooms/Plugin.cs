@@ -544,8 +544,8 @@ namespace PoolRooms
                     return;
                 }
 
-                // If inside and standing on tile, change it to rock so the function thinks it is OK to sink
-                if(__instance.isInsideFactory && __instance.currentFootstepSurfaceIndex == 7)
+                // If inside and standing on tile / aluminum, change it to rock so the function thinks it is OK to sink
+                if(__instance.isInsideFactory && (__instance.currentFootstepSurfaceIndex == 7 || __instance.currentFootstepSurfaceIndex == 3))
                 {
                     __instance.currentFootstepSurfaceIndex = 5;
                     DidChangeSurface = true;

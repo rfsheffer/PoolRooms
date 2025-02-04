@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 7229251991193810412}
   m_Layer: 8
   m_Name: PoolRoomStairsRailing
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 2153580662809025749}
   m_Layer: 8
   m_Name: PoolRoomStairsRailing (1)
-  m_TagString: Metal
+  m_TagString: Aluminum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
